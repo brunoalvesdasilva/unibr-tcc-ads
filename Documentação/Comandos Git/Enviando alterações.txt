@@ -1,0 +1,20 @@
+# Verificando as alterações
+git status
+
+# Adicionado ao versionamento
+git add {Caminho do Arquivo}
+
+# Indicando o motivo da alteração
+git commit -m "{Motivo ou tarefa que gerou a modificação}"
+
+# Puxa as ultimas alterações para mesclar
+git pull origin master
+
+# Envia as alterações
+git push origin master
+
+
+###################################################
+## Importante 					##
+## Fazer pull request para o projeto original	##
+###################################################
