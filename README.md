@@ -4,5 +4,5 @@ TCC de desenvolvimento de um sistema completo para uma empresa prestadora de ser
 # Alunos
 - Bruno Alves da Silva <twitter.com.br/dasilvabruno>
 - Robson
-- Victor Hugo
-- Willian Barreto
+- Victor Hugo <victor.hlscosta@gmail.com>
+- Willian Barreto (willianblopes@gmail.com)
