@@ -1,0 +1,5 @@
+# Criar pela primeira vez o banco
+php artisan migrate
+
+# Atualizar o banco de dados
+php artisan migrate:refresh
