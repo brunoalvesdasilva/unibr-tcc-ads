@@ -15,7 +15,7 @@ class CriarTabelaDepartamento extends Migration
     {
         Schema::create('departamento', function (Blueprint $table) {
             
-            // Básico
+            // BÃ¡sico
             $table->increments('cd_departamento');
             $table->string('nm_departamento', 50);
             $table->timestamps();

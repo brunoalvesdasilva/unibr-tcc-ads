@@ -15,7 +15,7 @@ class CriarTabelaUsuario extends Migration
     {
         Schema::create('usuario', function (Blueprint $table) {
             
-            // Básico
+            // BÃ¡sico
             $table->increments('cd_usuario');
             $table->string('nm_usuario', 50);
             $table->string('nm_email', 50)->unique();

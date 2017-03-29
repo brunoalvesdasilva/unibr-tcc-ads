@@ -15,7 +15,7 @@ class CriarTabelaPessoa extends Migration
     {
         Schema::create('pessoa', function (Blueprint $table) {
             
-            // Básico
+            // BÃ¡sico
             $table->increments('cd_pessoa');
             $table->timestamps();
         });
