@@ -15,7 +15,7 @@ class CriarTabelaMovimentacao extends Migration
     {
         Schema::create('movimentacao', function (Blueprint $table) {
             
-            // Básico
+            // BÃ¡sico
             $table->increments('cd_movimentacao');
             $table->string('nm_movimentacao', 50);
             $table->string('ds_movimentacao', 150);

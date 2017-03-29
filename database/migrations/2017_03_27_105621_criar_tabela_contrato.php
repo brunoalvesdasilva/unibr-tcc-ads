@@ -15,7 +15,7 @@ class CriarTabelaContrato extends Migration
     {
         Schema::create('contrato', function (Blueprint $table) {
             
-            // Básico
+            // BÃ¡sico
             $table->increments('cd_contrato');
             $table->timestamps();
         });
