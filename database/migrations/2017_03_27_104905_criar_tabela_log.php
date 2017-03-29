@@ -15,7 +15,7 @@ class CriarTabelaLog extends Migration
     {
         Schema::create('log', function (Blueprint $table) {
             
-            // Básico
+            // BÃ¡sico
             $table->increments('cd_log');
             $table->string('nm_mensagem', 100);
             

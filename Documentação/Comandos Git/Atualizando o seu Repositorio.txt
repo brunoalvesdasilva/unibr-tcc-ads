@@ -1,0 +1,8 @@
+# Adicionando o upstream
+git remote add upstream https://github.com/brunoalvesdasilva/unibr-tcc-ads.git
+
+# Baixa as ultimas atualizações
+git fetch upstream
+
+# Mescla as alterações
+git rebase upstream/master master
