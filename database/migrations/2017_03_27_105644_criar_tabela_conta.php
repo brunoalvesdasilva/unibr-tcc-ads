@@ -15,7 +15,7 @@ class CriarTabelaConta extends Migration
     {
         Schema::create('conta', function (Blueprint $table) {
             
-            // B�sico
+            // Básico
             $table->increments('cd_conta');
             $table->string('nm_conta', 50);
             $table->timestamps();
