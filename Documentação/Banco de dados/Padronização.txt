@@ -1,0 +1,38 @@
+####################################
+## Padronização de campos e	  ##
+## chaves estrangeiras do sistema ##
+####################################
+
+# Nomeclaruta de tabelas
+* Singular
+** Maiusculo e com uma entidade
+*** Quando relacionda usar os nomes das duas entidades separadas
+por (_) underline.
+
+# Nomeclatura de campos
+(NMonico)_(Nome do campo)_(Nome da tabela*)
+
+* Quando estrangeiro usar o nome da tabela de origem
+
+-- Exemplo
+cd_produto 		( Chave da tabela de produto )
+qt_maximo_produto 	( Quantidade máxima de produtos)
+cd_usuario		( Codigo do usuário )
+cd_idade_usuario	( Idade do usuário )
+
+# Nomeclatura de Foreign Key (FK)
+fk_(Nome da Entidade 1)_(Nome da Entidade 2)
+fk_(Nome da entidade relacional)_(Codigo numerico)
+
+- Exemplo
+fk_usuario_produto
+fk_contrato_produto_1
+fk_contrato_produto_2
+
+# Tamanho padronizados de campos
+cd - INT(5)
+nm - VARCHAR(50)
+ds - VARCHAR(200) | TEXT 
+vl - FLOAT(8,2)
+im - BLOB
+ic - ENUM('VALOR1','VALOR2')
