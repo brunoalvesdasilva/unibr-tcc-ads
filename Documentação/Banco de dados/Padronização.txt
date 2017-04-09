@@ -1,12 +1,12 @@
 ####################################
-## PadronizaÁ„o de campos e	  ##
+## Padroniza√ß√£o de campos e	  ##
 ## chaves estrangeiras do sistema ##
 ####################################
 
-# Nomeclaruta de tabelas
+# Nomeclatura de tabelas
 * Singular
 ** Maiusculo e com uma entidade
-*** Quando relacionda usar os nomes das duas entidades separadas
+*** Quando relacionada usar os nomes das duas entidades separadas
 por (_) underline.
 
 # Nomeclatura de campos
@@ -16,9 +16,9 @@ por (_) underline.
 
 -- Exemplo
 cd_produto 		( Chave da tabela de produto )
-qt_maximo_produto 	( Quantidade m·xima de produtos)
-cd_usuario		( Codigo do usu·rio )
-cd_idade_usuario	( Idade do usu·rio )
+qt_maximo_produto 	( Quantidade m√°xima de produtos)
+cd_usuario		( Codigo do usu√°rio )
+cd_idade_usuario	( Idade do usu√°rio )
 
 # Nomeclatura de Foreign Key (FK)
 fk_(Nome da Entidade 1)_(Nome da Entidade 2)
