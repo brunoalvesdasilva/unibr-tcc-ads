@@ -17,6 +17,15 @@ class CriarTabelaContrato extends Migration
             
             // Básico
             $table->increments('cd_contrato');
+            $table->double('vl_contrato');
+            $table->integer('cd_parcela_atual');
+            $table->integer('cd_parcela_total');
+			$table->ENUM('ic_tipo_compra_venda', ['compra','venda']);
+            $table->integer('cd_fornecedor')->unsigned();
+            $table->foreign('fk_fornecedor_contrato')->references('cd_fornecedor')->on('fornecedor');
+            $table->integer('cd_cliente')->unsigned();
+            $table->foreign('fk_cliente_contrato')->references('cd_cliente')->on('cliente');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
