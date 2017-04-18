@@ -17,18 +17,21 @@ class CriarTabelaMovimentacao extends Migration
             
             // Básico
             $table->increments('cd_movimentacao');
-            $table->string('nm_movimentacao', 50);
-            $table->string('ds_movimentacao', 150);
-            $table->float('vl_movimentacao', 8, 2);
-            $table->date('dt_movimentacao');
-            $table->enum('ic_tipo_debito_credito', ['debito', 'credito']);
-            $table->enum('ic_situacao_pago_naopago', ['pago', 'naopago']);
-            $table->dateTime('dt_registro');
-            
+            $table->string('nm_titulo', 50);
+			$table->enum('ic_tipo_movimentacao', ['debito', 'credito']);
+			$table->date('dt_movimentacao');
+			$table->integer('cd_nf');
+            $table->dateTime('dt_registro');          
+            $table->enum('ic_situacao_movimentacao', ['pago', 'naopago']);
+            $table->float('vl_movimentacao');
+			$table->string('ds_movimentacao',200);
+            $table->bool('ic_recorrente');
             
             // Chaves estrangeiras
-            $table->integer('cd_departamento')->unsigned();
-            $table->foreign('cd_departamento')->references('cd_departamento')->on('departamento');
+			$table->integer('cd_conta')->unsigned();
+            $table->foreign('fk_conta_movimentacao')->references('cd_conta')->on('conta');
+            $table->integer('cd_contrato')->unsigned();
+            $table->foreign('fk_contrato_movimentacao')->references('cd_contrato')->on('contrato');
             
             $table->rememberToken();
             $table->timestamps();
