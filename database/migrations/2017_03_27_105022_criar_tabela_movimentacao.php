@@ -25,7 +25,7 @@ class CriarTabelaMovimentacao extends Migration
             $table->enum('ic_situacao_movimentacao', ['pago', 'naopago']);
             $table->float('vl_movimentacao');
 			$table->string('ds_movimentacao',200);
-            $table->bool('ic_recorrente');
+            $table->bool('ic_recorrente',['sim','nao']);
             
             // Chaves estrangeiras
 			$table->integer('cd_conta')->unsigned();
