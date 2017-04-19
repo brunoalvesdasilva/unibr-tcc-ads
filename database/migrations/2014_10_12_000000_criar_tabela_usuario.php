@@ -19,11 +19,11 @@ class CriarTabelaUsuario extends Migration
             $table->increments('cd_usuario');
             $table->string('nm_usuario', 50);
             $table->string('nm_email', 50)->unique();
-            $table->string('nm_senha', 64);
+            $table->string('nm_senha', 50);
             
             // Chaves estrangeiras
             $table->integer('cd_departamento')->unsigned();
-            $table->foreign('cd_departamento')->references('cd_departamento')->on('departamento');
+            $table->foreign('fk_departamento_usuario')->references('cd_departamento')->on('departamento');
             
             $table->rememberToken();
             $table->timestamps();
