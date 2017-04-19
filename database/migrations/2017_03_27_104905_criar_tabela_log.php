@@ -17,11 +17,12 @@ class CriarTabelaLog extends Migration
             
             // Básico
             $table->increments('cd_log');
-            $table->string('nm_mensagem', 100);
+            $table->string('nm_titulo', 50);
+			$table->string('ds_log', 200);
             
             // Chaves estrangeiras
             $table->integer('cd_usuario')->unsigned();
-            $table->foreign('cd_usuario')->references('cd_usuario')->on('usuario');
+            $table->foreign('fk_usuario_log')->references('cd_usuario')->on('usuario');
             
             $table->rememberToken();
             $table->timestamps();
