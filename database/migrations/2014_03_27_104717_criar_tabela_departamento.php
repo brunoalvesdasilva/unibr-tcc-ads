@@ -17,7 +17,7 @@ class CriarTabelaDepartamento extends Migration
             
             // Básico
             $table->increments('cd_departamento');
-            $table->string('nm_titulo', 50);
+            $table->string('nm_departamento', 50);
             $table->timestamps();
         });
     }
