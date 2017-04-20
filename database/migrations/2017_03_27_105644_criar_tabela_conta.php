@@ -21,7 +21,7 @@ class CriarTabelaConta extends Migration
 			$table->float('vl_inicial_conta');
 			$table->float('vl_atual_conta');
 			$table->datetime('dt_registro_conta');
-			$table->ENUM('ic_tipo_conta'['corrente','caixa']);
+			$table->enum('ic_tipo_conta',['corrente','caixa']);
             $table->timestamps();
         });
     }
