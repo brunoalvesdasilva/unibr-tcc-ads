@@ -21,9 +21,9 @@ class CriarTabelaProduto extends Migration
 			$table->string('ds_produto',200);
 			$table->float('vl_produto', 8,2);
 			$table->binary('im_produto');
-			$table->integer('qt_minima_produto',5);
-			$table->integer('qt_maxima_produto',5);
-			$table->integer('qt_estoque_produto',5);
+			$table->integer('qt_minima_produto');
+			$table->integer('qt_maxima_produto');
+			$table->integer('qt_estoque_produto');
             $table->timestamps();
     }
 
