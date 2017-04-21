@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -17,7 +17,7 @@ class CriarTabelaContrato extends Migration
             
             // Básico
             $table->increments('cd_contrato');
-            $table->double('vl_contrato');
+            $table->double('vl_contrato', 8,2);
             $table->integer('cd_parcela_atual');
             $table->integer('cd_parcela_total');
 			$table->ENUM('ic_tipo_compra_venda', ['compra','venda']);
