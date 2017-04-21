@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -15,7 +15,7 @@ class CriarTabelaProduto extends Migration
     {
      		chema::create('produto', function (Blueprint $table) {
             
-            // B�sico
+            // Básico
             $table->increments('cd_produto');
             $table->string('nm_produto', 50);
 			$table->string('ds_produto',200);
