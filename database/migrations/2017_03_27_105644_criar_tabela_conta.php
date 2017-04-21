@@ -18,10 +18,10 @@ class CriarTabelaConta extends Migration
             // Básico
             $table->increments('cd_conta');
             $table->string('nm_conta', 50);
-			$table->float('vl_inicial_conta');
-			$table->float('vl_atual_conta');
+			$table->float('vl_inicial_conta', 8,2);
+			$table->float('vl_atual_conta', 8,2);
 			$table->datetime('dt_registro_conta');
-			$table->enum('ic_tipo_conta',['corrente','caixa']);
+			$table->enum('nm_tipo_conta',['corrente','caixa','poupanca','cartao','investimento','outras']);
             $table->timestamps();
         });
     }
