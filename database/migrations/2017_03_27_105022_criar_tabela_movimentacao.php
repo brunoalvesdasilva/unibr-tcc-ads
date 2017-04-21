@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -17,15 +17,15 @@ class CriarTabelaMovimentacao extends Migration
             
             // Básico
             $table->increments('cd_movimentacao');
-            $table->string('nm_titulo', 50);
+            $table->string('nm_movimentacao', 50);
 			$table->enum('ic_tipo_movimentacao', ['debito', 'credito']);
 			$table->date('dt_movimentacao');
 			$table->integer('cd_nf');
             $table->dateTime('dt_registro');          
             $table->enum('ic_situacao_movimentacao', ['pago', 'naopago']);
-            $table->float('vl_movimentacao');
+            $table->float('vl_movimentacao', 8,2);
 			$table->string('ds_movimentacao',200);
-            $table->bool('ic_recorrente',['sim','nao']);
+            $table->boolean('ic_recorrente',['sim','nao']);
             
             // Chaves estrangeiras
 			$table->integer('cd_conta')->unsigned();
