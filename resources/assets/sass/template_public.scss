@@ -1,0 +1,125 @@
+body{
+    /*background-image: linear-gradient(180deg, #ca2100, white);*/
+    background-image: url("/img/0/background-barra.png");
+    background-repeat: repeat-x;
+    height: 100%;
+    font-family: 'Lato', sans-serif;
+}
+
+.layout-geral{
+    width: 970px;
+    margin: 60px auto 0 auto;
+    bottom: 0;
+    background: #FFF;
+    border-collapse: separate;
+    /*box-shadow: 0 0 10px 0 rgba(0,0,0,0.7),0 0 20px 0 rgba(0,0,0,0.5);*/
+    -webkit-box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.75);
+    
+    
+    padding: 0;
+    
+    .layout-barra{
+        width: 250px;
+        float: left;
+        /*-webkit-box-shadow: 5px 0px 7px 0px rgba(0,0,0,0.43);
+        -moz-box-shadow: 5px 0px 7px 0px rgba(0,0,0,0.43);
+        box-shadow: 5px 0px 7px 0px rgba(0,0,0,0.43);*/
+        border-right: 1px solid #CCC;
+    }
+    
+    .layout-conteudo{
+        width: 720px;
+        margin-left: 250px;
+        padding: 0 10px;
+    }
+    
+    &:before,
+    &:after {
+      content: " ";
+      display: table;
+    }
+
+    &:after {
+      clear: both;
+    }
+}
+
+// Componentes
+.component-perfil{
+
+    padding-top: 1px;
+    background: #EB191E;
+    height: 100px;
+
+    .media {
+        margin: 20px 5px;
+        font-size: 12px;
+        color: #EEE;
+        
+        h1{
+            font-size: 18px;
+            color: #FFF;
+        }
+        
+        a {
+            background: #FFF;
+        }
+    
+        img {
+            border: 1px solid #CCC;
+            width: 60px;
+        }
+    }
+}
+
+.component-menu{
+
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+    
+    li {
+        font-size: 14px;
+        line-height: 26px;
+        list-style: none;
+        cursor: pointer;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        border-bottom: 1px solid #EBEBEB;
+    }
+    
+    a{
+        display: block;
+        padding: 7px 20px;
+        color: #303333;
+        text-decoration: none;
+        display: block;
+        -webkit-transition: color .1s ease-in,background-color .1s ease-in;
+        transition: color .1s ease-in,background-color .1s ease-in;
+    }
+    
+    li:hover a{
+        background: #EBEBEB;
+    }
+}
+
+.component-title {
+
+    padding-left: 25px;
+    margin-bottom: 20px;
+    width: 100%;
+    border-bottom: 1px solid #CCC;
+    
+    h1 {
+        font-size: 26px;
+        font-weight: bold;
+    }
+}
+
+.component-barra-menu{
+    padding-bottom: 20px;
+}
