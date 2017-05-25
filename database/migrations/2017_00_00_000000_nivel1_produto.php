@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CriarTabelaLog extends Migration
+class Nivel1Produto extends Migration
 {
     /**
      * Run the migrations.
@@ -14,18 +14,19 @@ class CriarTabelaLog extends Migration
     public function up()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::create('log', function (Blueprint $table) {
+            Schema::create('produto', function (Blueprint $table) {
             
             // Básico
-            $table->increments('cd_log');
-            $table->string('nm_titulo', 50);
-            $table->string('ds_log', 200);
+            $table->increments('cd_produto');
+            $table->string('nm_produto', 50);
+            $table->string('ds_produto',200);
+            $table->float('vl_produto', 8,2);
+            $table->binary('im_produto');
+            $table->integer('qt_minima_produto');
+            $table->integer('qt_maxima_produto');
+            $table->integer('qt_estoque_produto');
             
-            // Chaves estrangeiras
-            $table->integer('cd_usuario')->unsigned();
-            $table->foreign('fk_usuario_log')->references('cd_usuario')->on('usuario');
-            
-            $table->rememberToken();
+            // Default
             $table->timestamps();
         });
         Schema::enableForeignKeyConstraints();
@@ -38,6 +39,6 @@ class CriarTabelaLog extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('log');
+        Schema::dropIfExists('produto');
     }
 }
