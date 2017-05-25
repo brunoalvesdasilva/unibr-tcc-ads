@@ -36,10 +36,10 @@
                 <nav class="component-menu">
                 <ul>
                     <li><a href="/"><i class="icon icon-home"></i> Home</a></li>
-                    <li><a href="/estoque">Estoque</a></li>
-                    <li><a href="#">Serviços</a></li>
-                    <li><a href="#">Chamados</a></li>
-                    <li><a href="#">Usuários</a></li>
+                    <li><a href="/estoque"><i class="icon icon-box-add"></i> Estoque</a></li>
+                    <li><a href="/servico"><i class="icon icon-hammer"></i> Serviços</a></li>
+                    <li><a href="/chamado"><i class="icon icon-wrench"></i>Chamados</a></li>
+                    <li><a href="/usuario"><i class="icon icon-user-plus"></i>Usuários</a></li>
                     <li><a href="#">Clientes</a></li>
                     <li><a href="#">Fornecedores</a></li>
                     <li><a href="#">Contratos</a></li>
