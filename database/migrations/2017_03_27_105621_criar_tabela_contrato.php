@@ -13,6 +13,7 @@ class CriarTabelaContrato extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('contrato', function (Blueprint $table) {
             
             // Básico
@@ -20,7 +21,7 @@ class CriarTabelaContrato extends Migration
             $table->double('vl_contrato', 8,2);
             $table->integer('cd_parcela_atual');
             $table->integer('cd_parcela_total');
-			$table->ENUM('ic_tipo_compra_venda', ['compra','venda']);
+            $table->ENUM('ic_tipo_compra_venda', ['compra','venda']);
             $table->integer('cd_fornecedor')->unsigned();
             $table->foreign('fk_fornecedor_contrato')->references('cd_fornecedor')->on('fornecedor');
             $table->integer('cd_cliente')->unsigned();
@@ -28,6 +29,7 @@ class CriarTabelaContrato extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**

@@ -13,18 +13,21 @@ class CriarTabelaProduto extends Migration
      */
     public function up()
     {
-     		chema::create('produto', function (Blueprint $table) {
+        Schema::disableForeignKeyConstraints();
+            Schema::create('produto', function (Blueprint $table) {
             
             // Básico
             $table->increments('cd_produto');
             $table->string('nm_produto', 50);
-			$table->string('ds_produto',200);
-			$table->float('vl_produto', 8,2);
-			$table->binary('im_produto');
-			$table->integer('qt_minima_produto');
-			$table->integer('qt_maxima_produto');
-			$table->integer('qt_estoque_produto');
+            $table->string('ds_produto',200);
+            $table->float('vl_produto', 8,2);
+            $table->binary('im_produto');
+            $table->integer('qt_minima_produto');
+            $table->integer('qt_maxima_produto');
+            $table->integer('qt_estoque_produto');
             $table->timestamps();
+        });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**

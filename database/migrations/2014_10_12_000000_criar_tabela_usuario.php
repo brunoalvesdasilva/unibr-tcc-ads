@@ -13,6 +13,7 @@ class CriarTabelaUsuario extends Migration
      */
     public function up()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         Schema::create('usuario', function (Blueprint $table) {
             
             // Básico
@@ -28,6 +29,7 @@ class CriarTabelaUsuario extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 
     /**

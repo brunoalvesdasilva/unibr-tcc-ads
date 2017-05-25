@@ -13,6 +13,7 @@ class CriarTabelaDepartamento extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('departamento', function (Blueprint $table) {
             
             // Básico
@@ -20,6 +21,7 @@ class CriarTabelaDepartamento extends Migration
             $table->string('nm_departamento', 50);
             $table->timestamps();
         });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**

@@ -13,12 +13,14 @@ class CriarTabelaPessoa extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('pessoa', function (Blueprint $table) {
             
             // Básico
             $table->increments('cd_pessoa');
             $table->timestamps();
         });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**
