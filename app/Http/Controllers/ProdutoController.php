@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class EstoqueController extends Controller
+class ProdutoController extends Controller
 {
-    private $nameFolder = "estoque";
+    private $nameFolder = "produto";
     
     /**
      * Display a listing of the resource.
@@ -15,8 +15,10 @@ class EstoqueController extends Controller
      */
     public function index()
     {
+        $produtos = Produto::all();
+        
         //
-        return view("{$this->nameFolder}/list");
+        return view("{$this->nameFolder}/list", ["listaProdutos"=>$produtos]);
     }
 
     /**
@@ -38,7 +40,20 @@ class EstoqueController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Valida
+        $this->validate($request, [
+            'nm_produto' => 'required',
+            'ds_produto' => 'required',
+        ]);
+        
+        // Adiciona e salva
+        $produto = new Produto();
+        $produto->nm_produto = $request->nm_produto;
+        $produto->ds_produto = $request->ds_produto;
+        $produto->save();
+        
+        // Redireciona
+        return redirect('produto')->with('message', 'Produto salvo com sucesso!');
     }
 
     /**
@@ -50,6 +65,7 @@ class EstoqueController extends Controller
     public function show($id)
     {
         //
+        return view("{$this->nameFolder}/show");
     }
 
     /**

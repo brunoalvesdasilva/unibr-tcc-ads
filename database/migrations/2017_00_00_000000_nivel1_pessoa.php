@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CriarTabelaPessoa extends Migration
+class Nivel1Pessoa extends Migration
 {
     /**
      * Run the migrations.
@@ -18,6 +18,9 @@ class CriarTabelaPessoa extends Migration
             
             // Básico
             $table->increments('cd_pessoa');
+            $table->string('nm_pessoa', 50);
+            
+            // Defaults
             $table->timestamps();
         });
         Schema::enableForeignKeyConstraints();

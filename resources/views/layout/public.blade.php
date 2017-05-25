@@ -36,7 +36,7 @@
                 <nav class="component-menu">
                 <ul>
                     <li><a href="/"><i class="icon icon-home"></i> Home</a></li>
-                    <li><a href="/estoque"><i class="icon icon-box-add"></i> Estoque</a></li>
+                    <li><a href="/produto"><i class="icon icon-box-add"></i> Produtos</a></li>
                     <li><a href="/servico"><i class="icon icon-hammer"></i> Serviços</a></li>
                     <li><a href="/chamado"><i class="icon icon-wrench"></i>Chamados</a></li>
                     <li><a href="/usuario"><i class="icon icon-user-plus"></i>Usuários</a></li>
