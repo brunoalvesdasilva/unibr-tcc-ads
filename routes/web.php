@@ -18,15 +18,15 @@ Route::get('/', function () {
 Route::resource('estoque', 'EstoqueController');
 
 /*
+Route::get('/icomoon', function () {
+    return view('fonts');
+});
+
 Route::get('/{app}', function ($app) {
     return view("$app/list");
 });
 
 Route::get('/{app}/{router}', function ($app, $router="list") {
     return view("$app/$router");
-});
-
-Route::get('/icomoon', function () {
-    return view('fonts');
 });
 */
