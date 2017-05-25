@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::resource('estoque', 'EstoqueController');
+
+/*
 Route::get('/{app}', function ($app) {
     return view("$app/list");
 });
@@ -26,4 +29,4 @@ Route::get('/{app}/{router}', function ($app, $router="list") {
 Route::get('/icomoon', function () {
     return view('fonts');
 });
-
+*/
