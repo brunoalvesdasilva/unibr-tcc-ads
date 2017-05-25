@@ -13,17 +13,19 @@ class CriarTabelaConta extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('conta', function (Blueprint $table) {
             
             // Básico
             $table->increments('cd_conta');
             $table->string('nm_conta', 50);
-			$table->float('vl_inicial_conta', 8,2);
-			$table->float('vl_atual_conta', 8,2);
-			$table->datetime('dt_registro_conta');
-			$table->enum('nm_tipo_conta',['corrente','caixa','poupanca','cartao','investimento','outras']);
+            $table->float('vl_inicial_conta', 8,2);
+            $table->float('vl_atual_conta', 8,2);
+            $table->datetime('dt_registro_conta');
+            $table->enum('nm_tipo_conta',['corrente','caixa','poupanca','cartao','investimento','outras']);
             $table->timestamps();
         });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**

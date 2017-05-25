@@ -13,12 +13,13 @@ class CriarTabelaLog extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('log', function (Blueprint $table) {
             
             // Básico
             $table->increments('cd_log');
             $table->string('nm_titulo', 50);
-			$table->string('ds_log', 200);
+            $table->string('ds_log', 200);
             
             // Chaves estrangeiras
             $table->integer('cd_usuario')->unsigned();
@@ -27,6 +28,7 @@ class CriarTabelaLog extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**
