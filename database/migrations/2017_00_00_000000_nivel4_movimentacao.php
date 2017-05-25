@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CriarTabelaMovimentacao extends Migration
+class Nivel4Movimentacao extends Migration
 {
     /**
      * Run the migrations.
@@ -30,10 +30,11 @@ class CriarTabelaMovimentacao extends Migration
             
             // Chaves estrangeiras
             $table->integer('cd_conta')->unsigned();
-            $table->foreign('fk_conta_movimentacao')->references('cd_conta')->on('conta');
+            $table->foreign('cd_conta')->references('cd_conta')->on('conta');
             $table->integer('cd_contrato')->unsigned();
-            $table->foreign('fk_contrato_movimentacao')->references('cd_contrato')->on('contrato');
+            $table->foreign('cd_contrato')->references('cd_contrato')->on('contrato');
             
+            // Defaults
             $table->rememberToken();
             $table->timestamps();
         });

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CriarTabelaDepartamento extends Migration
+class Nivel1Departamento extends Migration
 {
     /**
      * Run the migrations.
@@ -19,6 +19,8 @@ class CriarTabelaDepartamento extends Migration
             // Básico
             $table->increments('cd_departamento');
             $table->string('nm_departamento', 50);
+            
+            // default
             $table->timestamps();
         });
         Schema::enableForeignKeyConstraints();

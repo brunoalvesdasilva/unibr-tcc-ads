@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CriarTabelaConta extends Migration
+class Nivel1Conta extends Migration
 {
     /**
      * Run the migrations.
@@ -23,6 +23,8 @@ class CriarTabelaConta extends Migration
             $table->float('vl_atual_conta', 8,2);
             $table->datetime('dt_registro_conta');
             $table->enum('nm_tipo_conta',['corrente','caixa','poupanca','cartao','investimento','outras']);
+            
+            // Defaults
             $table->timestamps();
         });
         Schema::enableForeignKeyConstraints();
