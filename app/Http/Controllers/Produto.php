@@ -8,6 +8,9 @@ class Produto extends Model
     // Nome da tabela
     protected $table = 'produto'; 
     
+    // Chave primário
+    protected $primaryKey = 'cd_produto';
+    
     /**
      * The attributes that should be mutated to dates.
      *
