@@ -65,7 +65,9 @@ class ProdutoController extends Controller
     public function show($id)
     {
         //
-        return view("{$this->nameFolder}/show");
+        $produto = Produto::find($id);
+        
+        return view("{$this->nameFolder}/show", ["produto"=>$produto]);
     }
 
     /**
@@ -77,6 +79,9 @@ class ProdutoController extends Controller
     public function edit($id)
     {
         //
+        $produto = Produto::find($id);
+        
+        return view("{$this->nameFolder}/edit", ["produto"=>$produto]);
     }
 
     /**
@@ -88,7 +93,20 @@ class ProdutoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // Valida
+        $this->validate($request, [
+            'nm_produto' => 'required',
+            'ds_produto' => 'required',
+        ]);
+        
+        // Adiciona e salva
+        $produto = Produto::find($id);
+        $produto->nm_produto = $request->nm_produto;
+        $produto->ds_produto = $request->ds_produto;
+        $produto->save();
+        
+        // Redireciona
+        return redirect("produto/$id")->with('message', 'Produto salvo com sucesso!');
     }
 
     /**
@@ -99,6 +117,11 @@ class ProdutoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // Adiciona e salva
+        $produto = Produto::find($id);
+        $produto->delete();
+        
+        // Redireciona
+        return redirect('produto')->with('message', 'Produto salvo com sucesso!');
     }
 }

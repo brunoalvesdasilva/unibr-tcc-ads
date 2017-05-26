@@ -23,7 +23,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($listaProdutos as $produto)
+            @forelse($listaProdutos as $produto)
             <tr>
                 <td>{{$produto->cd_produto}}</td>
                 <td>{{$produto->nm_produto}}</td>
@@ -34,13 +34,18 @@
                         Ver <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Editar</a></li>
-                            <li><a href="#">Excluir</a></li>
+                            <li><a href="/produto/{{$produto->cd_produto}}/edit">Editar</a></li>
                         </ul>
                     </div>
                 </td>
             </tr>
-            @endforeach
+            @empty
+            <tr>
+                <td colspan="6" class="aling-center">
+                    Não há produtos cadastrados
+                </div>
+            </tr>
+            @endforelse
         </tbody>
     </table>
 @stop
