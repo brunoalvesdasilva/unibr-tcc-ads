@@ -15,28 +15,26 @@
         <div class="col-md-12">
         <form class="form-horizontal">
             <div class="form-group">
-                <label for="nm_servico" class="col-sm-2 control-label">Serviço :</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="nm_servico" name="nm_servico" placeholder="Serviço" />
+                <label for="nm_servico" class="col-md-4 control-label">Serviço :</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" id="nm_servico" name="nm_servico" placeholder="Nome do serviço" />
                 </div>
             </div>
             <div class="form-group">
-                <label for="vl_servico" class="col-sm-2 control-label">Valor do Servico :</label>
-                <div class="col-sm-10">
+                <label for="vl_servico" class="col-md-4 control-label">Valor do Servico :</label>
+                <div class="col-md-6">
                     <input type="text" class="form-control" id="vl_servico" name="vl_servico" placeholder="Valor" />
                 </div>
             </div>
             <div class="form-group">
-                <label for="ds_servico" class="col-sm-2 control-label">Descrição do Serviço :</label>
-                <div class="col-sm-10">
+                <label for="ds_servico" class="col-md-4 control-label">Descrição do Serviço :</label>
+                <div class="col-md-6">
                     <input type="text" class="form-control" id="ds_servico" name="ds_servico" placeholder="Descrição" />
                 </div>
             </div>
-            </div>
-            </div>
             <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-default">Sign in</button>
+                <div class="col-md-offset-4 col-md-6">
+                    <button type="submit" class="btn btn-default">Cadastrar</button>
                 </div>
             </div>
         </form>
