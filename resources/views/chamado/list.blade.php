@@ -17,16 +17,16 @@
         <thead>
             <tr>
                 <th>#</th>
-                <th>Nome</th>
-                <th>Data de cadastro</th>
+                <th>Data abertura</th>
+                <th>Descrição do chamado</th>
                 <th>Ação</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td>#</td>
-                <td>Nome</td>
-                <td>Data de cadastro</td>
+                <td>Data abertura</td>
+                <td>Descrição chamado</td>
                 <td>
                     <div class="btn-group">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
