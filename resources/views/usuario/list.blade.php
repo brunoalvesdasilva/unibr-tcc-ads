@@ -18,7 +18,7 @@
             <tr>
                 <th>#</th>
                 <th>Nome</th>
-                <th>Data de cadastro</th>
+                <th>Departamento</th>
                 <th>Ação</th>
             </tr>
         </thead>
@@ -26,7 +26,7 @@
             <tr>
                 <td>#</td>
                 <td>Nome</td>
-                <td>Data de cadastro</td>
+                <td>Departamento</td>
                 <td>
                     <div class="btn-group">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -41,7 +41,7 @@
             <tr>
                 <td>#</td>
                 <td>Nome</td>
-                <td>Data de cadastro</td>
+                <td>Departamento</td>
                 <td>
                     <div class="btn-group">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
