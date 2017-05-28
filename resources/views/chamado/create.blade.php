@@ -15,38 +15,38 @@
         <div class="col-md-12">
         <form class="form-horizontal">
             <div class="form-group">
-                <label for="ds_chamado" class="col-sm-2 control-label">Descrição do chamado :</label>
-                <div class="col-sm-10">
+                <label for="ds_chamado" class="col-md-4 control-label">Descrição do chamado :</label>
+                <div class="col-md-6">
                     <input type="text" class="form-control" id="ds_chamado" name="ds_chamado" placeholder="Descrição do Chamado" />
                 </div>
             </div>
             <div class="form-group">
-                <label for="dt_abertura_chamado" class="col-sm-2 control-label">Abertura do Chamado :</label>
-                <div class="col-sm-10">
+                <label for="dt_abertura_chamado" class="col-md-4 control-label">Abertura do Chamado :</label>
+                <div class="col-md-6">
                     <input type="text" class="form-control" id="dt_abertura_chamado" name="dt_abertura_chamado" placeholder="Abertura do Chamado" />
                 </div>
             </div>
             <div class="form-group">
-                <label for="dt_fechamento_chamado" class="col-sm-2 control-label">Fechamento do Chamado :</label>
-                <div class="col-sm-10">
+                <label for="dt_fechamento_chamado" class="col-md-4 control-label">Fechamento do Chamado :</label>
+                <div class="col-md-6">
                     <input type="text" class="form-control" id="dt_fechamento_chamado" name="dt_fechamento_chamado" placeholder="Fechamento do Chamado" />
                 </div>
             </div>
             <div class="form-group">
-                <label for="cd_contrato" class="col-sm-2 control-label">Contrato :</label>
-                <div class="col-sm-10">
+                <label for="cd_contrato" class="col-md-4 control-label">Contrato :</label>
+                <div class="col-md-6">
                     <input type="text" class="form-control" id="ds_servico" name="cd_contrato" placeholder="Contrato" />
                 </div>
             </div>
             <div class="form-group">
-                <label for="cd_responsavel" class="col-sm-2 control-label">Responsavel pelo serviço :</label>
-                <div class="col-sm-10">
+                <label for="cd_responsavel" class="col-md-4 control-label">Responsavel pelo serviço :</label>
+                <div class="col-md-6">
                     <input type="text" class="form-control" id="cd_responsavel" name="cd_responsavel" placeholder="Responsavel" />
                 </div>
             </div>
             <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-default">Sign in</button>
+                <div class="col-md-offset-4 col-md-6">
+                    <button type="submit" class="btn btn-default">Cadastrar</button>
                 </div>
 
             </div>

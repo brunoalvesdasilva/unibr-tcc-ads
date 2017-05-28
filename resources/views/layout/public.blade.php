@@ -36,14 +36,17 @@
                 <nav class="component-menu">
                 <ul>
                     <li><a href="/"><i class="icon icon-home"></i> Home</a></li>
+                    <li><a href="/chamado"><i class="icon icon-bubbles4"></i> Chamados</a></li>
+                    <li><a href="/movimentacao"><i class="icon icon-files-empty"></i> Movimentação</a></li>
+                    <li><a href="/contratos"><i class="icon icon-folder"></i> Contratos</a></li>
+                    <li><a href="/contas"><i class="icon icon-file-text"></i> Contas</a></li>
+                    <li><a href="/clientes"><i class="icon icon-users"></i> Clientes</a></li>
+                    <li><a href="/fornecedores"><i class="icon icon-users"></i> Fornecedores</a></li>
                     <li><a href="/produto"><i class="icon icon-box-add"></i> Produtos</a></li>
                     <li><a href="/servico"><i class="icon icon-hammer"></i> Serviços</a></li>
-                    <li><a href="/chamado"><i class="icon icon-wrench"></i>Chamados</a></li>
-                    <li><a href="/usuario"><i class="icon icon-user-plus"></i>Usuários</a></li>
-                    <li><a href="#">Clientes</a></li>
-                    <li><a href="#">Fornecedores</a></li>
-                    <li><a href="#">Contratos</a></li>
-                    <li><a href="#">Financeiro</a></li>
+                    <li><a href="/departamentos"><i class="icon icon-office"></i> Departamentos</a></li>
+                    <li><a href="/usuario"><i class="icon icon-user-plus"></i> Usuários</a></li>
+
                 </ul>
                 </nav>
             
