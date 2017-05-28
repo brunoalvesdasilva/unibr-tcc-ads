@@ -1,15 +1,15 @@
 @extends('layout/public')
 @section('content')
     <div class="component-title">
-        <h1>Listagem de serviços</h1>
+        <h1>Listagem de contratos</h1>
     </div>
         
     <div class="component-barra-menu">
         <div class="btn-group pull-right" role="group">
-            <a href="/servico/help" class="btn btn-default">Ajuda</a>
-            <a href="/servico/pdf" class="btn btn-default">PDF</a>
-            <a href="/servico" class="btn btn-default">Atualizar</a>
-            <a href="/servico/create" class="btn btn-default">Novo Registro</a>
+            <a href="/contratos/help" class="btn btn-default">Ajuda</a>
+            <a href="/contratos/pdf" class="btn btn-default">PDF</a>
+            <a href="/contratos" class="btn btn-default">Atualizar</a>
+            <a href="/contratos/create" class="btn btn-default">Novo Registro</a>
         </div>
     </div>
         
@@ -17,8 +17,9 @@
         <thead>
             <tr>
                 <th>#</th>
-                <th>Nome</th>
-                <th>Valor do serviço</th>
+                <th>Empresa</th>
+                <th>Tipo</th>
+                <th>Valor do contrato</th>
                 <th>Ação</th>
             </tr>
         </thead>
@@ -26,7 +27,8 @@
             <tr>
                 <td>#</td>
                 <td>Nome</td>
-                <td>Valor do serviço</td>
+                <td>Venda</td>
+                <td>$</td>
                 <td>
                     <div class="btn-group">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -41,7 +43,8 @@
             <tr>
                 <td>#</td>
                 <td>Nome</td>
-                <td>Data de cadastro</td>
+                <td>Compra</td>
+                <td>$</td>
                 <td>
                     <div class="btn-group">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
