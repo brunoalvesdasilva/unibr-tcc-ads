@@ -121,5 +121,12 @@ body{
 }
 
 .component-barra-menu{
-    padding-bottom: 20px;
+    margin-bottom: 20px;
+    
+    &::after {
+        content: ' ';
+        clear: right;
+        height: 10px;
+        display: block;
+    }
 }

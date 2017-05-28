@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CriarTabelaUsuario extends Migration
+class Nivel2Usuario extends Migration
 {
     /**
      * Run the migrations.
@@ -13,6 +13,7 @@ class CriarTabelaUsuario extends Migration
      */
     public function up()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         Schema::create('usuario', function (Blueprint $table) {
             
             // Básico
@@ -23,11 +24,13 @@ class CriarTabelaUsuario extends Migration
             
             // Chaves estrangeiras
             $table->integer('cd_departamento')->unsigned();
-            $table->foreign('fk_departamento_usuario')->references('cd_departamento')->on('departamento');
+            $table->foreign('cd_departamento')->references('cd_departamento')->on('departamento');
             
+            // Defaults
             $table->rememberToken();
             $table->timestamps();
         });
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 
     /**
