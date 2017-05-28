@@ -1,10 +1,10 @@
-﻿<?php
+<?php
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CriarTabelaDepartamento extends Migration
+class Nivel1Pessoa extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,17 @@ class CriarTabelaDepartamento extends Migration
      */
     public function up()
     {
-        Schema::create('departamento', function (Blueprint $table) {
+        Schema::disableForeignKeyConstraints();
+        Schema::create('pessoa', function (Blueprint $table) {
             
             // Básico
-            $table->increments('cd_departamento');
-            $table->string('nm_departamento', 50);
+            $table->increments('cd_pessoa');
+            $table->string('nm_pessoa', 50);
+            
+            // Defaults
             $table->timestamps();
         });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**
@@ -29,6 +33,6 @@ class CriarTabelaDepartamento extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('departamento');
+        Schema::dropIfExists('pessoa');
     }
 }

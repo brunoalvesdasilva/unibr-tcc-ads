@@ -42,7 +42,7 @@
                     <li><a href="/contas"><i class="icon icon-file-text"></i> Contas</a></li>
                     <li><a href="/clientes"><i class="icon icon-users"></i> Clientes</a></li>
                     <li><a href="/fornecedores"><i class="icon icon-users"></i> Fornecedores</a></li>
-                    <li><a href="/estoque"><i class="icon icon-box-add"></i> Estoque</a></li>
+                    <li><a href="/produto"><i class="icon icon-box-add"></i> Produtos</a></li>
                     <li><a href="/servico"><i class="icon icon-hammer"></i> Serviços</a></li>
                     <li><a href="/departamentos"><i class="icon icon-office"></i> Departamentos</a></li>
                     <li><a href="/usuario"><i class="icon icon-user-plus"></i> Usuários</a></li>

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CriarTabelaContrato extends Migration
+class Nivel3Contrato extends Migration
 {
     /**
      * Run the migrations.
@@ -13,6 +13,7 @@ class CriarTabelaContrato extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('contrato', function (Blueprint $table) {
             
             // Básico
@@ -20,14 +21,18 @@ class CriarTabelaContrato extends Migration
             $table->double('vl_contrato', 8,2);
             $table->integer('cd_parcela_atual');
             $table->integer('cd_parcela_total');
-			$table->ENUM('ic_tipo_compra_venda', ['compra','venda']);
+            $table->ENUM('ic_tipo_compra_venda', ['compra','venda']);
+            
+            // Chaves estrangeiras
             $table->integer('cd_fornecedor')->unsigned();
-            $table->foreign('fk_fornecedor_contrato')->references('cd_fornecedor')->on('fornecedor');
+            $table->foreign('cd_fornecedor')->references('cd_fornecedor')->on('fornecedor');
             $table->integer('cd_cliente')->unsigned();
-            $table->foreign('fk_cliente_contrato')->references('cd_cliente')->on('cliente');
-            $table->rememberToken();
+            $table->foreign('cd_cliente')->references('cd_cliente')->on('cliente');
+            
+            // Default
             $table->timestamps();
         });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**
