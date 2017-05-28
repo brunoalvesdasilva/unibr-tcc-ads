@@ -21,7 +21,7 @@ class Nivel1Produto extends Migration
             $table->string('nm_produto', 50);
             $table->string('ds_produto',200);
             $table->float('vl_produto', 8,2);
-            $table->binary('im_produto');
+            $table->longText('im_produto');
             $table->integer('qt_minima_produto');
             $table->integer('qt_maxima_produto');
             $table->integer('qt_estoque_produto');
