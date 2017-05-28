@@ -44,12 +44,14 @@ class ProdutoController extends Controller
         $this->validate($request, [
             'nm_produto' => 'required',
             'ds_produto' => 'required',
+            'im_produto' => 'required',
         ]);
         
         // Adiciona e salva
         $produto = new Produto();
         $produto->nm_produto = $request->nm_produto;
         $produto->ds_produto = $request->ds_produto;
+        $produto->im_produto = $request->im_produto;
         $produto->save();
         
         // Redireciona
@@ -97,12 +99,14 @@ class ProdutoController extends Controller
         $this->validate($request, [
             'nm_produto' => 'required',
             'ds_produto' => 'required',
+            'im_produto' => 'required',
         ]);
         
         // Adiciona e salva
         $produto = Produto::find($id);
         $produto->nm_produto = $request->nm_produto;
         $produto->ds_produto = $request->ds_produto;
+        $produto->im_produto = $request->im_produto;
         $produto->save();
         
         // Redireciona

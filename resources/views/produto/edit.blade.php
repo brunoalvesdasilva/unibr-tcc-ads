@@ -37,6 +37,14 @@
                 </div>
             </div>
             <div class="form-group">
+                <label for="im_produto" class="col-md-4 control-label">Foto</label>
+                <div class="col-md-6">
+                    <input type="file" data-loadimg=".component-preloader" data-srcimg="#im_produto" class="form-control"  placeholder="Foto" />
+                    <input type="hidden" id="im_produto" name="im_produto" value="{{$produto->nm_produto}}" />
+                    <div class="component-preloader"><img src="{{$produto->nm_produto}}" class="img-responsive" /></div>
+                </div>
+            </div>
+            <div class="form-group">
                 <div class="col-md-offset-4 col-md-6">
                     <button type="submit" class="btn btn-info">Editar</button>
                     {{ csrf_field() }}
