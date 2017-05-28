@@ -25,6 +25,8 @@
                 <dd>{{$produto->nm_produto}}</dd>
                 <dt>Descrição:</dt>
                 <dd>{{$produto->ds_produto}}</dd>
+                <dt>Foto:</dt>
+                <dd><img src="{{$produto->im_produto}}" class="img-responsive" ></dd>
             </dl>
         
         </div>

@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -75,7 +75,35 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
+
+// Jquery
+var $;
+$ = window.jQuery = __webpack_require__(3);
+
+// Bootstrap
 __webpack_require__(2);
+
+$(document).ready(function () {
+
+    $('BODY').on('click', '.btn-help', function () {
+        introJs().start();
+    });
+
+    var inputLoadImg = $("input[data-loadimg]");
+    if (inputLoadImg.length) {
+        inputLoadImg.change(function () {
+            var target = inputLoadImg.data('srcimg');
+            var preloader = inputLoadImg.data('loadimg');
+            var reader = new FileReader();
+            reader.onload = function (event) {
+                var imgurl = event.target.result;
+                $(target).val(imgurl);
+                $(preloader).html('<img src="' + imgurl + '" class="img-responsive" />');
+            };
+            reader.readAsDataURL(this.files[0]);
+        });
+    }
+});
 
 /***/ }),
 /* 1 */
@@ -85,13 +113,6 @@ __webpack_require__(2);
 
 /***/ }),
 /* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-$ = window.jQuery = __webpack_require__(4);
-__webpack_require__(3);
-
-/***/ }),
-/* 3 */
 /***/ (function(module, exports) {
 
 /*!
@@ -2474,7 +2495,7 @@ if (typeof jQuery === 'undefined') {
 
 
 /***/ }),
-/* 4 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -12734,7 +12755,7 @@ return jQuery;
 
 
 /***/ }),
-/* 5 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(0);

@@ -15,5 +15,8 @@
     "laravel-mix": "0.*",
     "babel-preset-react": "^6.23.0",
     "lodash": "^4.17.4"
+  },
+  "dependencies": {
+    "intro.js": "git+https://github.com/usablica/intro.js.git"
   }
 }

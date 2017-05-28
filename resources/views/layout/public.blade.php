@@ -60,5 +60,6 @@
         
         
         <script src="/js/app.js?{{time()}}" type="text/javascript"></script>
+        <script src="/js/intro.js?{{time()}}" type="text/javascript"></script>
     </body>
 </html>
