@@ -1,3 +1,6 @@
+# Criar um novo arquivo migration
+php artisan make:migration nomedatabela
+
 # Criar pela primeira vez o banco
 php artisan migrate
 
