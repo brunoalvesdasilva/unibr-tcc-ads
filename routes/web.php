@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Route::resource('produto', 'ProdutoController');
 
+Route::resource('departamento', 'DepartamentoController');
+
 Route::get('/icomoon', function () {
     return view('fonts');
 });

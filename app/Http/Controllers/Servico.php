@@ -3,13 +3,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Produto extends Model
+class Servico extends Model
 {
     // Nome da tabela
-    protected $table = 'produto'; 
+    protected $table = 'servico';
     
     // Chave primário
-    protected $primaryKey = 'cd_produto';
+    protected $primaryKey = 'cd_servico';
     
     /**
      * The attributes that should be mutated to dates.
