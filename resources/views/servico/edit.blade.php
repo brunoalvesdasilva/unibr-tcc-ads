@@ -1,29 +1,29 @@
 @extends('layout/public')
 @section('content')
     <div class="component-title">
-        <h1>Cadastro de serviço</h1>
+        <h1>Cadastro de produto</h1>
     </div>
 
     <div class="component-barra-menu">
         <div class="btn-group pull-right" role="group">
-            <a href="/estoque/help" class="btn btn-default">Ajuda</a>
+            <a href="/produto/help" class="btn btn-default">Ajuda</a>
         </div>
     </div>
-
+    
     @if (count($errors) > 0)
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
     @endif
     
     <div class="container-fluid">
         <div class="row">
         <div class="col-md-12">
-        <form class="form-horizontal" action="/servico" method="POST">
+        <form class="form-horizontal" action="/servico/{{$servico->cd_servico}}" method="POST">
             <div class="form-group">
                 <label for="nm_servico" class="col-md-4 control-label">Serviço :</label>
                 <div class="col-md-6">
@@ -44,9 +44,9 @@
             </div>
             <div class="form-group">
                 <div class="col-md-offset-4 col-md-6">
-                    <button type="submit" class="btn btn-default">Cadastrar</button>
+                    <button type="submit" class="btn btn-info">Editar</button>
                     {{ csrf_field() }}
-                    {{ method_field('POST') }}
+                    {{ method_field('PUT') }}
                 </div>
             </div>
         </form>
