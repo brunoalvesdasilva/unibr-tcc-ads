@@ -46,7 +46,6 @@
                     <li><a href="/servico"><i class="icon icon-hammer"></i> Serviços</a></li>
                     <li><a href="/departamento"><i class="icon icon-office"></i> Departamentos</a></li>
                     <li><a href="/usuario"><i class="icon icon-user-plus"></i> Usuários</a></li>
-
                 </ul>
                 </nav>
             

@@ -43,7 +43,7 @@
             <tr>
                 <td colspan="6" class="aling-center">
                     Não há produtos cadastrados
-                    </div>
+                </div>
             </tr>
         @endforelse
         </tbody>

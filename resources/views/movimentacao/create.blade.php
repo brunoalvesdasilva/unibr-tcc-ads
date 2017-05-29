@@ -1,7 +1,11 @@
 @extends('layout/public')
 @section('content')
     <div class="component-title">
+<<<<<<< HEAD
         <h1>Cadastro de Movimentações</h1>
+=======
+        <h1>Cadastro de Fornecedores</h1>
+>>>>>>> 5a27b6d4c8736aa91d6f901263a8958748bc9e70
     </div>
 
     <div class="component-barra-menu">
