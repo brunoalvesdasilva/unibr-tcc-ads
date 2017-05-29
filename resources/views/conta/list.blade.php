@@ -6,10 +6,10 @@
         
     <div class="component-barra-menu">
         <div class="btn-group pull-right" role="group">
-            <a href="/contas/help" class="btn btn-default">Ajuda</a>
-            <a href="/contas/pdf" class="btn btn-default">PDF</a>
-            <a href="/contas" class="btn btn-default">Atualizar</a>
-            <a href="/contas/create" class="btn btn-default">Novo Registro</a>
+            <a href="/conta/help" class="btn btn-default">Ajuda</a>
+            <a href="/conta/pdf" class="btn btn-default">PDF</a>
+            <a href="/conta" class="btn btn-default">Atualizar</a>
+            <a href="/conta/create" class="btn btn-default">Novo Registro</a>
         </div>
     </div>
         

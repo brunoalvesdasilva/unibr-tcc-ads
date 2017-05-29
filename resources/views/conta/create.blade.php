@@ -6,7 +6,7 @@
 
     <div class="component-barra-menu">
         <div class="btn-group pull-right" role="group">
-            <a href="/usuario/help" class="btn btn-default">Ajuda</a>
+            <a href="/conta/help" class="btn btn-default">Ajuda</a>
         </div>
     </div>
     

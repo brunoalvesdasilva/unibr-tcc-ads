@@ -39,7 +39,7 @@
             <div class="form-group">
                 <label for="ds_servico" class="col-md-4 control-label">Descrição do Serviço :</label>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" id="ds_servico" name="ds_servico" placeholder="Descrição" />
+                   <textarea rows="3" class="form-control" id="ds_servico" name="ds_servico" placeholder="Descrição do serviço."></textarea>
                 </div>
             </div>
             <div class="form-group">

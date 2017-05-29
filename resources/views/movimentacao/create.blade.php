@@ -1,7 +1,7 @@
 @extends('layout/public')
 @section('content')
     <div class="component-title">
-        <h1>Cadastro de Fornecedores</h1>
+        <h1>Cadastro de Movimentações</h1>
     </div>
 
     <div class="component-barra-menu">
@@ -53,8 +53,7 @@
             <div class="form-group">
                 <label for="ds_movimentacao" class="col-md-4 control-label">Descrição :</label>
                 <div class="col-md-6">
-                    <textarea type="text" rows="3" class="form-control" id="ds_movimentacao" name="ds_movimentacao" placeholder="Descrição da movimentação" />
-                    </textarea>
+                    <textarea rows="3" class="form-control" id="ds_movimentacao" name="ds_movimentacao" placeholder="Descrição da movimentação"></textarea>
                 </div>
             </div>
             <div class="form-group">
