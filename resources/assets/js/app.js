@@ -3,6 +3,7 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
+<<<<<<< HEAD
  
 // Jquery
 var $;
@@ -33,3 +34,6 @@ $(document).ready( function(){
     }
     
 });
+=======
+require('./bootstrap');
+>>>>>>> 5a27b6d4c8736aa91d6f901263a8958748bc9e70
