@@ -34,7 +34,7 @@
                             Ver <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="/servico/{{$produto->cd_servico}}/edit">Editar</a></li>
+                            <li><a href="/servico/{{$servico->cd_servico}}/edit">Editar</a></li>
                         </ul>
                     </div>
                 </td>

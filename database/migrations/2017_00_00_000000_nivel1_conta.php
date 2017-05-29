@@ -19,6 +19,8 @@ class Nivel1Conta extends Migration
             // Básico
             $table->increments('cd_conta');
             $table->string('nm_conta', 50);
+            $table->integer('cd_agencia_conta');
+            $table->integer('cd_numero_conta');
             $table->float('vl_inicial_conta', 8,2);
             $table->float('vl_atual_conta', 8,2);
             $table->datetime('dt_registro_conta');

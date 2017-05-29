@@ -39,7 +39,7 @@
                     <li><a href="/chamado"><i class="icon icon-bubbles4"></i> Chamados</a></li>
                     <li><a href="/movimentacao"><i class="icon icon-files-empty"></i> Movimentações</a></li>
                     <li><a href="/contratos"><i class="icon icon-folder"></i> Contratos</a></li>
-                    <li><a href="/contas"><i class="icon icon-file-text"></i> Contas</a></li>
+                    <li><a href="/conta"><i class="icon icon-file-text"></i> Contas</a></li>
                     <li><a href="/clientes"><i class="icon icon-users"></i> Clientes</a></li>
                     <li><a href="/fornecedores"><i class="icon icon-users"></i> Fornecedores</a></li>
                     <li><a href="/produto"><i class="icon icon-box-add"></i> Estoque</a></li>

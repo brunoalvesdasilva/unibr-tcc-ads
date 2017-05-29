@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Servico;
 use Illuminate\Http\Request;
 
 class ServicoController extends Controller
@@ -100,7 +99,7 @@ class ServicoController extends Controller
         ]);
 
         // Adiciona e salva
-        $servico = new Servico();
+        $servico = Servico::find($id);
         $servico->nm_servico = $request->nm_servico;
         $servico->ds_servico = $request->ds_servico;
         $servico->vl_servico = $request->vl_servico;
