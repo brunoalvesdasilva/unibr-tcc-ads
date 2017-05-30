@@ -4,14 +4,14 @@
         <h1>Detalhes do produto</h1>
     </div>
 
-    <form class="form-horizontal" action="/produto/{{$produto->cd_produto}}" method="POST">
+    <form class="form-horizontal" action="/conta/{{$conta->cd_conta}}" method="POST">
     {{ csrf_field() }}
     {{ method_field('DELETE') }}
     <div class="component-barra-menu">
         <div class="btn-group pull-right" role="group">
-            <a href="/produto/help" class="btn btn-default">Ajuda</a>
-            <a href="/produto/" class="btn btn-default">Listagem</a>
-            <a href="/produto/{{$produto->cd_produto}}/edit" class="btn btn-default">Editar</a>
+            <a href="/conta/help" class="btn btn-default">Ajuda</a>
+            <a href="/conta/" class="btn btn-default">Listagem</a>
+            <a href="/conta/{{$conta->cd_conta}}/edit" class="btn btn-default">Editar</a>
             <button type="submit" class="btn btn-danger">Excluir</button>
         </div>
     </div>
@@ -23,11 +23,11 @@
         
             <dl class="dl-horizontal">
                 <dt>Nome:</dt>
-                <dd>{{$produto->nm_produto}}</dd>
-                <dt>Descrição:</dt>
-                <dd>{{$produto->ds_produto}}</dd>
-                <dt>Foto:</dt>
-                <dd><img src="{{$produto->im_produto}}" class="img-responsive" ></dd>
+                <dd>{{$conta->nm_conta}}</dd>
+                <dt>Agência:</dt>
+                <dd>{{$conta->cd_agencia_conta}}</dd>
+                <dt>Conta:</dt>
+                <dd>{{$conta->cd_numero_conta}}</dd>
             </dl>
         
         </div>
