@@ -1,12 +1,13 @@
 @extends('layout/public')
 @section('content')
-    <div class="component-title" data-intro='Nessa tela você irá criar um novo departamento no sistema.'>
+    <div class="component-title" data-intro='Nessa tela você irá cadastrar um novo departamento no sistema.'>
         <h1>Cadastro de departamento</h1>
     </div>
 
     <div class="component-barra-menu">
         <div class="btn-group pull-right" role="group">
-            <a href="#/departamento/help" class="btn btn-default btn-help">Ajuda</a>
+            <a href="#/departamento/help" class="btn btn-default btn-help" data-intro='Clique aqui para ter uma ajuda igual a essa na página.'>Ajuda</a>
+            <a href="/departamento/" class="btn btn-default" data-intro='Clique aqui para voltar na listagem de departamentos.'>Listagem</a>
         </div>
     </div>
     @if (count($errors) > 0)
