@@ -1,6 +1,6 @@
 @extends('layout/public')
 @section('content')
-    <div class="component-title" data-intro='Nessa tela você poderá editar e excluir os registros do departamento.'>
+    <div class="component-title" data-intro='Nessa tela você poderá editar ou excluir o departamento.'>
         <h1>Detalhes do departamento</h1>
     </div>
 
