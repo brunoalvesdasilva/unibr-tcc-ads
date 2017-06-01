@@ -1,17 +1,18 @@
 @extends('layout/public')
 @section('content')
-    <div class="component-title">
+    <div class="component-title" data-intro='Nessa tela você poderá editar ou excluir um serviço.'>
         <h1>Detalhes do serviço</h1>
     </div>
 
     <form class="form-horizontal" action="/servico/{{$servico->cd_servico}}" method="POST">
-    {{ method_field('PUT') }}
+        {{ csrf_field() }}
+        {{ method_field('DELETE') }}
     <div class="component-barra-menu">
         <div class="btn-group pull-right" role="group">
-            <a href="/servico/help" class="btn btn-default">Ajuda</a>
-            <a href="/servico/" class="btn btn-default">Listagem</a>
-            <a href="/servico/{{$servico->cd_servico}}/edit" class="btn btn-default">Editar</a>
-            <button type="submit" class="btn btn-danger">Excluir</button>
+            <a href="#/servico/help" class="btn btn-default btn-help" data-intro='Clique aqui para ter uma ajuda igual a essa na página.'>Ajuda</a>
+            <a href="/servico/" class="btn btn-default" data-intro='Clique aqui para voltar na listagem de serviços.'>Listagem</a>
+            <a href="/servico/{{$servico->cd_servico}}/edit" class="btn btn-default" data-intro='Clique aqui para editar os dados do servico.'>Editar</a>
+            <button type="submit" class="btn btn-danger" data-intro='Clique aqui para excluir o serviço.'>Excluir</button>
         </div>
     </div>
     </form>
@@ -23,8 +24,8 @@
             <dl class="dl-horizontal">
                 <dt>Nome:</dt>
                 <dd>{{$servico->nm_servico}}</dd>
-                <dt>Descrição:</dt>
-                <dd>{{$servico->vl_servico}}</dd>
+                <dt>Valor:</dt>
+                <dd>R$ {{$servico->vl_servico}}</dd>
                 <dt>Descrição:</dt>
                 <dd>{{$servico->ds_servico}}</dd>
             </dl>
