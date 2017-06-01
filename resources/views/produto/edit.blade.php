@@ -40,8 +40,8 @@
                 <label for="im_produto" class="col-md-4 control-label">Foto</label>
                 <div class="col-md-6">
                     <input type="file" data-loadimg=".component-preloader" data-srcimg="#im_produto" class="form-control"  placeholder="Foto" />
-                    <input type="hidden" id="im_produto" name="im_produto" value="{{$produto->nm_produto}}" />
-                    <div class="component-preloader"><img src="{{$produto->nm_produto}}" class="img-responsive" /></div>
+                    <input type="hidden" id="im_produto" name="im_produto" value="{{$produto->im_produto}}" />
+                    <div class="component-preloader"><img src="{{$produto->im_produto}}" class="img-responsive" /></div>
                 </div>
             </div>
             <div class="form-group">

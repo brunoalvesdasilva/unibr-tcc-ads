@@ -1,14 +1,15 @@
 @extends('layout/public')
 @section('content')
-    <div class="component-title">
-        <h1>Cadastro de contas</h1>
+    <div class="component-title" data-intro='Nessa tela você irá editar um departamento já cadastrado no sistema.'>
+        <h1>Edição do departamento</h1>
     </div>
 
     <div class="component-barra-menu">
         <div class="btn-group pull-right" role="group">
-            <a href="/departamento/help" class="btn btn-default">Ajuda</a>
+            <a href="#/departamento/help" class="btn btn-default btn-help" data-intro='Clique aqui para ter uma ajuda igual a essa na página.'>Ajuda</a>
         </div>
     </div>
+
     @if (count($errors) > 0)
         <div class="alert alert-danger">
             <ul>
@@ -25,7 +26,7 @@
             <div class="form-group">
                 <label for="nm_departamento" class="col-md-4 control-label">Nome :</label>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" id="nm_departamento" name="nm_departamento" placeholder="Nome do departamento" value="{{$departamento->nm_departamento}}"/>
+                    <input type="text" class="form-control" id="nm_departamento" name="nm_departamento" placeholder="Nome do departamento" value="{{$departamento->nm_departamento}}" required/>
                 </div>
             </div>
             <div class="form-group">
