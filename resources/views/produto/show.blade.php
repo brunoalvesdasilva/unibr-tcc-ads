@@ -9,7 +9,7 @@
     {{ method_field('DELETE') }}
     <div class="component-barra-menu">
         <div class="btn-group pull-right" role="group">
-            <a href="/produto/help" class="btn btn-default">Ajuda</a>
+            <a href="/produto/help" class="btn btn-default btn-help">Ajuda</a>
             <a href="/produto/" class="btn btn-default">Listagem</a>
             <a href="/produto/{{$produto->cd_produto}}/edit" class="btn btn-default">Editar</a>
             <button type="submit" class="btn btn-danger">Excluir</button>
@@ -27,7 +27,7 @@
                 <dt>Descrição:</dt>
                 <dd>{{$produto->ds_produto}}</dd>
                 <dt>Foto:</dt>
-                <dd><img src="{{$produto->im_produto}}" class="img-responsive" ></dd>
+                <dd><img src="{{$produto->im_produto}}" class="img-responsive col-md-4"  ></dd>
             </dl>
         
         </div>
