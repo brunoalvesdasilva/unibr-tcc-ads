@@ -1,12 +1,13 @@
 @extends('layout/public')
 @section('content')
-    <div class="component-title">
-        <h1>Cadastro de serviços</h1>
+    <div class="component-title" data-intro='Nessa tela você irá editar um serviço já cadastrado no sistema.'>
+        <h1>Edição do serviço</h1>
     </div>
 
     <div class="component-barra-menu">
         <div class="btn-group pull-right" role="group">
-            <a href="/produto/help" class="btn btn-default">Ajuda</a>
+            <a href="/servico/" class="btn btn-default" data-intro='Clique aqui para voltar na listagem de serviços.'>Listagem</a>
+            <a href="#/serviço/help" class="btn btn-default btn-help" data-intro='Clique aqui para ter uma ajuda igual a essa na página.'>Ajuda</a>
         </div>
     </div>
     
@@ -27,19 +28,19 @@
             <div class="form-group">
                 <label for="nm_servico" class="col-md-4 control-label">Serviço :</label>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" id="nm_servico" name="nm_servico" placeholder="Nome do serviço" value="{{$servico->nm_servico}}" />
+                    <input type="text" class="form-control" id="nm_servico" name="nm_servico" placeholder="Nome do serviço" value="{{$servico->nm_servico}}" required/>
                 </div>
             </div>
             <div class="form-group">
                 <label for="vl_servico" class="col-md-4 control-label">Valor do Servico :</label>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" id="vl_servico" name="vl_servico" placeholder="Valor" value="{{$servico->vl_servico}}"/>
+                    <input type="text" class="form-control" id="vl_servico" name="vl_servico" placeholder="Valor" value="{{$servico->vl_servico}}" required/>
                 </div>
             </div>
             <div class="form-group">
                 <label for="ds_servico" class="col-md-4 control-label">Descrição do Serviço :</label>
                 <div class="col-md-6">
-                    <textarea rows="3" class="form-control" id="ds_servico" name="ds_servico" placeholder="Descrição do serviço." >{{$servico->ds_servico}}</textarea>
+                    <textarea rows="3" class="form-control" id="ds_servico" name="ds_servico" placeholder="Descrição do serviço." required >{{$servico->ds_servico}}</textarea>
                 </div>
             </div>
             <div class="form-group">

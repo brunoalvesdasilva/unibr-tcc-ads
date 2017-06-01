@@ -7,6 +7,7 @@
     <div class="component-barra-menu">
         <div class="btn-group pull-right" role="group">
             <a href="#/departamento/help" class="btn btn-default btn-help" data-intro='Clique aqui para ter uma ajuda igual a essa na página.'>Ajuda</a>
+            <a href="/departamento/" class="btn btn-default" data-intro='Clique aqui para voltar na listagem de departamentos.'>Listagem</a>
         </div>
     </div>
 
