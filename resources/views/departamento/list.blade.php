@@ -1,6 +1,6 @@
 @extends('layout/public')
 @section('content')
-    <div class="component-title" data-intro='Nessa tela você poderá criar, editar e excluir os departamentos no sistema.'>
+    <div class="component-title" data-intro='Nessa tela você irá manusear as informações dos departamentos da empresa.'>
         <h1>Listagem de departamentos</h1>
     </div>
         
@@ -37,7 +37,7 @@
         @empty
             <tr>
                 <td colspan="6" class="aling-center"/>
-                    Não há departamentos cadastrados
+                    Não há departamentos cadastrados.
                     </div>
             </tr>
         @endforelse
