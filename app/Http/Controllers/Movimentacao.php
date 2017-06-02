@@ -12,6 +12,14 @@ class Movimentacao extends Model
     protected $primaryKey = 'cd_movimentacao';
     
     /**
+     * Relacionamento hasOne
+     * Conta
+     */
+    public function contas(){
+        return $this->hasOne('App\Http\Controllers\Conta', 'cd_conta', 'cd_conta');
+    }
+    
+    /**
      * The attributes that should be mutated to dates.
      *
      * @var array
