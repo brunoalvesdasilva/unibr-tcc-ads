@@ -1,11 +1,7 @@
 @extends('layout/public')
 @section('content')
     <div class="component-title">
-<<<<<<< HEAD
-        <h1>Cadastro de Movimentações</h1>
-=======
-        <h1>Cadastro de Fornecedores</h1>
->>>>>>> 5a27b6d4c8736aa91d6f901263a8958748bc9e70
+        <h1>Cadastro de movimentação</h1>
     </div>
 
     <div class="component-barra-menu">
@@ -14,57 +10,50 @@
         </div>
     </div>
     
+    @if (count($errors) > 0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+    
     <div class="container-fluid">
         <div class="row">
         <div class="col-md-12">
-        <form class="form-horizontal">
+        <form class="form-horizontal" action="/movimentacao" method="POST">
             <div class="form-group">
-                <label for="nm_movimentacao" class="col-md-4 control-label">Movimentação :</label>
+                <label for="cd_conta" class="col-md-4 control-label">Conta</label>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" id="nm_movimentacao" name="nm_movimentacao" placeholder="Nome da movimentação" />
+                    <select class="form-control" id="cd_conta" name="cd_conta">
+                    @forelse($contas as $conta)
+                        <option value="{{$conta->cd_conta}}">{{$conta->nm_conta}}</option>
+                    @empty
+                        <option value="">Não há contas cadastradas</option>
+                    @endforelse
+                    </select>
                 </div>
             </div>
             <div class="form-group">
-                <label for="dt_movimentacao" class="col-md-4 control-label">Data da movimentação :</label>
+                <label for="nm_movimentacao" class="col-md-4 control-label">Nome</label>
                 <div class="col-md-6">
-                    <input type="date" class="form-control" id="dt_movimentacao" name="dt_movimentacao" />
+                    <input type="text" class="form-control" id="nm_movimentacao" name="nm_movimentacao" placeholder="Nome" />
                 </div>
             </div>
             <div class="form-group">
-                <label for="cd_nf_movimentacao" class="col-md-4 control-label">NF :</label>
+                <label for="ds_movimentacao" class="col-md-4 control-label">Descrição</label>
                 <div class="col-md-6">
-                    <input type="number" class="form-control" id="cd_nf_movimentacao" name="cd_nf_movimentacao" placeholder="Nº NF" />
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="cd_cpf_pessoa" class="col-md-4 control-label">Valor :</label>
-                <div class="col-md-6">
-                    <input type="text" class="form-control" id="vl_movimentacao" name="vl_movimentacao" placeholder="Valor da movimentação" />
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="cd_contrato" class="col-md-4 control-label">Contrato :</label>
-                <div class="col-md-6">
-                    <input type="text" class="form-control" id="cd_contrato" name="cd_contrato"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="cd_conta" class="col-md-4 control-label">Conta :</label>
-                <div class="col-md-6">
-                    <input type="text" class="form-control" id="cd_conta" name="cd_conta"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="ds_movimentacao" class="col-md-4 control-label">Descrição :</label>
-                <div class="col-md-6">
-                    <textarea rows="3" class="form-control" id="ds_movimentacao" name="ds_movimentacao" placeholder="Descrição da movimentação"></textarea>
+                    <textarea class="form-control" id="ds_movimentacao" name="ds_movimentacao"></textarea>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-md-offset-4 col-md-6">
-                    <button type="submit" class="btn btn-default">Cadastrar</button>
+                    <button type="submit" class="btn btn-info">Cadastrar</button>
+                    {{ csrf_field() }}
+                    {{ method_field('POST') }}
                 </div>
-
             </div>
         </form>
         </div>
