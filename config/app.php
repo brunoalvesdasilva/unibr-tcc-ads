@@ -176,6 +176,13 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        
+        /*
+         * Personal Providers
+         */
+        Clicknow\Money\MoneyServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
+        browner12\helpers\HelperServiceProvider::class,
 
     ],
 
@@ -226,6 +233,10 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        // ...
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
+        // ...
     ],
 
 ];
