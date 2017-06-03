@@ -18,41 +18,23 @@
             <tr>
                 <th>#</th>
                 <th>Nome</th>
-                <th>Departamento</th>
                 <th>Ação</th>
             </tr>
         </thead>
         <tbody>
+        @forelse($listaUsuario as $usuario)
             <tr>
-                <td>#</td>
-                <td>Nome</td>
-                <td>Departamento</td>
-                <td>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Ver <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Excluir</a></li>
-                        </ul>
-                    </div>
-                </td>
+                <td>{{$usuario->cd_usuario}}</td>
+                <td>{{$usuario->nm_usuario}}</td>
+                <td><a href="/usuario/{{$usuario->cd_usuario}}" type="button" class="btn btn-default">Ver</a></td>
             </tr>
+        @empty
             <tr>
-                <td>#</td>
-                <td>Nome</td>
-                <td>Departamento</td>
-                <td>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Ver <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Excluir</a></li>
-                        </ul>
+                <td colspan="6" class="aling-center"/>
+                    Não há usuarios cadastrados
                     </div>
-                </td>
             </tr>
-        </tbody>
+        @endforelse
+        </tbody>           
     </table>
 @stop
