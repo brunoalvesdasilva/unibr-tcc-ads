@@ -10,13 +10,16 @@ class Movimentacao extends Model
     
     // Chave primário
     protected $primaryKey = 'cd_movimentacao';
+
+    // Removendo os campos de tempo
+    public $timestamps = false;
     
     /**
      * Relacionamento hasOne
      * Conta
      */
-    public function contas(){
-        return $this->hasOne('App\Http\Controllers\Conta', 'cd_conta', 'cd_conta');
+    public function conta(){
+        return $this->belongsTo('App\Http\Controllers\Conta', 'cd_conta', 'cd_conta');
     }
     
     /**
@@ -25,8 +28,7 @@ class Movimentacao extends Model
      * @var array
      */
     protected $dates = [
-        'created_at',
-        'updated_at',
-        'deleted_at'
+        'dt_movimentacao',
+        'dt_registro_movimentacao',
     ];
 }

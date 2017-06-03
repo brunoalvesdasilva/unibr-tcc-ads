@@ -1,12 +1,13 @@
 @extends('layout/public')
 @section('content')
     <div class="component-title">
-        <h1>Cadastro de produto</h1>
+        <h1>Cadastro de movimentacao</h1>
     </div>
 
     <div class="component-barra-menu">
         <div class="btn-group pull-right" role="group">
-            <a href="/produto/help" class="btn btn-default">Ajuda</a>
+            <a href="/movimentacao/{{$movimentacao->cd_movimentacao}}" class="btn btn-default">Voltar</a>
+            <a href="/movimentacao/help" class="btn btn-default">Ajuda</a>
         </div>
     </div>
     
@@ -23,25 +24,23 @@
     <div class="container-fluid">
         <div class="row">
         <div class="col-md-12">
-        <form class="form-horizontal" action="/produto/{{$produto->cd_produto}}" method="POST">
+        <form class="form-horizontal" action="/movimentacao/{{$movimentacao->cd_movimentacao}}" method="POST">
             <div class="form-group">
-                <label for="nm_produto" class="col-md-4 control-label">Nome</label>
+                <label for="cd_conta" class="col-md-4 control-label">Conta</label>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" id="nm_produto" name="nm_produto" placeholder="Nome" value="{{$produto->nm_produto}}" />
+                    {{Form::select('cd_conta', $contas, $movimentacao->cd_conta, ['class' => 'form-control'])}}
                 </div>
             </div>
             <div class="form-group">
-                <label for="ds_produto" class="col-md-4 control-label">Descrição</label>
+                <label for="nm_movimentacao" class="col-md-4 control-label">Nome</label>
                 <div class="col-md-6">
-                    <textarea class="form-control" id="ds_produto" name="ds_produto">{{$produto->ds_produto}}</textarea>
+                    <input type="text" class="form-control" id="nm_movimentacao" name="nm_movimentacao" placeholder="Nome" value="{{$movimentacao->nm_movimentacao}}"/>
                 </div>
             </div>
             <div class="form-group">
-                <label for="im_produto" class="col-md-4 control-label">Foto</label>
+                <label for="ds_movimentacao" class="col-md-4 control-label">Descrição</label>
                 <div class="col-md-6">
-                    <input type="file" data-loadimg=".component-preloader" data-srcimg="#im_produto" class="form-control"  placeholder="Foto" />
-                    <input type="hidden" id="im_produto" name="im_produto" value="{{$produto->im_produto}}" />
-                    <div class="component-preloader"><img src="{{$produto->im_produto}}" class="img-responsive" /></div>
+                    <textarea class="form-control" id="ds_movimentacao" name="ds_movimentacao">{{$movimentacao->ds_movimentacao}}</textarea>
                 </div>
             </div>
             <div class="form-group">

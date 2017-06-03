@@ -33,11 +33,11 @@
         <tbody>
             @forelse($listaMovimentacoes as $movimentacao)
             <tr>
-                <td>{{$movimentacao->cd_movimentacao}} {{var_dump($movimentacao->contas)}}</td>
-                <td>{{$movimentacao->nm_conta}}</td>
+                <td>{{$movimentacao->cd_movimentacao}}</td>
+                <td>{{$movimentacao->conta->nm_conta}}</td>
                 <td>{{$movimentacao->nm_movimentacao}}</td>
-                <td>{{$movimentacao->created_at}}</td>
-                <td>{{$movimentacao->vl_movimentacao}}</td>
+                <td>{{$movimentacao->dt_movimentacao->format('d/m/Y')}}</td>
+                <td>{{dinheiro($movimentacao->vl_movimentacao)}}</td>
                 <td><a href="/movimentacao/{{$movimentacao->cd_movimentacao}}" type="button" class="btn btn-default">Ver</a></td>
             </tr>
         @empty

@@ -29,7 +29,10 @@ class MovimentacaoController extends Controller
     public function create()
     {
         // Lista de contas
-        $contas = Conta::all();
+        $contas = array();
+        foreach(Conta::all() as $conta){
+            $contas[$conta->cd_conta] = $conta->nm_conta;
+        }
         
         //
         return view("{$this->nameFolder}/create", ['contas'=>$contas]);
@@ -45,13 +48,24 @@ class MovimentacaoController extends Controller
     {
         // Valida
         $this->validate($request, [
-            'nm_movimentacao' => 'required'
-
+            'nm_movimentacao' => 'required',
+            'ic_tipo_movimentacao' => 'required',
+            'vl_movimentacao' => 'required',
         ]);
         
         // Adiciona e salva
         $movimentacao = new Movimentacao();
         $movimentacao->nm_movimentacao = $request->nm_movimentacao;
+        $movimentacao->ic_tipo_movimentacao = $request->ic_tipo_movimentacao;
+        $movimentacao->cd_conta = $request->cd_conta;
+        $movimentacao->dt_movimentacao = $request->dt_movimentacao;
+        $movimentacao->cd_nf_movimentacao = $request->cd_nf_movimentacao;
+        $movimentacao->ic_pago_sim_nao = $request->ic_pago_sim_nao;
+        $movimentacao->vl_movimentacao = (float) $request->vl_movimentacao;
+        $movimentacao->ds_movimentacao = $request->ds_movimentacao;
+        $movimentacao->ic_recorrente_sim_nao = $request->ic_recorrente_sim_nao;
+        $movimentacao->dt_registro_movimentacao = date('Y-m-d H:i:s');
+        $movimentacao->cd_conta = $request->cd_conta;
         $movimentacao->save();
         
         // Redireciona
@@ -80,10 +94,16 @@ class MovimentacaoController extends Controller
      */
     public function edit($id)
     {
-        //
+        // Movimentações
         $movimentacao = Movimentacao::find($id);
+       
+        // Lista de contas
+        $contas = array();
+        foreach(Conta::all() as $conta){
+            $contas[$conta->cd_conta] = $conta->nm_conta;
+        }
         
-        return view("{$this->nameFolder}/edit", ["movimentacao"=>$movimentacao]);
+        return view("{$this->nameFolder}/edit", ["movimentacao"=>$movimentacao, 'contas'=>$contas]);
     }
 
     /**
@@ -97,12 +117,23 @@ class MovimentacaoController extends Controller
     {
         // Valida
         $this->validate($request, [
-            'nm_movimentacao' => 'required'
+            'nm_movimentacao' => 'required',
+            'ic_tipo_movimentacao' => 'required',
+            'vl_movimentacao' => 'required',
         ]);
         
         // Adiciona e salva
         $movimentacao = Movimentacao::find($id);
         $movimentacao->nm_movimentacao = $request->nm_movimentacao;
+        $movimentacao->ic_tipo_movimentacao = $request->ic_tipo_movimentacao;
+        $movimentacao->cd_conta = $request->cd_conta;
+        $movimentacao->dt_movimentacao = $request->dt_movimentacao;
+        $movimentacao->cd_nf_movimentacao = $request->cd_nf_movimentacao;
+        $movimentacao->ic_pago_sim_nao = $request->ic_pago_sim_nao;
+        $movimentacao->vl_movimentacao = (float) $request->vl_movimentacao;
+        $movimentacao->ds_movimentacao = $request->ds_movimentacao;
+        $movimentacao->ic_recorrente_sim_nao = $request->ic_recorrente_sim_nao;
+        $movimentacao->cd_conta = $request->cd_conta;
         $movimentacao->save();
         
         // Redireciona
@@ -122,6 +153,6 @@ class MovimentacaoController extends Controller
         $movimentacao->delete();
         
         // Redireciona
-        return redirect('movimentacao')->with('message', 'Movimentacao deletado com sucesso!');
+        return redirect('movimentacao')->with('message', 'Movimentacao deletada com sucesso!');
     }
 }
