@@ -7,7 +7,11 @@ Route::resource('produto', 'ProdutoController');
 Route::resource('departamento', 'DepartamentoController');
 Route::resource('servico', 'ServicoController');
 Route::resource('conta', 'ContaController');
+<<<<<<< HEAD
 Route::resource('movimentacao', 'MovimentacaoController');
+=======
+Route::resource('usuario','UsuarioController');
+>>>>>>> Alteracoes BD e criacao lista usuario
 
 Route::get('/icomoon', function () {
     return view('fonts');
