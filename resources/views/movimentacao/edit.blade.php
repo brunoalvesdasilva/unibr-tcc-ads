@@ -67,7 +67,7 @@
                         <input type="radio"  name="ic_pago_sim_nao" value="sim" required {{checkSe('sim', $movimentacao->ic_pago_sim_nao)}} /> Pago
                     </label>
                     <label class="radio-inline">
-                        <input type="radio"  name="ic_pago_sim_nao" value="nao" required {{checkSe('nao', $movimentacao->ic_pago_sim_nao)}} checked /> Não pago
+                        <input type="radio"  name="ic_pago_sim_nao" value="nao" required {{checkSe('nao', $movimentacao->ic_pago_sim_nao)}} /> Não pago
                     </label>
                 </div>
             </div>
