@@ -1,15 +1,16 @@
 @extends('layout/public')
 @section('content')
-    <div class="component-title">
-        <h1>Cadastro de usuários</h1>
+    <div class="component-title" data-intro='Nessa tela você irá editar um departamento já cadastrado no sistema.'>
+        <h1>Edição do usuario</h1>
     </div>
 
     <div class="component-barra-menu">
         <div class="btn-group pull-right" role="group">
-            <a href="/usuario/help" class="btn btn-default">Ajuda</a>
+            <a href="#/usuario/help" class="btn btn-default btn-help" data-intro='Clique aqui para ter uma ajuda igual a essa na página.'>Ajuda</a>
         </div>
-    </div>	
-	@if (count($errors) > 0)
+    </div>
+
+    @if (count($errors) > 0)
         <div class="alert alert-danger">
             <ul>
                 @foreach ($errors->all() as $error)
@@ -21,41 +22,34 @@
     <div class="container-fluid">
         <div class="row">
         <div class="col-md-12">
-        <form class="form-horizontal" action="/usuario" method="POST">
+        <form class="form-horizontal" action="/usuario/{{$usuario->cd_usuario}}" method="POST">
             <div class="form-group">
                 <label for="nm_usuario" class="col-md-4 control-label">Nome :</label>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" id="nm_usuario" name="nm_usuario" placeholder="Nome" required/>
-                </div>
-            </div>
-			<div class="form-group">
-                <label for="nm_email" class="col-md-4 control-label">Email :</label>
-                <div class="col-md-6">
-                    <input type="email" class="form-control" id="nm_email" name="nm_email" placeholder="Email" required/>
+                    <input type="text" class="form-control" id="nm_usuario" name="nm_usuario" placeholder="Nome do usuario" value="{{$usuario->nm_usuario}}" required/>
                 </div>
             </div>
 			<div class="form-group">
                 <label for="nm_senha" class="col-md-4 control-label">Senha :</label>
                 <div class="col-md-6">
-                    <input type="password" class="form-control" id="nm_senha" name="nm_senha" placeholder="Senha" required/>
+                    <input type="text" class="form-control" id="nm_senha" name="nm_senha" placeholder="Senha do usuario" value="{{$usuario->nm_senha}}" required/>
                 </div>
             </div>
 			<div class="form-group">
-                <label for="cd_departamento" class="col-md-4 control-label">Departamento</label>
+                <label for="nm_email" class="col-md-4 control-label">Email :</label>
                 <div class="col-md-6">
-                    {{Form::select('cd_departamento', $departamento, NULL, ['class' => 'form-control'])}}
+                    <input type="email" class="form-control" id="nm_email" name="nm_email" placeholder="Email do usuario" value="{{$usuario->nm_email}}" required/>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-md-offset-4 col-md-6">
-                    <button type="submit" class="btn btn-default">Cadastrar</button>
+                    <button type="submit" class="btn btn-info">Editar</button>
                     {{ csrf_field() }}
-                    {{ method_field('POST') }}
+                    {{ method_field('PUT') }}
                 </div>
             </div>
         </form>
         </div>
-
         </div>
     </div>
 @stop

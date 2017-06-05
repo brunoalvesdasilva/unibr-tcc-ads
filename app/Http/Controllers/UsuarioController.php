@@ -28,8 +28,14 @@ class UsuarioController extends Controller
      */
     public function create()
     {
+		// Lista de departamento
+        $departamento = array();
+        foreach(Departamento::all() as $departamento){
+            $departamento[$departamento->cd_departamento] = $departamento->nm_departamento;
+        }
+        
         //
-        return view("{$this->nameFolder}/create");
+        return view("{$this->nameFolder}/create", ['departamento'=>$departamento]);
     }
 
     /**
@@ -84,12 +90,18 @@ class UsuarioController extends Controller
      */
     public function edit($id)
     {
-        //
+        //Usuario
         $usuario = Usuario::find($id);
+		
+		// Lista de departamento
+        $departamento = array();
+        foreach(Departamento::all() as $departamento){
+            $contas[$departamento->cd_departamento] = $departamento->nm_departamento;
+        }
         
-        return view("{$this->nameFolder}/edit", ["usuario"=>$usuario]);
+        return view("{$this->nameFolder}/edit", ["usuario"=>$usuario, 'departamento'=>$departamento]);
     }
-
+  
     /**
      * Update the specified resource in storage.
      *
@@ -100,13 +112,11 @@ class UsuarioController extends Controller
     public function update(Request $request, $id)
     {
         // Valida
-        $this->validate($request, 
-		[
-			'nm_usuario' => 'required'
-			//'nm_email' => 'required'
-			//'nm_senha' => 'required'
-			//'cd_departamento' => 'required'
-
+        $this->validate($request, [
+			'nm_usuario' => 'required',
+			'nm_email' => 'required',
+			'nm_senha' => 'required',
+			'cd_departamento' => 'required',
         ]);
         
         // Adiciona e salva
@@ -118,7 +128,7 @@ class UsuarioController extends Controller
         $usuario->save();
         
         // Redireciona
-        return redirect("usuario/$id")->with('message', 'Usuario salvo com sucesso!');
+        return redirect("usuario/$id")->with('message', 'Usuario editado com sucesso!');
     }
 
     /**
@@ -134,6 +144,6 @@ class UsuarioController extends Controller
         $usuario->delete();
         
         // Redireciona
-        return redirect('usuario')->with('message', 'Usuario salvo com sucesso!');
+        return redirect('usuario')->with('message', 'Usuario deletado com sucesso!');
     }
 }
