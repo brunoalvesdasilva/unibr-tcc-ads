@@ -101,8 +101,7 @@ class UsuarioController extends Controller
         
         return view("{$this->nameFolder}/edit", ["usuario"=>$usuario, 'departamento'=>$departamento]);
     }
-
-
+  
     /**
      * Update the specified resource in storage.
      *
@@ -113,13 +112,11 @@ class UsuarioController extends Controller
     public function update(Request $request, $id)
     {
         // Valida
-        $this->validate($request, 
-		[
+        $this->validate($request, [
 			'nm_usuario' => 'required',
 			'nm_email' => 'required',
 			'nm_senha' => 'required',
 			'cd_departamento' => 'required',
-
         ]);
         
         // Adiciona e salva
