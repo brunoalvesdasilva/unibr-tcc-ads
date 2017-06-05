@@ -3,7 +3,6 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-<<<<<<< HEAD
  
 // Jquery
 var $;
@@ -11,6 +10,9 @@ $ = window.jQuery = require('jquery');
 
 // Bootstrap
 require('bootstrap-sass');
+require('jquery-mask-plugin');
+require('pickadate/lib/picker.js');
+require('pickadate/lib/picker.date.js');
 
 $(document).ready( function(){
     
@@ -33,7 +35,25 @@ $(document).ready( function(){
         });
     }
     
+    
+    // Maskaras
+    $("input[data-calendario]").each(function(indice, elm){
+        $(elm).pickadate({
+            monthsFull: [ 'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro' ],
+            monthsShort: [ 'jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez' ],
+            weekdaysFull: [ 'Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado' ],
+            weekdaysShort: [ 'dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sab' ],
+            today: 'Hoje',
+            clear: 'Limpar',
+            close: 'Fechar',
+            format: 'dd/mm/yyyy',
+            formatSubmit: 'yyyy-mm-dd',
+            hiddenName: true
+        });
+    });
+    
+    $("input[data-dinheiro]").each(function(indice, elm){
+        $(elm).mask("#.##0,00", {reverse: true, placeholder: "0,00"});
+    });
 });
-=======
-require('./bootstrap');
->>>>>>> 5a27b6d4c8736aa91d6f901263a8958748bc9e70
+

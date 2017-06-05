@@ -25,7 +25,7 @@ class Nivel4Movimentacao extends Migration
             $table->dateTime('dt_registro_movimentacao');
             $table->enum('ic_pago_sim_nao', ['sim', 'nao']);
             $table->float('vl_movimentacao', 8,2);
-            $table->string('ds_movimentacao',200);
+            $table->string('ds_movimentacao',200)->nullable();
             $table->enum('ic_recorrente_sim_nao', ['sim', 'nao']);
             
             // Chaves estrangeiras

@@ -24,10 +24,40 @@
             <dl class="dl-horizontal">
                 <dt>Nome:</dt>
                 <dd>{{$movimentacao->nm_movimentacao}}</dd>
+                <dt>Tipo:</dt>
+                <dd>
+                    @if($movimentacao->ic_tipo_movimentacao=="credito")
+                        Crédito
+                    @else
+                        Débito
+                    @endif
+                </dd>
                 <dt>Conta:</dt>
                 <dd>{{$movimentacao->conta->nm_conta}}</dd>
+                <dt>Data:</dt>
+                <dd>{{$movimentacao->dt_movimentacao->format('d/m/Y')}}</dd>
+                <dt>Cód. Nota Fiscal:</dt>
+                <dd>{{$movimentacao->cd_nf_movimentacao}}</dd>
+                <dt>Situação:</dt>
+                <dd>
+                    @if($movimentacao->ic_pago_sim_nao=="sim")
+                        Movimentação paga
+                    @else
+                        Movimentação não paga
+                    @endif
+                </dd>
                 <dt>Valor:</dt>
-                <dd>{{money($movimentacao->vl_movimentacao, 'BRL')}}</dd>
+                <dd>{{dinheiro($movimentacao->vl_movimentacao)}}</dd>
+                <dt>Descrição:</dt>
+                <dd>{{nl2br($movimentacao->ds_movimentacao)}}</dd>
+                <dt>Recorrente:</dt>
+                <dd>
+                    @if($movimentacao->ic_recorrente_sim_nao=="sim")
+                        Movimentação recorrente
+                    @else
+                        Movimentação não recorrente
+                    @endif
+                </dd>
             </dl>
         
         </div>

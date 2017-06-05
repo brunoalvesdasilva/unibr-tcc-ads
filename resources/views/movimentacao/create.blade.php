@@ -6,6 +6,7 @@
 
     <div class="component-barra-menu">
         <div class="btn-group pull-right" role="group">
+            <a href="/movimentacao" class="btn btn-default">Listagem</a>
             <a href="/movimentacao/help" class="btn btn-default">Ajuda</a>
         </div>
     </div>
@@ -27,30 +28,30 @@
             <div class="form-group">
                 <label for="nm_movimentacao" class="col-md-4 control-label">Movimentação</label>
                 <div class="col-md-6">
-                    <input type="text" class="form-control"  name="nm_movimentacao" placeholder="Nome" />
+                    <input type="text" class="form-control"  name="nm_movimentacao" placeholder="Nome" required />
                 </div>
             </div>
             <div class="form-group">
                 <label for="ic_tipo_movimentacao" class="col-md-4 control-label">Tipo</label>
                 <div class="col-md-6">
                     <label class="radio-inline">
-                        <input type="radio"  name="ic_tipo_movimentacao" value="credito" /> Receita
+                        <input type="radio"  name="ic_tipo_movimentacao" value="credito" required /> Receita
                     </label>
                     <label class="radio-inline">
-                        <input type="radio"  name="ic_tipo_movimentacao" value="debito" /> Despesa
+                        <input type="radio"  name="ic_tipo_movimentacao" value="debito" required /> Despesa
                     </label>
                 </div>
             </div>
             <div class="form-group">
                 <label for="cd_conta" class="col-md-4 control-label">Conta</label>
                 <div class="col-md-6">
-                    {{Form::select('cd_conta', $contas, NULL, ['class' => 'form-control'])}}
+                    {{Form::select('cd_conta', $contas, NULL, ['class' => 'form-control', 'required'=>'required'])}}
                 </div>
             </div>
             <div class="form-group">
                 <label for="dt_movimentacao" class="col-md-4 control-label">Data</label>
                 <div class="col-md-6">
-                    <input type="text" class="form-control"  name="dt_movimentacao" value="" />
+                    <input type="text" class="form-control"  name="dt_movimentacao" value="{{date('d/m/Y')}}" required data-calendario="true" />
                 </div>
             </div>
             <div class="form-group">
@@ -63,17 +64,17 @@
                 <label for="ic_pago_sim_nao" class="col-md-4 control-label">Situação da movimentação</label>
                 <div class="col-md-6">
                     <label class="radio-inline">
-                        <input type="radio"  name="ic_pago_sim_nao" value="sim" /> Pago
+                        <input type="radio"  name="ic_pago_sim_nao" value="sim" required /> Pago
                     </label>
                     <label class="radio-inline">
-                        <input type="radio"  name="ic_pago_sim_nao" value="nao" /> Não pago
+                        <input type="radio"  name="ic_pago_sim_nao" value="nao" required checked /> Não pago
                     </label>
                 </div>
             </div>
             <div class="form-group">
                 <label for="vl_movimentacao" class="col-md-4 control-label">Valor movimentação</label>
                 <div class="col-md-6">
-                    <input type="text" class="form-control"  name="vl_movimentacao" value="0,0" />
+                    <input type="text" class="form-control"  name="vl_movimentacao" value="0,00" required data-dinheiro="true" />
                 </div>
             </div>
             <div class="form-group">
@@ -86,10 +87,10 @@
                 <label for="ic_recorrente_sim_nao" class="col-md-4 control-label">Movimentação recorrente</label>
                 <div class="col-md-6">
                     <label class="radio-inline">
-                        <input type="radio"  name="ic_recorrente_sim_nao" value="sim" /> Sim
+                        <input type="radio"  name="ic_recorrente_sim_nao" value="sim" required /> Sim
                     </label>
                     <label class="radio-inline">
-                        <input type="radio"  name="ic_recorrente_sim_nao" value="nao" /> Não
+                        <input type="radio"  name="ic_recorrente_sim_nao" value="nao" required checked /> Não
                     </label>
                 </div>
             </div>

@@ -14,5 +14,9 @@
 // Bootstrap
 @import "../../../public/css/introjs.css";
 
+// PickerDate
+@import "../../../node_modules/pickadate/lib/themes/classic.css";
+@import "../../../node_modules/pickadate/lib/themes/classic.date.css";
+
 // Raiz do sistema
 @import "./template_public.scss";
