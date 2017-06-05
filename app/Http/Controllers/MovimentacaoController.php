@@ -61,7 +61,7 @@ class MovimentacaoController extends Controller
         $movimentacao->dt_movimentacao = $request->dt_movimentacao;
         $movimentacao->cd_nf_movimentacao = $request->cd_nf_movimentacao;
         $movimentacao->ic_pago_sim_nao = $request->ic_pago_sim_nao;
-        $movimentacao->vl_movimentacao = (float) $request->vl_movimentacao;
+        $movimentacao->vl_movimentacao = money2float($request->vl_movimentacao);
         $movimentacao->ds_movimentacao = $request->ds_movimentacao;
         $movimentacao->ic_recorrente_sim_nao = $request->ic_recorrente_sim_nao;
         $movimentacao->dt_registro_movimentacao = date('Y-m-d H:i:s');
@@ -130,7 +130,7 @@ class MovimentacaoController extends Controller
         $movimentacao->dt_movimentacao = $request->dt_movimentacao;
         $movimentacao->cd_nf_movimentacao = $request->cd_nf_movimentacao;
         $movimentacao->ic_pago_sim_nao = $request->ic_pago_sim_nao;
-        $movimentacao->vl_movimentacao = (float) $request->vl_movimentacao;
+        $movimentacao->vl_movimentacao = money2float($request->vl_movimentacao);
         $movimentacao->ds_movimentacao = $request->ds_movimentacao;
         $movimentacao->ic_recorrente_sim_nao = $request->ic_recorrente_sim_nao;
         $movimentacao->cd_conta = $request->cd_conta;
