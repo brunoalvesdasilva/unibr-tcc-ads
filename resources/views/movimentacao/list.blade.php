@@ -12,6 +12,12 @@
             <a href="/movimentacao/create" class="btn btn-default">Novo Registro</a>
         </div>
     </div>
+
+    @if(Session::has('message'))
+        <div class="alert alert-success">
+            {{ Session::get('message') }}
+        </div>
+    @endif
         
     <table class="table table-striped table-hovered table-condesend">
         <thead>
@@ -21,43 +27,26 @@
                 <th>Nome</th>
                 <th>Data</th>
                 <th>Valor</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
+            @forelse($listaMovimentacoes as $movimentacao)
             <tr>
-                <td>#</td>
-                <td>Tipo</td>
-                <td>Nome</td>
-                <td>Data</td>
-                <td>$</td>
-                <td>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Ver <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Excluir</a></li>
-                        </ul>
-                    </div>
-                </td>
+                <td>{{$movimentacao->cd_movimentacao}}</td>
+                <td>{{$movimentacao->conta->nm_conta}}</td>
+                <td>{{$movimentacao->nm_movimentacao}}</td>
+                <td>{{$movimentacao->dt_movimentacao->format('d/m/Y')}}</td>
+                <td>{{dinheiro($movimentacao->vl_movimentacao)}}</td>
+                <td><a href="/movimentacao/{{$movimentacao->cd_movimentacao}}" type="button" class="btn btn-default">Ver</a></td>
             </tr>
+        @empty
             <tr>
-                <td>#</td>
-                <td>Tipo</td>
-                <td>Nome</td>
-                <td>Data</td>
-                <td>$</td>
-                <td>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Ver <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Excluir</a></li>
-                        </ul>
-                    </div>
-                </td>
+                <td colspan="6" class="aling-center">
+                    Não há movimentações cadastradas
+                </div>
             </tr>
+        @endforelse
         </tbody>
     </table>
 @stop
