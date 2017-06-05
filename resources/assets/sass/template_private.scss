@@ -1,0 +1,84 @@
+body{
+    /*background-image: linear-gradient(180deg, #ca2100, white);*/
+    background-image: url("/img/0/background-barra.png");
+    background-repeat: repeat-x;
+    height: 100%;
+    font-family: 'Lato', sans-serif;
+}
+
+.layout-logon{
+    width: 500px;
+    margin: 120px auto 0 auto;
+    bottom: 0;
+    background: #FFF;
+    border-collapse: separate;
+    /*box-shadow: 0 0 10px 0 rgba(0,0,0,0.7),0 0 20px 0 rgba(0,0,0,0.5);*/
+    -webkit-box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.75);
+    
+    
+    padding: 0;
+    
+    .layout-conteudo{
+        width: 100%;
+        padding: 0 10px;
+    }
+    
+    &:before,
+    &:after {
+      content: " ";
+      display: table;
+    }
+
+    &:after {
+      clear: both;
+    }
+}
+
+@media screen and (max-width: 768px) {
+  .layout-logon{
+    width: 300px;
+  }
+}
+
+// Componentes
+.component-perfil{
+
+    padding-top: 1px;
+    background: #EB191E;
+    height: 100px;
+
+    .media {
+        margin: 20px 5px;
+        font-size: 12px;
+        color: #EEE;
+        
+        h1{
+            font-size: 18px;
+            color: #FFF;
+        }
+        
+        a {
+            background: #FFF;
+        }
+    
+        img {
+            border: 1px solid #CCC;
+            width: 60px;
+        }
+    }
+}
+
+.component-title {
+
+    padding-left: 25px;
+    margin-bottom: 20px;
+    width: 100%;
+    border-bottom: 1px solid #CCC;
+    
+    h1 {
+        font-size: 16px;
+        font-weight: bold;
+    }
+}

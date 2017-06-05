@@ -1,57 +1,52 @@
-@extends('layout/public')
-@section('content')
-    <div class="component-title">
-        <h1>Página Inicial</h1>
-    </div>
+<!DOCTYPE html>
+<html lang="{{ config('app.locale') }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <title>Autenticação</title>
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <link href="/css/app.css?{{time()}}" rel="stylesheet" type="text/css">        
+    </head>
+    <body>
         
-    <div class="component-barra-menu">
-        <div class="btn-group pull-right" role="group">
-            <button type="button" class="btn btn-default">PDF</button>
-            <button type="button" class="btn btn-default">Atualizar</button>
-            <button type="button" class="btn btn-default">Novo Registro</button>
+        <div class="layout-logon">
+            
+            <div class="layout-conteudo">
+                <div class="component-title">
+                    <h1>Olá! Para continuar, digite o seu e-mail e senha</h1>
+                </div>
+                
+                <form class="form-horizontal" action="/" method="POST">
+                    <div class="form-group">
+                        <label for="nm_email" class="col-md-4 control-label">E-mail</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control"  name="nm_email" placeholder="E-mail" required />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="nm_senha" class="col-md-4 control-label">Senha</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control"  name="nm_senha" placeholder="Senha" required />
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-8">
+                            <button type="button" class="btn btn-primary btn-lg btn-block">Autenticar</button>
+                        </div>
+                    </div>
+                </form>
+                
+            </div>
+        
         </div>
-    </div>
         
-    <table class="table table-striped table-hovered table-condesend">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Nome</th>
-                <th>Data de cadastro</th>
-                <th>Ação</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>#</td>
-                <td>Nome</td>
-                <td>Data de cadastro</td>
-                <td>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-default dropdown-toggle">
-                        Ver <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                        <li><a href="#">Excluir</a></li>
-                        </ul>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>#</td>
-                <td>Nome</td>
-                <td>Data de cadastro</td>
-                <td>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-default dropdown-toggle">
-                        Ver <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                        <li><a href="#">Excluir</a></li>
-                        </ul>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-@stop
+        
+        <script src="/js/app.js?{{time()}}" type="text/javascript"></script>
+        <script src="/js/intro.js?{{time()}}" type="text/javascript"></script>
+    </body>
+</html>
