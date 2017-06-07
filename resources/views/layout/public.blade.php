@@ -19,17 +19,17 @@
                 
                 <div class="component-perfil">
                     
+                    <a href="#" class="">
                     <div class="media">
                         <div class="media-left">
-                            <a href="#"  class="">
-                                <img class="media-object img-circle" src="/img/1/avatar.png" alt="Clique para mudar a sua foto">
-                            </a>
+                            <img class="media-object img-circle" src="/img/1/avatar.png" alt="Clique para mudar a sua foto">
                         </div>
                         <div class="media-body">
                             <h4 class="media-heading">Pedro pedroso</h4>
                             pedro@pedroso.com.br
                         </div>
                     </div>
+                    </a>
                     
                 </div>
                 
