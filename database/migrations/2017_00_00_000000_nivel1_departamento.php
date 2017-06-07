@@ -21,7 +21,6 @@ class Nivel1Departamento extends Migration
             $table->string('nm_departamento', 50);
             
             // default
-            $table->timestamps();
         });
         Schema::enableForeignKeyConstraints();
     }
@@ -33,6 +32,8 @@ class Nivel1Departamento extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('departamento');
+        Schema::enableForeignKeyConstraints();
     }
 }
