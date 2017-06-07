@@ -14,7 +14,7 @@ class Nivel1Servico extends Migration
     public function up()
     {
         Schema::disableForeignKeyConstraints();
-            Schema::create('servico', function (Blueprint $table) {
+        Schema::create('servico', function (Blueprint $table) {
             
             // Básico
             $table->increments('cd_servico');
@@ -35,6 +35,8 @@ class Nivel1Servico extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('servico');
+        Schema::enableForeignKeyConstraints();
     }
 }
