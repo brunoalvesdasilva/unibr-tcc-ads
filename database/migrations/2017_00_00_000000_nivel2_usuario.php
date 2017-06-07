@@ -13,7 +13,7 @@ class Nivel2Usuario extends Migration
      */
     public function up()
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        Schema::disableForeignKeyConstraints();
         Schema::create('usuario', function (Blueprint $table) {
             
             // Básico
@@ -27,10 +27,8 @@ class Nivel2Usuario extends Migration
             $table->foreign('cd_departamento')->references('cd_departamento')->on('departamento');
             
             // Defaults
-            $table->rememberToken();
-            $table->timestamps();
         });
-        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        Schema::enableForeignKeyConstraints();
     }
 
     /**
@@ -40,6 +38,8 @@ class Nivel2Usuario extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('usuario');
+        Schema::enableForeignKeyConstraints();
     }
 }
