@@ -29,13 +29,13 @@ class UsuarioController extends Controller
     public function create()
     {
 		// Lista de departamento
-        $departamento = array();
+        $departamentos = array();
         foreach(Departamento::all() as $departamento){
-            $departamento[$departamento->cd_departamento] = $departamento->nm_departamento;
+            $departamentos[$departamento->cd_departamento] = $departamento->nm_departamento;
         }
         
         //
-        return view("{$this->nameFolder}/create", ['departamento'=>$departamento]);
+        return view("{$this->nameFolder}/create", ['departamentos'=>$departamentos]);
     }
 
     /**
@@ -94,12 +94,12 @@ class UsuarioController extends Controller
         $usuario = Usuario::find($id);
 		
 		// Lista de departamento
-        $departamento = array();
+        $departamentos = array();
         foreach(Departamento::all() as $departamento){
-            $contas[$departamento->cd_departamento] = $departamento->nm_departamento;
+            $departamentos[$departamento->cd_departamento] = $departamento->nm_departamento;
         }
         
-        return view("{$this->nameFolder}/edit", ["usuario"=>$usuario, 'departamento'=>$departamento]);
+        return view("{$this->nameFolder}/edit", ["usuario"=>$usuario, 'departamentos'=>$departamentos]);
     }
   
     /**

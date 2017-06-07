@@ -43,7 +43,7 @@
 			<div class="form-group">
                 <label for="cd_departamento" class="col-md-4 control-label">Departamento</label>
                 <div class="col-md-6">
-                    {{Form::select('cd_departamento', $departamento, NULL, ['class' => 'form-control'])}}
+                    {{Form::select('cd_departamento', $departamentos, NULL,['class' => 'form-control'])}}
                 </div>
             </div>
             <div class="form-group">
