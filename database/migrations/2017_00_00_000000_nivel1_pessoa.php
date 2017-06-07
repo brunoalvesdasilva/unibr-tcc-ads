@@ -24,7 +24,6 @@ class Nivel1Pessoa extends Migration
             $table->enum('nm_fornecedor_pessoa',['sim','nao']);
             
             // Defaults
-            $table->timestamps();
         });
         Schema::enableForeignKeyConstraints();
     }
@@ -36,6 +35,8 @@ class Nivel1Pessoa extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('pessoa');
+        Schema::enableForeignKeyConstraints();
     }
 }
