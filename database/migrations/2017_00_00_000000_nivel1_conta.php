@@ -39,6 +39,8 @@ class Nivel1Conta extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('conta');
+        Schema::enableForeignKeyConstraints();
     }
 }
