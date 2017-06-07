@@ -27,7 +27,6 @@ class Nivel3Log extends Migration
             $table->foreign('cd_usuario')->references('cd_usuario')->on('usuario');
             
             // Defaults
-            $table->timestamps();
         });
         Schema::enableForeignKeyConstraints();
     }
@@ -39,6 +38,8 @@ class Nivel3Log extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('log');
+        Schema::enableForeignKeyConstraints();
     }
 }
