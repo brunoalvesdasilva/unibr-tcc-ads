@@ -27,7 +27,6 @@ class Nivel1Conta extends Migration
             $table->enum('nm_tipo_conta',['corrente','caixa','poupanca','cartao','investimento','outras']);
             
             // Defaults
-            $table->timestamps();
         });
         Schema::enableForeignKeyConstraints();
     }
