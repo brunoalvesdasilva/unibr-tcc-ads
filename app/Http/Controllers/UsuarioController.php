@@ -15,9 +15,10 @@ class UsuarioController extends Controller
      */
     public function index()
     {
+        // Recupera todos os usuários
         $usuario = Usuario::all();
         
-        //
+        // Página de listagem
         return view("{$this->nameFolder}/list", ["listaUsuario"=>$usuario]);
     }
 
@@ -28,13 +29,13 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-		// Lista de departamento
+        // Lista de departamento
         $departamento = array();
         foreach(Departamento::all() as $departamento){
             $departamento[$departamento->cd_departamento] = $departamento->nm_departamento;
         }
         
-        //
+        // Formulário de criação
         return view("{$this->nameFolder}/create", ['departamento'=>$departamento]);
     }
 
@@ -48,11 +49,11 @@ class UsuarioController extends Controller
     {
         // Valida
         $this->validate($request, 
-		[
+        [
             'nm_usuario' => 'required',
-			'nm_email' => 'required',
-			'nm_senha' => 'required',
-			'cd_departamento' => 'required',
+            'nm_email' => 'required',
+            'nm_senha' => 'required',
+            'cd_departamento' => 'required',
 
         ]);
         
@@ -60,9 +61,9 @@ class UsuarioController extends Controller
         $usuario = new Usuario();
         $usuario->nm_usuario = $request->nm_usuario;
         $usuario->nm_email = $request->nm_email;
-		$usuario->nm_senha = $request->nm_senha;
-		$usuario->cd_departamento = $request->cd_departamento;
-		$usuario->save();
+        $usuario->nm_senha = $request->nm_senha;
+        $usuario->cd_departamento = $request->cd_departamento;
+        $usuario->save();
         
         // Redireciona
         return redirect('usuario')->with('message', 'Usuario salvo com sucesso!');
@@ -76,9 +77,10 @@ class UsuarioController extends Controller
      */
     public function show($id)
     {
-        //
+        // Recupera um registro
         $usuario = Usuario::find($id);
         
+        // Formulário de visualização
         return view("{$this->nameFolder}/show", ["usuario"=>$usuario]);
     }
 
@@ -92,8 +94,8 @@ class UsuarioController extends Controller
     {
         //Usuario
         $usuario = Usuario::find($id);
-		
-		// Lista de departamento
+        
+        // Lista de departamento
         $departamento = array();
         foreach(Departamento::all() as $departamento){
             $contas[$departamento->cd_departamento] = $departamento->nm_departamento;
@@ -113,18 +115,18 @@ class UsuarioController extends Controller
     {
         // Valida
         $this->validate($request, [
-			'nm_usuario' => 'required',
-			'nm_email' => 'required',
-			'nm_senha' => 'required',
-			'cd_departamento' => 'required',
+            'nm_usuario' => 'required',
+            'nm_email' => 'required',
+            'nm_senha' => 'required',
+            'cd_departamento' => 'required',
         ]);
         
         // Adiciona e salva
         $usuario = Usuario::find($id);
         $usuario->nm_usuario = $request->nm_usuario;
-		$usuario->nm_email = $request->nm_email;
-		$usuario->nm_senha = $request->nm_senha;
-		$usuario->cd_departamento = $request->cd_departamento;
+        $usuario->nm_email = $request->nm_email;
+        $usuario->nm_senha = $request->nm_senha;
+        $usuario->cd_departamento = $request->cd_departamento;
         $usuario->save();
         
         // Redireciona
