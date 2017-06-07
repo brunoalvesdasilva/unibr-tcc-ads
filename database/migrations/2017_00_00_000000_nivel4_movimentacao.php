@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -46,6 +46,8 @@ class Nivel4Movimentacao extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('movimentacao');
+        Schema::enableForeignKeyConstraints();
     }
 }
