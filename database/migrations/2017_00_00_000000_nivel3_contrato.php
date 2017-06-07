@@ -30,7 +30,6 @@ class Nivel3Contrato extends Migration
             $table->foreign('cd_cliente')->references('cd_cliente')->on('cliente');
             
             // Default
-            $table->timestamps();
         });
         Schema::enableForeignKeyConstraints();
     }
@@ -42,6 +41,8 @@ class Nivel3Contrato extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('contrato');
+        Schema::enableForeignKeyConstraints();
     }
 }
