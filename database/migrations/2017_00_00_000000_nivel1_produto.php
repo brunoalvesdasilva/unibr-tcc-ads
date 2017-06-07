@@ -27,7 +27,6 @@ class Nivel1Produto extends Migration
             $table->integer('qt_estoque_produto');
             
             // Default
-            $table->timestamps();
         });
         Schema::enableForeignKeyConstraints();
     }
@@ -39,6 +38,8 @@ class Nivel1Produto extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('produto');
+        Schema::enableForeignKeyConstraints();
     }
 }
