@@ -28,7 +28,7 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-		// Lista de departamento
+        // Lista de departamento
         $departamentos = array();
         foreach(Departamento::all() as $departamento){
             $departamentos[$departamento->cd_departamento] = $departamento->nm_departamento;
@@ -48,11 +48,11 @@ class UsuarioController extends Controller
     {
         // Valida
         $this->validate($request, 
-		[
+        [
             'nm_usuario' => 'required',
-			'nm_email' => 'required',
-			'nm_senha' => 'required',
-			'cd_departamento' => 'required',
+            'nm_email' => 'required',
+            'nm_senha' => 'required',
+            'cd_departamento' => 'required',
 
         ]);
         
@@ -60,9 +60,9 @@ class UsuarioController extends Controller
         $usuario = new Usuario();
         $usuario->nm_usuario = $request->nm_usuario;
         $usuario->nm_email = $request->nm_email;
-		$usuario->nm_senha = $request->nm_senha;
-		$usuario->cd_departamento = $request->cd_departamento;
-		$usuario->save();
+        $usuario->nm_senha = $request->nm_senha;
+        $usuario->cd_departamento = $request->cd_departamento;
+        $usuario->save();
         
         // Redireciona
         return redirect('usuario')->with('message', 'Usuario salvo com sucesso!');
@@ -92,8 +92,8 @@ class UsuarioController extends Controller
     {
         //Usuario
         $usuario = Usuario::find($id);
-		
-		// Lista de departamento
+        
+        // Lista de departamento
         $departamentos = array();
         foreach(Departamento::all() as $departamento){
             $departamentos[$departamento->cd_departamento] = $departamento->nm_departamento;
@@ -101,7 +101,8 @@ class UsuarioController extends Controller
         
         return view("{$this->nameFolder}/edit", ["usuario"=>$usuario, 'departamentos'=>$departamentos]);
     }
-  
+
+
     /**
      * Update the specified resource in storage.
      *
@@ -112,19 +113,21 @@ class UsuarioController extends Controller
     public function update(Request $request, $id)
     {
         // Valida
-        $this->validate($request, [
-			'nm_usuario' => 'required',
-			'nm_email' => 'required',
-			'nm_senha' => 'required',
-			'cd_departamento' => 'required',
+        $this->validate($request, 
+        [
+            'nm_usuario' => 'required',
+            'nm_email' => 'required',
+            'nm_senha' => 'required',
+            'cd_departamento' => 'required',
+
         ]);
         
         // Adiciona e salva
         $usuario = Usuario::find($id);
         $usuario->nm_usuario = $request->nm_usuario;
-		$usuario->nm_email = $request->nm_email;
-		$usuario->nm_senha = $request->nm_senha;
-		$usuario->cd_departamento = $request->cd_departamento;
+        $usuario->nm_email = $request->nm_email;
+        $usuario->nm_senha = $request->nm_senha;
+        $usuario->cd_departamento = $request->cd_departamento;
         $usuario->save();
         
         // Redireciona

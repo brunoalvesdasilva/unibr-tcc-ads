@@ -17,11 +17,11 @@ class Nivel1Pessoa extends Migration
         Schema::create('pessoa', function (Blueprint $table) {
             
             // Básico
-            $table->increments('cd_pessoa');
-            $table->string('nm_pessoa', 50);
-            $table->enum('nm_tipo_pessoa',['juridica','fisica']);
-            $table->enum('nm_cliente_pessoa',['sim','nao']);
-            $table->enum('nm_fornecedor_pessoa',['sim','nao']);
+            $table->increments('cd_pessoa')->comment('Campo auto-incremento,não nulo,maior que zero,chave primaria');
+            $table->string('nm_pessoa', 50)->comment('Nome Pessoa');
+            $table->enum('nm_tipo_pessoa',['juridica','fisica'])->comment('Tipo da Pessoa');
+            $table->enum('nm_cliente_pessoa',['sim','nao'])->comment('Nome Social Pessoa Fisica');
+            $table->enum('nm_fornecedor_pessoa',['sim','nao'])->comment('Nome Razao Social Pessoa Juridica');
             
             // Defaults
         });
