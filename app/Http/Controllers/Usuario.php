@@ -11,6 +11,17 @@ class Usuario extends Model
     // Chave primário
     protected $primaryKey = 'cd_usuario';
     
+    // Removendo os campos de tempo
+    public $timestamps = false;
+    
+    /**
+     * Relacionamento hasOne
+     * Departamento
+     */
+    public function departamento(){
+        return $this->belongsTo('App\Http\Controllers\Departamento', 'cd_departamento', 'cd_departamento');
+    }
+    
     /**
      * The attributes that should be mutated to dates.
      *
