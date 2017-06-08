@@ -1,6 +1,6 @@
 @extends('layout/public')
 @section('content')
-    <div class="component-title" data-intro='Nessa tela você irá editar um departamento já cadastrado no sistema.'>
+    <div class="component-title" data-intro='Nessa tela você irá editar um usuario já cadastrado no sistema.'>
         <h1>Edição do usuario</h1>
     </div>
 
@@ -9,6 +9,12 @@
             <a href="#/usuario/help" class="btn btn-default btn-help" data-intro='Clique aqui para ter uma ajuda igual a essa na página.'>Ajuda</a>
         </div>
     </div>
+    
+     @if(Session::has('message'))
+        <div class="alert alert-success">
+            {{ Session::get('message') }}
+        </div>
+    @endif
 
     @if (count($errors) > 0)
         <div class="alert alert-danger">
@@ -39,6 +45,12 @@
                 <label for="nm_email" class="col-md-4 control-label">Email :</label>
                 <div class="col-md-6">
                     <input type="email" class="form-control" id="nm_email" name="nm_email" placeholder="Email do usuario" value="{{$usuario->nm_email}}" required/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="cd_departamento" class="col-md-4 control-label">Departamento</label>
+                <div class="col-md-6">
+                    {{Form::select('cd_departamento', $departamentos, NULL,['class' => 'form-control'])}}
                 </div>
             </div>
             <div class="form-group">

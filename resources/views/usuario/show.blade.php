@@ -25,6 +25,18 @@
                 <dt>Nome:</dt>
                 <dd>{{$usuario->nm_usuario}}</dd>
             </dl>
+            <dl class="dl-horizontal">
+                <dt>Email:</dt>
+                <dd>{{$usuario->nm_email}}</dd>
+            </dl>
+            <dl class="dl-horizontal">
+                <dt>Senha:</dt>
+                <dd>{{$usuario->nm_senha}}</dd>
+            </dl>
+            <dl class="dl-horizontal">
+                <dt>Codigo do Departamento:</dt>
+                <dd>{{$usuario->cd_departamento}}</dd>
+            </dl>
         </div>
         </div>
     </div>

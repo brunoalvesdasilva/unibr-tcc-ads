@@ -15,10 +15,10 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        // Recupera todos os usuários
+        // Recupera todos os usuÃ¡rios
         $usuario = Usuario::all();
         
-        // Página de listagem
+        // PÃ¡gina de listagem
         return view("{$this->nameFolder}/list", ["listaUsuario"=>$usuario]);
     }
 
@@ -30,13 +30,12 @@ class UsuarioController extends Controller
     public function create()
     {
         // Lista de departamento
-        $departamento = array();
+        $departamentos = array();
         foreach(Departamento::all() as $departamento){
-            $departamento[$departamento->cd_departamento] = $departamento->nm_departamento;
+            $departamentos[$departamento->cd_departamento] = $departamento->nm_departamento;
         }
-        
-        // Formulário de criação
-        return view("{$this->nameFolder}/create", ['departamento'=>$departamento]);
+        //
+        return view("{$this->nameFolder}/create", ['departamentos'=>$departamentos]);
     }
 
     /**
@@ -80,7 +79,7 @@ class UsuarioController extends Controller
         // Recupera um registro
         $usuario = Usuario::find($id);
         
-        // Formulário de visualização
+        // FormulÃ¡rio de visualizaÃ§Ã£o
         return view("{$this->nameFolder}/show", ["usuario"=>$usuario]);
     }
 
@@ -96,14 +95,15 @@ class UsuarioController extends Controller
         $usuario = Usuario::find($id);
         
         // Lista de departamento
-        $departamento = array();
+        $departamentos = array();
         foreach(Departamento::all() as $departamento){
-            $contas[$departamento->cd_departamento] = $departamento->nm_departamento;
+            $departamentos[$departamento->cd_departamento] = $departamento->nm_departamento;
         }
         
-        return view("{$this->nameFolder}/edit", ["usuario"=>$usuario, 'departamento'=>$departamento]);
+        return view("{$this->nameFolder}/edit", ["usuario"=>$usuario, 'departamentos'=>$departamentos]);
     }
-  
+
+
     /**
      * Update the specified resource in storage.
      *
@@ -114,7 +114,8 @@ class UsuarioController extends Controller
     public function update(Request $request, $id)
     {
         // Valida
-        $this->validate($request, [
+        $this->validate($request, 
+        [
             'nm_usuario' => 'required',
             'nm_email' => 'required',
             'nm_senha' => 'required',
