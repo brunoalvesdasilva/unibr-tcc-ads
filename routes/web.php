@@ -22,3 +22,7 @@ Route::get('/{app}', function ($app) {
 Route::get('/{app}/{router}', function ($app, $router="list") {
     return view("$app/$router");
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
