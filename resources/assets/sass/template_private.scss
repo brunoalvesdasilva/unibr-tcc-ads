@@ -17,7 +17,6 @@ body{
     -moz-box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.75);
     box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.75);
     
-    
     padding: 0;
     
     .layout-conteudo{
@@ -48,24 +47,49 @@ body{
     padding-top: 1px;
     background: #EB191E;
     height: 100px;
+        
+    a {
+        color: #FFF;
+        display: block;
+    }
+    
+    a:hover {
+        text-decoration: none;
+        color: #FFF;
+    }
+    
+    a:hover::after {
+        content: 'Altera meus dados';
+        display: block;
+        position: relative;
+        top: -34px;
+        left: 80px;
+        font-weight: bold;
+    }
 
     .media {
         margin: 20px 5px;
         font-size: 12px;
         color: #EEE;
         
-        h1{
+        h1 {
             font-size: 18px;
             color: #FFF;
-        }
-        
-        a {
-            background: #FFF;
         }
     
         img {
             border: 1px solid #CCC;
             width: 60px;
+        }
+        
+        .media-left {
+            padding: 2px;
+            background: #FFF;
+            border-radius: 50%;
+        }
+        
+        .media-body {
+            padding-left: 10px;
         }
     }
 }
