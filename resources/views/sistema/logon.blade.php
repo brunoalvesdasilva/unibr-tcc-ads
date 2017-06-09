@@ -14,11 +14,27 @@
     <body>
         
         <div class="layout-logon">
+        
+            @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
             
             <div class="layout-conteudo">
                 <div class="component-title">
                     <h1>Olá! Para continuar, digite o seu e-mail e senha</h1>
                 </div>
+            
+                @if(Session::has('message'))
+                    <div class="alert alert-warning">
+                        {{ Session::get('message') }}
+                    </div>
+                @endif
                 
                 <form class="form-horizontal" action="/" method="POST">
                     <div class="form-group">
@@ -30,13 +46,15 @@
                     <div class="form-group">
                         <label for="nm_senha" class="col-md-4 control-label">Senha</label>
                         <div class="col-md-6">
-                            <input type="text" class="form-control"  name="nm_senha" placeholder="Senha" required />
+                            <input type="password" class="form-control"  name="nm_senha" placeholder="Senha" required />
                         </div>
                     </div>
                     
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-8">
-                            <button type="button" class="btn btn-primary btn-lg btn-block">Autenticar</button>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">Autenticar</button>
+                            {{ csrf_field() }}
+                            {{ method_field('POST') }}
                         </div>
                     </div>
                 </form>

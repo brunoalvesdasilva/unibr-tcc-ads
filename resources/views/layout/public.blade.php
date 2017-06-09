@@ -25,8 +25,8 @@
                             <img class="media-object img-circle" src="/img/1/avatar.png" alt="Clique para mudar a sua foto">
                         </div>
                         <div class="media-body">
-                            <h4 class="media-heading">Pedro pedroso</h4>
-                            pedro@pedroso.com.br
+                            <h4 class="media-heading">{{Session::get('user_name')}}</h4>
+                            {{Session::get('user_email')}}
                         </div>
                     </div>
                     </a>
@@ -35,7 +35,10 @@
                 
                 <nav class="component-menu">
                 <ul>
-                    <li><a href="/"><i class="icon icon-home"></i> Home</a></li>
+                    <li>
+                        <a href="/home" class='max'><i class="icon icon-home"></i> Home</a>
+                        <a href="/logout" class='min'><i class="icon icon-lock"></i> Sair</a>
+                    </li>
                     <li><a href="/chamado"><i class="icon icon-bubbles4"></i> Chamados</a></li>
                     <li><a href="/movimentacao"><i class="icon icon-files-empty"></i> Movimentações</a></li>
                     <li><a href="/contratos"><i class="icon icon-folder"></i> Contratos</a></li>
