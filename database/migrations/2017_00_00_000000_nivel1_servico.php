@@ -17,13 +17,12 @@ class Nivel1Servico extends Migration
         Schema::create('servico', function (Blueprint $table) {
             
             // Básico
-            $table->increments('cd_servico')->comment('Campo auto-incremento,não nulo,maior que zero,chave primaria');
+            $table->increments('cd_servico')->comment('Campo auto incremento, não nulo, maior que zero, chave primária');
             $table->string('nm_servico', 50)->comment('Nome do Serviço');
             $table->string('ds_servico',200)->comment('Descrição do Serviço');
             $table->float('vl_servico', 8,2)->comment('Valor do Serviço');
 
             // Default
-            $table->timestamps();
         });
         Schema::enableForeignKeyConstraints();
     }
