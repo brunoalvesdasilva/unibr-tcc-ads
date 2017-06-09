@@ -11,6 +11,17 @@ class Chamado extends Model
     // Chave primário
     protected $primaryKey = 'cd_chamado';
     
+    // Removendo os campos de tempo
+    public $timestamps = false;
+    
+    /**
+     * Relacionamento hasOne
+     * Contrato
+     */
+    public function contrato(){
+        return $this->belongsTo('App\Http\Controllers\Contrato', 'cd_contrato', 'cd_contrato');
+    }
+    
     /**
      * The attributes that should be mutated to dates.
      *
