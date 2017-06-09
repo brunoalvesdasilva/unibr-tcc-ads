@@ -10,16 +10,14 @@ Route::get('/home', function () {
     return view('sistema/home');
 });
 
-Route::group(['middleware' => 'usuario'], function () {
-    
-    Route::resource('produto', 'ProdutoController');
-    Route::resource('departamento', 'DepartamentoController');
-    Route::resource('servico', 'ServicoController');
-    Route::resource('conta', 'ContaController');
-    Route::resource('usuario', 'UsuarioController');
-    Route::resource('movimentacao', 'MovimentacaoController');
-    Route::resource('usuario','UsuarioController');
-
+Route::resource('produto', 'ProdutoController');
+Route::resource('departamento', 'DepartamentoController');
+Route::resource('servico', 'ServicoController');
+Route::resource('conta', 'ContaController');
+Route::resource('usuario', 'UsuarioController');
+Route::resource('movimentacao', 'MovimentacaoController');
+Route::resource('usuario','UsuarioController');
+Route::resource('chamado','ChamadoController');
 });
     
 Route::get('/icomoon', function () {
