@@ -1,14 +1,32 @@
 @extends('layout/public')
 @section('content')
-    <div class="component-title">
+      <div class="component-title" data-intro='Nessa tela você irá cadastrar um novo chamado no sistema.'>
         <h1>Cadastro de chamados</h1>
     </div>
 
     <div class="component-barra-menu">
         <div class="btn-group pull-right" role="group">
-            <a href="/chamado/help" class="btn btn-default">Ajuda</a>
+            <a href="#/chamado/help" class="btn btn-default btn-help" data-intro='Clique aqui para ter uma ajuda igual a essa na página.'>Ajuda</a>
+            <a href="/chamado/" class="btn btn-default" data-intro='Clique aqui para voltar na listagem de chamados.'>Listagem</a>
         </div>
     </div>
+    @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    
+        
+     @if(Session::has('message'))
+        <div class="alert alert-success">
+            {{ Session::get('message') }}
+        </div>
+    @endif
+    
     
     <div class="container-fluid">
         <div class="row">
@@ -33,15 +51,15 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="cd_contrato" class="col-md-4 control-label">Contrato :</label>
+                <label for="cd_contrato" class="col-md-4 control-label">Contrato</label>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" id="ds_servico" name="cd_contrato" placeholder="Contrato" />
+                    {{Form::select('cd_contrato', $contratos, NULL,['class' => 'form-control'])}}
                 </div>
             </div>
             <div class="form-group">
-                <label for="cd_responsavel" class="col-md-4 control-label">Responsavel pelo serviço :</label>
+                <label for="cd_usuario" class="col-md-4 control-label">Usuario Responsavel pelo Serviço</label>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" id="cd_responsavel" name="cd_responsavel" placeholder="Responsavel" />
+                    {{Form::select('cd_usuario', $usuarios, NULL,['class' => 'form-control'])}}
                 </div>
             </div>
             <div class="form-group">
