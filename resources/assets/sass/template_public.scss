@@ -102,8 +102,18 @@ body{
         transition: color .1s ease-in,background-color .1s ease-in;
     }
     
-    li:hover a{
+    li a:hover{
         background: #EBEBEB;
+    }
+    
+    a.max {
+        float: left;
+        width: 60%;
+    }
+    
+    a.min {
+        float: left;
+        width: 40%;
     }
 }
 
@@ -133,4 +143,27 @@ body{
 
 .component-preloader{
     margin: 10px 5px;
+}
+
+.component-counters{
+
+    margin-bottom: 20px;
+    
+    li{
+        width: 24%;
+    }
+
+    li a{
+        text-align: center;
+        font-size: 16px;
+    }
+
+    span {
+        font-size: 26px;
+        display:block;
+    }
+}
+
+.component-graph{
+    padding-bottom: 25px;
 }

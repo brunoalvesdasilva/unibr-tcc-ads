@@ -17,7 +17,7 @@ class Nivel1Departamento extends Migration
         Schema::create('departamento', function (Blueprint $table) {
             
             // Básico
-            $table->increments('cd_departamento')->comment('Campo auto-incremento,não nulo,maior que zero,chave primaria');
+            $table->increments('cd_departamento')->comment('Campo auto incremento, não nulo, maior que zero, chave primaria');
             $table->string('nm_departamento', 50)->comment('Nome do Departamento');
             
             // default
