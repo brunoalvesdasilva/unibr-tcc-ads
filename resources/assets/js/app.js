@@ -7,6 +7,7 @@
 // Jquery
 var $;
 $ = window.jQuery = require('jquery');
+import Chart from 'chart.js';
 
 // Bootstrap
 require('bootstrap-sass');
@@ -54,6 +55,65 @@ $(document).ready( function(){
     
     $("input[data-dinheiro]").each(function(indice, elm){
         $(elm).mask("#.##0,00", {reverse: true, placeholder: "0,00"});
+    });
+    
+    // Graficos da home
+    $("canvas#chamadosAbertos").each(function(indice, elm){
+        var Abertos = $(elm).data('abertos')*1;
+        var Fechados = $(elm).data('fechados')*1;
+        
+        var myChartChamadosAbertos = new Chart($(elm)[0].getContext("2d"), {
+            type: 'pie',
+            data: {
+                labels: ["Abertos", "Fechados"],
+                datasets: [{
+                    data: [Abertos, Fechados],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            }
+        });
+    });
+    
+    $("canvas#conflitoSaldo").each(function(indice, elm){
+        var Receitas = $(elm).data('receitas')*1;
+        var Despesas = $(elm).data('despesas')*1;
+        
+        var myChartConflitoSaldo = new Chart($(this)[0].getContext("2d"), {
+            type: 'bar',
+            data: {
+                labels: ["Receitas", "Despesas"],
+                datasets: [{
+                    label: '# Saldo em Dinheiro',
+                    data: [Receitas, Despesas],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                }
+            }
+        });
     });
 });
 
