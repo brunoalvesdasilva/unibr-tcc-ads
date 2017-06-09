@@ -10,6 +10,7 @@ Route::resource('conta', 'ContaController');
 Route::resource('usuario', 'UsuarioController');
 Route::resource('movimentacao', 'MovimentacaoController');
 Route::resource('usuario','UsuarioController');
+Route::resource('chamado','ChamadoController');
 
 Route::get('/icomoon', function () {
     return view('fonts');
