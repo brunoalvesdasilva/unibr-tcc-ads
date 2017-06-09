@@ -15,9 +15,10 @@ class UsuarioController extends Controller
      */
     public function index()
     {
+        // Recupera todos os usuários
         $usuario = Usuario::all();
         
-        //
+        // Página de listagem
         return view("{$this->nameFolder}/list", ["listaUsuario"=>$usuario]);
     }
 
@@ -33,7 +34,6 @@ class UsuarioController extends Controller
         foreach(Departamento::all() as $departamento){
             $departamentos[$departamento->cd_departamento] = $departamento->nm_departamento;
         }
-        
         //
         return view("{$this->nameFolder}/create", ['departamentos'=>$departamentos]);
     }
@@ -76,9 +76,10 @@ class UsuarioController extends Controller
      */
     public function show($id)
     {
-        //
+        // Recupera um registro
         $usuario = Usuario::find($id);
         
+        // Formulário de visualização
         return view("{$this->nameFolder}/show", ["usuario"=>$usuario]);
     }
 
@@ -119,7 +120,6 @@ class UsuarioController extends Controller
             'nm_email' => 'required',
             'nm_senha' => 'required',
             'cd_departamento' => 'required',
-
         ]);
         
         // Adiciona e salva
