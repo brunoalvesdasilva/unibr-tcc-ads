@@ -1,23 +1,24 @@
 <?php
-
 // Autenticação e Página
 Route::get('/', 'AutenticacaoController@index');
 Route::post('/', 'AutenticacaoController@logon');
 Route::get('/logout', 'AutenticacaoController@logout');
 
-
 Route::get('/home', function () {
     return view('sistema/home');
 });
 
-Route::resource('produto', 'ProdutoController');
-Route::resource('departamento', 'DepartamentoController');
-Route::resource('servico', 'ServicoController');
-Route::resource('conta', 'ContaController');
-Route::resource('usuario', 'UsuarioController');
-Route::resource('movimentacao', 'MovimentacaoController');
-Route::resource('usuario','UsuarioController');
-Route::resource('chamado','ChamadoController');
+Route::group(['middleware' => 'usuario'], function () {
+    
+    Route::resource('produto', 'ProdutoController');
+    Route::resource('departamento', 'DepartamentoController');
+    Route::resource('servico', 'ServicoController');
+    Route::resource('conta', 'ContaController');
+    Route::resource('usuario', 'UsuarioController');
+    Route::resource('movimentacao', 'MovimentacaoController');
+    Route::resource('usuario','UsuarioController');
+    Route::resource('chamado','ChamadoController');
+    
 });
     
 Route::get('/icomoon', function () {
