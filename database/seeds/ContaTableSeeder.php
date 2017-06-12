@@ -21,9 +21,7 @@ class ContaTableSeeder extends Seeder
             'vl_atual_conta' => 0,
             'dt_registro_conta' => date('Y-m-d H:i:s'),
             'nm_tipo_conta' => "caixa",
-        ]);
-        
-        DB::table('conta')->insert([
+        ],[
             'nm_conta' => "Poupança",
             'cd_agencia_conta' => "0002",
             'cd_numero_conta' => "0002",
