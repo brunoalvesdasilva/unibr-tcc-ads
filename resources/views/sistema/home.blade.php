@@ -14,10 +14,10 @@
     
     <div class="col-md-12 col-xs-12">
         <ul class="nav nav-pills component-counters" role="tablist">
-            <li role="presentation" class="active"><a href="#">Chamados Abertos<span>45</span></a></li>
-            <li role="presentation" class="active"><a href="#">Contratos Iniciados<span>45</span></a></li>
-            <li role="presentation" class="active"><a href="#">Produtos em Estoque<span>45</span></a></li>
-            <li role="presentation" class="active"><a href="#">Usuários cadastrados<span>45</span></a></li>
+            <li role="presentation" class="active"><a href="#">Chamados Abertos<span>{{$countChamado}}</span></a></li>
+            <li role="presentation" class="active"><a href="#">Contratos Iniciados<span>{{$countContratos}}</span></a></li>
+            <li role="presentation" class="active"><a href="#">Produtos em Estoque<span>{{$countProdutos}}</span></a></li>
+            <li role="presentation" class="active"><a href="#">Usuários cadastrados<span>{{$countUsuarios}}</span></a></li>
         </ul>
     </div>
         
@@ -29,7 +29,7 @@
         
         <div class="col-md-6 col-xs-12">
             <h3 class="text-center">Entrada x Saídas</h3>
-            <canvas id="conflitoSaldo" height="300" data-receitas="500" data-despesas="100"></canvas>
+            <canvas id="conflitoSaldo" height="300" data-receitas="{{$sumReceitas}}" data-despesas="{{$sumDespesas}}"></canvas>
         </div>
     </div>
     </div>

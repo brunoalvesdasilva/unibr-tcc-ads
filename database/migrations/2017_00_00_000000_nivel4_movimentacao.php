@@ -22,7 +22,7 @@ class Nivel4Movimentacao extends Migration
             $table->enum('ic_tipo_movimentacao', ['debito', 'credito'])->comment('Indicador tipo da movimentação');
             $table->date('dt_movimentacao')->comment('Data da Movimentação');
 
-            $table->integer('cd_nf_movimentacao')->comment('Código nota fiscal da movimentação');
+            $table->integer('cd_nf_movimentacao')->nullable()->comment('Código nota fiscal da movimentação');
             $table->dateTime('dt_registro_movimentacao')->comment('Data do registro da movimentação');
             $table->enum('ic_pago_sim_nao', ['sim', 'nao'])->comment('Indicador movimentação paga, sim-nao');
             $table->float('vl_movimentacao', 8,2)->comment('Valor da movimentação');

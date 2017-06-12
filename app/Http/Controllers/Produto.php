@@ -10,6 +10,9 @@ class Produto extends Model
     
     // Chave primário
     protected $primaryKey = 'cd_produto';
+
+    // Removendo os campos de tempo
+    public $timestamps = false;
     
     /**
      * The attributes that should be mutated to dates.

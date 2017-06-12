@@ -24,7 +24,7 @@
             <tr>
                 <th>#</th>
                 <th>Nome</th>
-                <th>Data de cadastro</th>
+                <th>Valor</th>
                 <th>Ação</th>
             </tr>
         </thead>
@@ -33,7 +33,7 @@
             <tr>
                 <td>{{$produto->cd_produto}}</td>
                 <td>{{$produto->nm_produto}}</td>
-                <td>{{$produto->created_at->format('d/m/Y')}}</td>
+                <td>{{dinheiro($produto->vl_produto)}}</td>
                 <td><a href="/produto/{{$produto->cd_produto}}" type="button" class="btn btn-default">Ver</a></td>
             </tr>
             @empty
