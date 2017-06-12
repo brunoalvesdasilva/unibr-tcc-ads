@@ -3,9 +3,11 @@
 Route::get('/', 'AutenticacaoController@index');
 Route::post('/', 'AutenticacaoController@logon');
 Route::get('/logout', 'AutenticacaoController@logout');
+Route::get('/home', 'HomeController@index');
 
-Route::get('/home', function () {
-    return view('sistema/home');
+Route::get('/home/{tema}', function ($tema='normal'){
+   \Session::put('sistema_tema', $tema);
+   return redirect('/home')->with('message', 'Tema alterado com sucesso!');
 });
 
 Route::group(['middleware' => 'usuario'], function () {
