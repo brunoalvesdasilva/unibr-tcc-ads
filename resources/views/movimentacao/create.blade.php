@@ -74,7 +74,7 @@
             <div class="form-group">
                 <label for="vl_movimentacao" class="col-md-4 control-label">Valor movimentação</label>
                 <div class="col-md-6">
-                    <input type="text" class="form-control"  name="vl_movimentacao" value="0,00" required data-dinheiro="true" />
+                    <input type="text" class="form-control"  name="vl_movimentacao" placeholder="0,00" required data-dinheiro="true" />
                 </div>
             </div>
             <div class="form-group">

@@ -17,8 +17,6 @@ class Nivel5ContratoServico extends Migration
         Schema::create('contrato_servico', function (Blueprint $table) {
             
             // Básico
-            $table->integer('cd_contrato')->comment('Campo auto incremento, não nulo, maior que zero, chave primaria');
-            $table->integer('cd_servico')->comment('Campo auto incremento, não nulo, maior que zero, chave primaria');
             
             // Chaves estrangeiras
             $table->integer('cd_contrato')->unsigned()->nullable()->comment('Campo não nulo, maior que zero, chave estrangeira, Tabela:Contrato/cd_contrato');
