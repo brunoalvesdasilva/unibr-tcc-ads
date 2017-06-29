@@ -44,14 +44,22 @@ class ProdutoController extends Controller
         $this->validate($request, [
             'nm_produto' => 'required',
             'ds_produto' => 'required',
+            'vl_produto' => 'required',
             'im_produto' => 'required',
+            'qt_minima_produto' => 'required',
+            'qt_maxima_produto' => 'required',
+            'qt_estoque_produto' => 'required',
         ]);
         
         // Adiciona e salva
         $produto = new Produto();
         $produto->nm_produto = $request->nm_produto;
         $produto->ds_produto = $request->ds_produto;
+        $produto->vl_produto = money2float($request->vl_produto);
         $produto->im_produto = $request->im_produto;
+        $produto->qt_minima_produto = $request->qt_minima_produto;
+        $produto->qt_maxima_produto = $request->qt_maxima_produto;
+        $produto->qt_estoque_produto = $request->qt_estoque_produto;
         $produto->save();
         
         // Redireciona
@@ -99,14 +107,22 @@ class ProdutoController extends Controller
         $this->validate($request, [
             'nm_produto' => 'required',
             'ds_produto' => 'required',
+            'vl_produto' => 'required',
             'im_produto' => 'required',
+            'qt_minima_produto' => 'required',
+            'qt_maxima_produto' => 'required',
+            'qt_estoque_produto' => 'required',
         ]);
         
         // Adiciona e salva
         $produto = Produto::find($id);
         $produto->nm_produto = $request->nm_produto;
         $produto->ds_produto = $request->ds_produto;
+        $produto->vl_produto = money2float($request->vl_produto);
         $produto->im_produto = $request->im_produto;
+        $produto->qt_minima_produto = $request->qt_minima_produto;
+        $produto->qt_maxima_produto = $request->qt_maxima_produto;
+        $produto->qt_estoque_produto = $request->qt_estoque_produto;
         $produto->save();
         
         // Redireciona

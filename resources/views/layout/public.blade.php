@@ -5,13 +5,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-        <title>Laravel</title>
+        <title>SIG - Sistema de Informações Gerenciais</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
         <link href="/css/app.css?{{time()}}" rel="stylesheet" type="text/css">        
     </head>
-    <body>
+    <body class="{{Session::get('sistema_tema')}}">
         
         <div class="layout-geral">
             
@@ -49,6 +49,11 @@
                     <li><a href="/servico"><i class="icon icon-hammer"></i> Serviços</a></li>
                     <li><a href="/departamento"><i class="icon icon-office"></i> Departamentos</a></li>
                     <li><a href="/usuario"><i class="icon icon-user-plus"></i> Usuários</a></li>
+                </ul>
+                <br />
+                <ul>
+                    <li><a href="/home/normal"><i class="icon icon-paint-format"></i> Tema normal</a></li>
+                    <li><a href="/home/contraste"><i class="icon icon-paint-format"></i> Tema contraste</a></li>
                 </ul>
                 </nav>
             

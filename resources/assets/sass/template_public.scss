@@ -1,9 +1,20 @@
+body.contraste{
+    background: #000 !important;
+}
+
 body{
     /*background-image: linear-gradient(180deg, #ca2100, white);*/
     background-image: url("/img/0/background-barra.png");
     background-repeat: repeat-x;
     height: 100%;
     font-family: 'Lato', sans-serif;
+}
+
+.contraste{
+    .layout-geral{
+        background: #000 !important;
+        border: 1px solid #FFF;
+    }
 }
 
 .layout-geral{
@@ -74,6 +85,21 @@ body{
     }
 }
 
+.contraste{
+    .component-menu{
+    
+        a{
+            color: #FFF !important;
+        }
+    
+        li a:hover{
+            font-size: 18px !important;
+            color: #000 !important;
+            background: #EBEBEB !important;
+        }
+    }
+}
+
 .component-menu{
 
     ul {
@@ -117,6 +143,15 @@ body{
     }
 }
 
+.contraste{
+    .component-title{
+    
+        h1{
+            font-size: 36px;
+            color: #FFF !important;
+        }
+    }
+}
 .component-title {
 
     padding-left: 25px;
@@ -166,4 +201,31 @@ body{
 
 .component-graph{
     padding-bottom: 25px;
+}
+
+
+.contraste{
+    label{
+        color: #FFF !important;
+    }
+    
+    table {
+        border: 1px solid #FFF !important;
+        th, td {
+            color: #FFF !important;
+        }
+    }
+    .table-striped > tbody > tr:nth-of-type(2n+1) td{
+            color: #000 !important;
+    }
+    
+    dl {
+        dt {
+            color: #FFF !important;
+        }
+        
+        dd {
+            color: #FFF !important;
+        }
+    }
 }

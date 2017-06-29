@@ -26,8 +26,16 @@
                 <dd>{{$produto->nm_produto}}</dd>
                 <dt>Descrição:</dt>
                 <dd>{{$produto->ds_produto}}</dd>
+                <dt>Valor:</dt>
+                <dd>{{dinheiro($produto->vl_produto)}}</dd>
                 <dt>Foto:</dt>
-                <dd><img src="{{$produto->im_produto}}" class="img-responsive col-md-4"  ></dd>
+                <dd><img src="{{$produto->im_produto}}" class="img-responsive col-md-4"></dd>
+                <dt>Qtd minima:</dt>
+                <dd>{{$produto->qt_minima_produto}}</dd>
+                <dt>Qtd máxima:</dt>
+                <dd>{{$produto->qt_maxima_produto}}</dd>
+                <dt>Qtd estoque:</dt>
+                <dd>{{$produto->qt_estoque_produto}}</dd>
             </dl>
         
         </div>
