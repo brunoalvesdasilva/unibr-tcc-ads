@@ -7,6 +7,8 @@ TCC de desenvolvimento de um sistema completo para uma empresa prestadora de ser
 - Bruno Alves da Silva <contato@alvesbruno.com>
 - Victor Hugo <victor.hlscosta@gmail.com>
 - Willian Barreto <willianblopes@gmail.com>
+- Lorraine Oliveira <lorraineosilva@gmail.com>
+
 
 ### Controle de CRUDs
 
