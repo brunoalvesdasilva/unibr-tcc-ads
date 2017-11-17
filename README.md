@@ -14,17 +14,17 @@ TCC de desenvolvimento de um sistema completo para uma empresa prestadora de ser
 
 | Módulo        | Responsável   | List (Listagem)  | Create (Criação) | Edit (Edição) | Delete (Exclusão) | Show (Visualização) |
 | ------------- | --------------| ----------------:| ----------------:| -------------:| -----------------:| -------------------:|
-| Chamado       | Willian       | (  0%)           | (  0%)           | (  0%)        | (  0%)            | (  0%)              |
+| Chamado       | Willian       | ( 80%)           | ( 80%)           | ( 80%)        | ( 80%)            | ( 80%)              |
 | Cliente       | Victor        | (  0%)           | (  0%)           | (  0%)        | (  0%)            | (  0%)              |
-| Conta         | Victor        | (  0%)           | (  0%)           | (  0%)        | (  0%)            | (  0%)              |
+| Conta         | Victor        | ( 80%)           | ( 80%)           | ( 80%)        | ( 80%)            | ( 80%)              |
 | Contrato      | Willian       | (  0%)           | (  0%)           | (  0%)        | (  0%)            | (  0%)              |
-| Departamento  | Victor        | (  0%)           | (  0%)           | (  0%)        | (  0%)            | (  0%)              |
+| Departamento  | Victor        | ( 80%)           | ( 80%)           | ( 80%)        | ( 80%)            | ( 80%)              |
 | Fornecedor    | Victor        | (  0%)           | (  0%)           | (  0%)        | (  0%)            | (  0%)              |
-| Produto       | Bruno         | (  0%)           | (  0%)           | (  0%)        | (  0%)            | (  0%)              |
-| Movimentação  | Bruno         | (  0%)           | (  0%)           | (  0%)        | (  0%)            | (  0%)              |
-| Serviço       | Victor        | (  0%)           | (  0%)           | (  0%)        | (  0%)            | (  0%)              |
-| Usuário       | Willian       | (  0%)           | (  0%)           | (  0%)        | (  0%)            | (  0%)              |
-|               | Totais:       | (  0%)           | (  0%)           | (  0%)        | (  0%)            | (  0%)              |
+| Produto       | Bruno         | ( 80%)           | ( 80%)           | ( 80%)        | ( 80%)            | ( 80%)              |
+| Movimentação  | Bruno         | ( 80%)           | ( 80%)           | ( 80%)        | ( 80%)            | ( 80%)              |
+| Serviço       | Victor        | ( 80%)           | ( 80%)           | ( 80%)        | ( 80%)            | ( 80%)              |
+| Usuário       | Willian       | ( 80%)           | ( 80%)           | ( 80%)        | ( 80%)            | ( 80%)              |
+|               | Totais:       | ( 70%)           | ( 70%)           | ( 70%)        | ( 70%)            | ( 70%)              |
 
 ### Imagens do Sistema
 
