@@ -1,15 +1,15 @@
 @extends('layout/public')
 @section('content')
-    <div class="component-title">
-        <h1>Listagem de movimentações</h1>
+    <div class="component-title" data-intro='Nessa tela você irá manusear as informações das movimentações da empresa.'>
+        <h1>Listagem de Movimentação</h1>
     </div>
-        
+
     <div class="component-barra-menu">
         <div class="btn-group pull-right" role="group">
-            <a href="/movimentacao/help" class="btn btn-default">Ajuda</a>
-            <a href="/movimentacao/pdf" class="btn btn-default">PDF</a>
-            <a href="/movimentacao" class="btn btn-default">Atualizar</a>
-            <a href="/movimentacao/create" class="btn btn-default">Novo Registro</a>
+            <a href="#/movimentacao/help" class="btn btn-default btn-help" data-intro='Clique aqui para ter uma ajuda igual a essa na página.'>Ajuda</a>
+            <a href="#/movimentacao/pdf" class="btn btn-default" data-intro='Clique aqui para baixar um relatório da página atual em PDF.'>PDF</a>
+            <a href="/movimentacao" class="btn btn-default" data-intro='Clique aqui para atualizar a tela.'>Atualizar</a>
+            <a href="/movimentacao/create" class="btn btn-default" data-intro='Clique aqui para adicionar um novo registro.'>Novo Registro</a>
         </div>
     </div>
 
