@@ -34,7 +34,7 @@
             <div class="form-group">
                 <label for="vl_servico" class="col-md-4 control-label">Valor do Servico :</label>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" id="vl_servico" name="vl_servico" placeholder="Valor" value="{{$servico->vl_servico}}" required/>
+                    <input type="text" class="form-control" id="vl_servico" name="vl_servico" placeholder="R$ 0,00" data-dinheiro="true" value="{{dinheiro($servico->vl_servico)}}" required/>
                 </div>
             </div>
             <div class="form-group">
