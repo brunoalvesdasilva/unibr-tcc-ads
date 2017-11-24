@@ -7,7 +7,7 @@
     <div class="component-barra-menu">
         <div class="btn-group pull-right" role="group">
             <a href="#/produto/help" class="btn btn-default btn-help" data-intro='Clique aqui para ter uma ajuda igual a essa na página.'>Ajuda</a>
-            <a href="/produto/pdf" class="btn btn-default" data-intro='Clique aqui para baixar um relatório da página atual em PDF.'>PDF</a>
+            <a href="#/produto/pdf" class="btn btn-default" data-intro='Clique aqui para baixar um relatório da página atual em PDF.'>PDF</a>
             <a href="/produto" class="btn btn-default" data-intro='Clique aqui para atualizar a tela.'>Atualizar</a>
             <a href="/produto/create" class="btn btn-default" data-intro='Clique aqui para adicionar um novo registro.'>Novo Registro</a>
         </div>

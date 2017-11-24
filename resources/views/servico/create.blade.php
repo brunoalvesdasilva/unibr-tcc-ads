@@ -31,10 +31,10 @@
                     <input type="text" class="form-control" id="nm_servico" name="nm_servico" placeholder="Nome do serviço" required/>
                 </div>
             </div>
-            <div class="form-group">
-                <label for="vl_servico" class="col-md-4 control-label">Valor do servico :</label>
+				<div class="form-group">
+                <label for="vl_servico" class="col-md-4 control-label">Valor do Serviço</label>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" id="vl_servico" name="vl_servico" placeholder="Valor" required/>
+                    <input type="text" class="form-control" id="vl_servico" name="vl_servico" placeholder="R$ 0,00" data-dinheiro="true" required />
                 </div>
             </div>
             <div class="form-group">

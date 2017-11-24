@@ -25,7 +25,7 @@
                 <dt>Nome:</dt>
                 <dd>{{$servico->nm_servico}}</dd>
                 <dt>Valor:</dt>
-                <dd>R$ {{$servico->vl_servico}}</dd>
+                <dd>R$ {{dinheiro($servico->vl_servico)}}</dd>
                 <dt>Descrição:</dt>
                 <dd>{{$servico->ds_servico}}</dd>
             </dl>
