@@ -33,7 +33,7 @@
             <tr>
                 <td>{{$servico->cd_servico}}</td>
                 <td>{{$servico->nm_servico}}</td>
-                <td>R$ {{$servico->vl_servico}}</td>
+                <td>{{dinheiro($servico->vl_servico)}}</td>
                 <td><a href="/servico/{{$servico->cd_servico}}" type="button" class="btn btn-default">Ver</a></td>
             </tr>
         @empty

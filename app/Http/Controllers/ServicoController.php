@@ -49,7 +49,8 @@ class ServicoController extends Controller
         $servico = new Servico();
         $servico->nm_servico = $request->nm_servico;
         $servico->ds_servico = $request->ds_servico;
-        $servico->vl_servico = $request->vl_servico;
+        //$servico->vl_servico = $request->vl_servico;
+        $servico->vl_servico = money2float($request->vl_servico);
         $servico->save();
 
         return redirect('servico')->with('message', 'Serviço salvo com sucesso!');
@@ -102,7 +103,8 @@ class ServicoController extends Controller
         $servico = Servico::find($id);
         $servico->nm_servico = $request->nm_servico;
         $servico->ds_servico = $request->ds_servico;
-        $servico->vl_servico = $request->vl_servico;
+        //$servico->vl_servico = $request->vl_servico;
+        $servico->vl_servico = money2float($request->vl_servico);
         $servico->save();
 
         // Redireciona
