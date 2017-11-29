@@ -1,7 +1,7 @@
 @extends('layout/public')
 @section('content')
     <div class="component-title">
-        <h1>Cadastro de fornecedoreses</h1>
+        <h1>Cadastro de fornecedores</h1>
     </div>
 
     <div class="component-barra-menu">

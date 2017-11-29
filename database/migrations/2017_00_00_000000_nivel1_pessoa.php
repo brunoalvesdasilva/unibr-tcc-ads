@@ -22,6 +22,7 @@ class Nivel1Pessoa extends Migration
             $table->string('nm_razao_social', 50)->comment('Nome Pessoa');
             $table->integer('cd_cnpj')->comment('codigo CNPJ pessoa');
             $table->integer('cd_cpf')->comment('Codigo CPF pessoa');
+            $table->integer('cd_inscricao')->comment('Codigo Inscricao Estadual');
             $table->string('nm_endereco', 50)->comment('Nome endereco');
             $table->string('nm_complemento', 50)->comment('Nome complemento');
             $table->string('nm_bairro', 50)->comment('Nome bairro');
