@@ -45,6 +45,7 @@ Route::group(['middleware' => 'usuario'], function () {
     
 });
     
+    
 Route::get('/icomoon', function () {
     return view('fonts');
 });
