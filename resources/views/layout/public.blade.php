@@ -39,9 +39,10 @@
                         <a href="/home" class='max'><i class="icon icon-home"></i> Home</a>
                         <a href="/logout" class='min'><i class="icon icon-lock"></i> Sair</a>
                     </li>
+                    <li><a href="/contato"><i class="icon icon-mail"></i> Contatos</a></li>
                     <li><a href="/chamado"><i class="icon icon-bubbles4"></i> Chamados</a></li>
                     <li><a href="/movimentacao"><i class="icon icon-files-empty"></i> Movimentações</a></li>
-                    <li><a href="/contratos"><i class="icon icon-folder"></i> Contratos</a></li>
+                    <li><a href="/contrato"><i class="icon icon-folder"></i> Contratos</a></li>
                     <li><a href="/conta"><i class="icon icon-file-text"></i> Contas</a></li>
                     <li><a href="/clientes"><i class="icon icon-users"></i> Clientes</a></li>
                     <li><a href="/fornecedores"><i class="icon icon-users"></i> Fornecedores</a></li>

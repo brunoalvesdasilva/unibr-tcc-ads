@@ -22,6 +22,6 @@ class Usuario
             return $next($request);
         }
 
-        return redirect('/?1');
+        return redirect('/logon?1');
     }
 }

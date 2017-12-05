@@ -1,7 +1,26 @@
 <?php
 // Autenticação e Página
-Route::get('/', 'AutenticacaoController@index');
-Route::post('/', 'AutenticacaoController@logon');
+Route::get('/', 'SiteController@index');
+Route::get('/entrar-contato', 'SiteController@contato');
+Route::post('/entrar-contato', 'SiteController@contatoStore');
+
+Route::get('/projeto-e-instalacao', 'SiteController@noticia1');
+Route::get('/higienizacao', 'SiteController@noticia2');
+
+
+Route::get('/orcamento/login', 'SiteController@login');
+Route::post('/orcamento/login/cadastrar', 'SiteController@cadastrarStore');
+Route::post('/orcamento/login/autenticar', 'SiteController@autenticarStore');
+Route::group(['middleware' => 'cliente'], function () {
+    Route::get('/orcamento', 'SiteController@orcamento');
+    Route::get('/orcamento/cotar/{produto}', 'SiteController@cotar');
+    Route::get('/orcamento/remover/{produto}', 'SiteController@remover');
+    Route::get('/orcamento/listagem', 'SiteController@orcamentoListagem');
+    Route::get('/orcamento/save', 'SiteController@orcamentoSalvar');
+});
+
+Route::get('/logon', 'AutenticacaoController@index');
+Route::post('/logon', 'AutenticacaoController@logon');
 Route::get('/logout', 'AutenticacaoController@logout');
 Route::get('/home', 'HomeController@index');
 
@@ -12,6 +31,8 @@ Route::get('/home/{tema}', function ($tema='normal'){
 
 Route::group(['middleware' => 'usuario'], function () {
     
+    Route::resource('contrato', 'ContratoController');
+    Route::resource('contato', 'ContatoController');
     Route::resource('produto', 'ProdutoController');
     Route::resource('departamento', 'DepartamentoController');
     Route::resource('servico', 'ServicoController');

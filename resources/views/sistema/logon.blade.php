@@ -9,7 +9,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-        <link href="/css/app.css?{{time()}}" rel="stylesheet" type="text/css">        
+        <link href="/css/app.css?{{time()}}" rel="stylesheet" type="text/css">
     </head>
     <body>
         
@@ -36,7 +36,7 @@
                     </div>
                 @endif
                 
-                <form class="form-horizontal" action="/" method="POST">
+                <form class="form-horizontal" action="/logon" method="POST">
                     <div class="form-group">
                         <label for="nm_email" class="col-md-4 control-label">E-mail</label>
                         <div class="col-md-6">
