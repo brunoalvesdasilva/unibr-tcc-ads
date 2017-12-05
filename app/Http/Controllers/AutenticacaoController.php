@@ -46,6 +46,6 @@ class AutenticacaoController extends Controller
         $request->session()->put('user_on', 0);
         $request->session()->forget('user_on');
         
-        return redirect('/?3')->with('message', 'Usuário deslogado com sucesso!');
+        return redirect('/logon?3')->with('message', 'Usuário deslogado com sucesso!');
     }
 }

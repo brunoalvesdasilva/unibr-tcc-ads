@@ -15,6 +15,14 @@ class Contrato extends Model
     public $timestamps = false;
     
     /**
+     * Relacionamento hasOne
+     * Departamento
+     */
+    public function pessoa(){
+        return $this->belongsTo('App\Http\Controllers\Pessoa', 'cd_pessoa', 'cd_pessoa');
+    }
+    
+    /**
      * The attributes that should be mutated to dates.
      *
      * @var array
