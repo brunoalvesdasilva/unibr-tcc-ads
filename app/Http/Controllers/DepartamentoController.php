@@ -120,6 +120,6 @@ class DepartamentoController extends Controller
         $departamento->delete();
         
         // Redireciona
-        return redirect('departamento')->with('message', 'Departamento salvo com sucesso!');
+        return redirect('departamento')->with('message', 'Departamento excluido com sucesso!');
     }
 }

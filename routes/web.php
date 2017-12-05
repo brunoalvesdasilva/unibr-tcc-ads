@@ -41,6 +41,7 @@ Route::group(['middleware' => 'usuario'], function () {
     Route::resource('movimentacao', 'MovimentacaoController');
     Route::resource('usuario','UsuarioController');
     Route::resource('chamado','ChamadoController');
+    Route::resource('fornecedores','FornecedoresController');
     
 });
     
