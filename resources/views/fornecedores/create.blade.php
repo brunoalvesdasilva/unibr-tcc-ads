@@ -9,11 +9,21 @@
             <a href="/fornecedores/help" class="btn btn-default">Ajuda</a>
         </div>
     </div>
+
+    @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     
     <div class="container-fluid">
         <div class="row">
         <div class="col-md-12">
-        <form class="form-horizontal">
+        <form class="form-horizontal" action="/fornecedores" method="POST">
             <div class="form-group">
                 <label for="ic_tipo_pessoa" class="col-md-4 control-label">Tipo pessoa :</label>
                 <label class="radio-inline">
@@ -95,6 +105,8 @@
             <div class="form-group">
                 <div class="col-md-offset-4 col-md-6">
                     <button type="submit" class="btn btn-default">Cadastrar</button>
+                    {{ csrf_field() }}
+                    {{ method_field('POST') }}
                 </div>
 
             </div>

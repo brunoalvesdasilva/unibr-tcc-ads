@@ -31,8 +31,10 @@ class ChamadoController extends Controller
         // Lista de contratos
         $contratos = array();
         foreach(Contrato::all() as $contrato){
-            $contratos[$contrato->cd_contrato];
-            // Lista de contratos
+            $contratos[$contrato->cd_contrato] = $contrato->cd_contrato ." ". ucfirst($contrato->ic_tipo_compra_venda);
+        }
+        
+        // Lista de contratos
         $usuarios = array();
         foreach(Usuario::all() as $usuario){
             $usuarios[$usuario->cd_usuario] = $usuario->nm_usuario;
