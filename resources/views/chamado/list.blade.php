@@ -18,6 +18,8 @@
             <tr>
                 <th>#</th>
                 <th>Chamado</th>
+                <th>Data Abertura</th>
+                <th>Data Fechamento</th>
                 <th>Ação</th>
             </tr>
         </thead>
@@ -26,6 +28,8 @@
             <tr>
                 <td>{{$chamado->cd_chamado}}</td>
                 <td>{{$chamado->ds_chamado}}</td>
+                <td>{{$chamado->dt_abertura_chamado->format('d/m/Y')}}</td>
+                <td>{{$chamado->dt_fechamento_chamado->format('d/m/Y')}}</td>
                 <td><a href="/chamado/{{$chamado->cd_chamado}}" type="button" class="btn btn-default">Ver</a></td>
             </tr>
         @empty

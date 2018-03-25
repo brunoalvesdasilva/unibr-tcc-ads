@@ -103,13 +103,19 @@ class ChamadoController extends Controller
         //Chamado
         $chamado = Chamado::find($id);
 
-        // Lista de chamado
+        // Lista de contratos
         $contratos = array();
         foreach(Contrato::all() as $contrato){
-            $contratos[$contrato->cd_contrato];
+            $contratos[$contrato->cd_contrato] = $contrato->cd_contrato ." ". ucfirst($contrato->ic_tipo_compra_venda);
         }
         
-        return view("{$this->nameFolder}/edit", ["chamado"=>$chamado, 'contratos'=>$contratos]);
+        // Lista de contratos
+        $usuarios = array();
+        foreach(Usuario::all() as $usuario){
+            $usuarios[$usuario->cd_usuario] = $usuario->nm_usuario;
+        }
+        
+        return view("{$this->nameFolder}/edit", ["chamado"=>$chamado, 'contratos'=>$contratos,'usuarios'=>$usuarios]);
     }
 
 
@@ -135,7 +141,7 @@ class ChamadoController extends Controller
         ]);
         
         // Adiciona e salva
-        $chamado = new Chamado();
+        $chamado = Chamado::find($id);
         $chamado->ds_chamado = $request->ds_chamado;
         $chamado->dt_abertura_chamado = $request->dt_abertura_chamado;
         $chamado->dt_fechamento_chamado = $request->dt_fechamento_chamado;

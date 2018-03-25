@@ -30,6 +30,8 @@ class Chamado extends Model
     protected $dates = [
         'created_at',
         'updated_at',
-        'deleted_at'
+        'deleted_at',
+        'dt_abertura_chamado',
+        'dt_fechamento_chamado'
     ];
 }

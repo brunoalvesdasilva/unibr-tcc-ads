@@ -28,8 +28,14 @@ class ContratoController extends Controller
      */
     public function create()
     {
+        // Lista de pessoas
+        $pessoas = array();
+        foreach(Pessoa::all() as $pessoa){
+            $pessoas[$pessoa->cd_pessoa] = $pessoa->nm_pessoa;
+        }
+        
         //
-        return view("{$this->nameFolder}/create");
+        return view("{$this->nameFolder}/create", ['pessoas'=>$pessoas]);
     }
 
     /**
@@ -42,17 +48,21 @@ class ContratoController extends Controller
     {
         // Valida
         $this->validate($request, [
-            'nm_contrato' => 'required',
-            'nm_email_contrato' => 'required',
-            'ds_contrato' => 'required',
+            'vl_contrato' => 'required',
+            'cd_parcela_atual' => 'required',
+            'cd_parcela_total' => 'required',
+            'ic_tipo_compra_venda' => 'required',
+            'cd_pessoa' => 'required',
         ]);
         
         // Adiciona e salva
         $contrato = new Contrato();
-        $contrato->nm_contrato = $request->nm_contrato;
-        $contrato->nm_email_contrato = $request->nm_email_contrato;
-        $contrato->ds_contrato = $request->ds_contrato;
+        $contrato->vl_contrato = money2float($request->vl_contrato);
+        $contrato->cd_parcela_atual = $request->cd_parcela_atual;
+        $contrato->cd_parcela_total = $request->cd_parcela_total;
+        $contrato->ic_tipo_compra_venda = $request->ic_tipo_compra_venda;
         $contrato->dt_contrato = date('Y-m-d H:i:s');
+        $contrato->cd_pessoa = $request->cd_pessoa;
         $contrato->save();
         
         // Redireciona
@@ -83,8 +93,14 @@ class ContratoController extends Controller
     {
         //
         $contrato = Contrato::find($id);
+
+        // Lista de pessoas
+        $pessoas = array();
+        foreach(Pessoa::all() as $pessoa){
+            $pessoas[$pessoa->cd_pessoa] = $pessoa->nm_pessoa;
+        }
         
-        return view("{$this->nameFolder}/edit", ["contrato"=>$contrato]);
+        return view("{$this->nameFolder}/edit", ["contrato"=>$contrato , "pessoas"=>$pessoas]);
     }
 
     /**
@@ -98,16 +114,20 @@ class ContratoController extends Controller
     {
         // Valida
         $this->validate($request, [
-            'nm_contrato' => 'required',
-            'nm_email_contrato' => 'required',
-            'ds_contrato' => 'required',
+            'vl_contrato' => 'required',
+            'cd_parcela_atual' => 'required',
+            'cd_parcela_total' => 'required',
+            'ic_tipo_compra_venda' => 'required',
+            'cd_pessoa' => 'required',
         ]);
         
         // Adiciona e salva
         $contrato = Contrato::find($id);
-        $contrato->nm_contrato = $request->nm_contrato;
-        $contrato->nm_email_contrato = $request->nm_email_contrato;
-        $contrato->ds_contrato = $request->ds_contrato;
+        $contrato->vl_contrato = money2float($request->vl_contrato);
+        $contrato->cd_parcela_atual = $request->cd_parcela_atual;
+        $contrato->cd_parcela_total = $request->cd_parcela_total;
+        $contrato->ic_tipo_compra_venda = $request->ic_tipo_compra_venda;
+        $contrato->cd_pessoa = $request->cd_pessoa;
         $contrato->save();
         
         // Redireciona
@@ -127,6 +147,6 @@ class ContratoController extends Controller
         $contrato->delete();
         
         // Redireciona
-        return redirect('contrato')->with('message', 'Contrato salvo com sucesso!');
+        return redirect('contrato')->with('message', 'Contrato excluido com sucesso!');
     }
 }
