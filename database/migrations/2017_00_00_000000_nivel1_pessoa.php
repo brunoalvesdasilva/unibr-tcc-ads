@@ -32,8 +32,6 @@ class Nivel1Pessoa extends Migration
             $table->enum('nm_situacao_cadastral',['ativo','inativo'])->comment('Indicador situação cadastral');
             $table->enum('nm_tipo_pessoa',['juridica','fisica'])->comment('Tipo da Pessoa');
 
-            
-            // Defaults
         });
         Schema::enableForeignKeyConstraints();
     }

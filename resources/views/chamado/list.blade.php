@@ -18,6 +18,11 @@
             <tr>
                 <th>#</th>
                 <th>Chamado</th>
+<<<<<<< HEAD
+                <th>Data Abertura</th>
+                <th>Data Fechamento</th>
+=======
+>>>>>>> 869f1d7234454476026a5280ea89456cc9fb4291
                 <th>Ação</th>
             </tr>
         </thead>
@@ -26,6 +31,11 @@
             <tr>
                 <td>{{$chamado->cd_chamado}}</td>
                 <td>{{$chamado->ds_chamado}}</td>
+<<<<<<< HEAD
+                <td>{{$chamado->dt_abertura_chamado->format('d/m/Y')}}</td>
+                <td>{{$chamado->dt_fechamento_chamado->format('d/m/Y')}}</td>
+=======
+>>>>>>> 869f1d7234454476026a5280ea89456cc9fb4291
                 <td><a href="/chamado/{{$chamado->cd_chamado}}" type="button" class="btn btn-default">Ver</a></td>
             </tr>
         @empty

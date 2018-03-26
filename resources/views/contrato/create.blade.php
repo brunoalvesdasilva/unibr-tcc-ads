@@ -1,11 +1,19 @@
 @extends('layout/public')
 @section('content')
     <div class="component-title">
+<<<<<<< HEAD
+        <h1>Cadastro de contratos</h1>
+=======
         <h1>Cadastro de contrato</h1>
+>>>>>>> 869f1d7234454476026a5280ea89456cc9fb4291
     </div>
 
     <div class="component-barra-menu">
         <div class="btn-group pull-right" role="group">
+<<<<<<< HEAD
+            <a href="/contrato" class="btn btn-default">Listagem</a>
+=======
+>>>>>>> 869f1d7234454476026a5280ea89456cc9fb4291
             <a href="/contrato/help" class="btn btn-default">Ajuda</a>
         </div>
     </div>
@@ -25,6 +33,40 @@
         <div class="col-md-12">
         <form class="form-horizontal" action="/contrato" method="POST">
             <div class="form-group">
+<<<<<<< HEAD
+                <label for="vl_contrato" class="col-md-4 control-label">Valor do contrato</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control"  name="vl_contrato" placeholder="0,00" required data-dinheiro="true" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="ic_tipo_compra_venda" class="col-md-4 control-label">Tipo de Contrato</label>
+                <div class="col-md-6">
+                    <label class="radio-inline">
+                        <input type="radio"  name="ic_tipo_compra_venda" value="compra" required /> Compra
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio"  name="ic_tipo_compra_venda" value="venda" required /> Venda
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="cd_parcela_atual" class="col-md-4 control-label">Parcela Atual</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control"  name="cd_parcela_atual" value="" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="cd_parcela_total" class="col-md-4 control-label">Total de Parcelas</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control"  name="cd_parcela_total" value="" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="cd_pessoa" class="col-md-4 control-label">Pessoa</label>
+                <div class="col-md-6">
+                    {{Form::select('cd_pessoa', $pessoas, NULL, ['class' => 'form-control', 'required'=>'required'])}}
+=======
                 <label for="nm_contrato" class="col-md-4 control-label">Nome</label>
                 <div class="col-md-6">
                     <input type="text" class="form-control" id="nm_contrato" name="nm_contrato" placeholder="Nome" />
@@ -66,6 +108,7 @@
                 <label for="qt_estoque_contrato" class="col-md-4 control-label">Quantidade atual</label>
                 <div class="col-md-6">
                     <input type="text" class="form-control" id="qt_estoque_contrato" name="qt_estoque_contrato" placeholder="0" required />
+>>>>>>> 869f1d7234454476026a5280ea89456cc9fb4291
                 </div>
             </div>
             <div class="form-group">
