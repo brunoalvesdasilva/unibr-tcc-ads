@@ -1,0 +1,24 @@
+Empresa
+	Cadastra um produto
+	Cadastra um serviço
+
+Cliente
+	Acessa o site
+	Envia um contato
+	Cadastra um orçamento
+
+Empresa
+	Lê as mensagens dos clientes
+	Rejeita um orçamento
+	Aceita um orçamento
+
+Cliente
+	Acessa o aplicativo
+	Confere situação do orçamento
+	Manda um contato
+
+Empresa
+	Acessa os gráficos do dia
+	- Orçamentos Total/Aceitos/Rejeitados
+	- Receitas VS Despesas
+	- Total de atendimento por usuários
