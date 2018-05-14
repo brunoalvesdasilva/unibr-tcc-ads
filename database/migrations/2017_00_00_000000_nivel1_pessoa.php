@@ -22,15 +22,24 @@ class Nivel1Pessoa extends Migration
             $table->string('nm_razao_social', 50)->comment('Nome Pessoa');
             $table->string('nm_email', 200)->comment('E-mail Pessoa');
             $table->string('nm_senha', 200)->comment('Senha Pessoa');
-            $table->integer('cd_cnpj')->comment('codigo CNPJ pessoa')->nullable();
-            $table->integer('cd_cpf')->comment('Codigo CPF pessoa')->nullable();
+            $table->bigInteger('cd_cnpj')->comment('codigo CNPJ pessoa')->nullable();
+            $table->bigInteger('cd_cpf')->comment('Codigo CPF pessoa')->nullable();
             $table->string('nm_endereco', 50)->comment('Nome endereco')->nullable();
             $table->string('nm_complemento', 50)->comment('Nome complemento')->nullable();
             $table->string('nm_bairro', 50)->comment('Nome bairro')->nullable();
             $table->string('nm_cidade', 50)->comment('Nome cidade')->nullable();
             $table->string('sg_estado', 2)->comment('Sigla estado')->nullable();
             $table->enum('nm_situacao_cadastral',['ativo','inativo'])->comment('Indicador situação cadastral');
-            $table->enum('nm_tipo_pessoa',['juridica','fisica'])->comment('Tipo da Pessoa');
+            $table->string('nm_resonsavel_empresa', 50)->comment('Responsavel pela Empresa')->nullable();
+            $table->bigInteger('cd_telefone')->comment('Telefone')->nullable();
+            $table->enum('ic_permite_divulgacao',['sim','nao'])->comment('Indicador situacao divulgacao');
+            $table->string('ds_obsevacao', 2)->comment('Descricao observação')->nullable();
+
+            // Chaves estrangeiras
+            $table->integer('cd_ramo')->unsigned()->comment('Campo não nulo, maior que zero, chave estrangeira, Tabela:Ramo/cd_ramo');
+            $table->foreign('cd_ramo')->references('cd_ramo')->on('ramo');
+            $table->integer('cd_descarte_legal')->unsigned()->comment('Campo não nulo, maior que zero, chave estrangeira, Tabela:Descarte_Legal/cd_descarte_legal');
+            $table->foreign('cd_descarte_legal')->references('cd_descarte_legal')->on('descrate_legal');
 
         });
         Schema::enableForeignKeyConstraints();

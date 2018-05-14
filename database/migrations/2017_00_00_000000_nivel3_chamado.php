@@ -21,6 +21,7 @@ class Nivel3Chamado extends Migration
             $table->string('ds_chamado', 200)->comment('Descrição do chamado');
             $table->date('dt_abertura_chamado')->comment('Data abertura chamado');
             $table->date('dt_fechamento_chamado')->comment('Data fechamento chamado');
+            $table->enum('ic_chamado_aberto_fechado', ['aberto', 'fechado'])->comment('Indicador de chamado aberto ou fechado');
 
             
             // Chaves estrangeiras
