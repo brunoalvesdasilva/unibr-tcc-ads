@@ -72,7 +72,7 @@
                 <div class="col-md-offset-4 col-md-6">
                     <button type="submit" class="btn btn-info">Cadastrar</button>
                     {{ csrf_field() }}
-                    {{ method_field('POST') }}
+                    {{ method_field('PUT') }}
                 </div>
             </div>
         </form>

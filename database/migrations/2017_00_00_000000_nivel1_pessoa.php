@@ -39,7 +39,7 @@ class Nivel1Pessoa extends Migration
             $table->integer('cd_ramo')->unsigned()->comment('Campo não nulo, maior que zero, chave estrangeira, Tabela:Ramo/cd_ramo');
             $table->foreign('cd_ramo')->references('cd_ramo')->on('ramo');
             $table->integer('cd_descarte_legal')->unsigned()->comment('Campo não nulo, maior que zero, chave estrangeira, Tabela:Descarte_Legal/cd_descarte_legal');
-            $table->foreign('cd_descarte_legal')->references('cd_descarte_legal')->on('descrate_legal');
+            $table->foreign('cd_descarte_legal')->references('cd_descarte_legal')->on('descarte_legal');
 
         });
         Schema::enableForeignKeyConstraints();

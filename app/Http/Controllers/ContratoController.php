@@ -34,8 +34,14 @@ class ContratoController extends Controller
             $pessoas[$pessoa->cd_pessoa] = $pessoa->nm_pessoa;
         }
         
+        // Lista de pagamento
+        $formas = array();
+        foreach(Forma::all() as $forma_pagamento){
+            $formas[$forma_pagamento->cd_forma_pagamento] = $forma_pagamento->nm_forma_pagamento;
+        }
+
         //
-        return view("{$this->nameFolder}/create", ['pessoas'=>$pessoas]);
+        return view("{$this->nameFolder}/create", ['pessoas'=>$pessoas , 'formas'=>$formas]);
     }
 
     /**
@@ -61,8 +67,10 @@ class ContratoController extends Controller
         $contrato->cd_parcela_atual = $request->cd_parcela_atual;
         $contrato->cd_parcela_total = $request->cd_parcela_total;
         $contrato->ic_tipo_compra_venda = $request->ic_tipo_compra_venda;
+        $contrato->qt_itens_contrato = $request->qt_itens_contrato;
         $contrato->dt_contrato = date('Y-m-d H:i:s');
         $contrato->cd_pessoa = $request->cd_pessoa;
+        $contrato->cd_forma_pagamento = $request->cd_forma_pagamento;
         $contrato->save();
         
         // Redireciona

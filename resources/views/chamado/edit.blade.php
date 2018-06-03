@@ -30,37 +30,7 @@
         <div class="col-md-12">
         <form class="form-horizontal" action="/chamado/{{$chamado->cd_chamado}}" method="POST">
             <div class="form-group">
-                <label for="ds_chamado" class="col-md-4 control-label">Descrição do Chamado</label>
-                <div class="col-md-6">
-                    <input type="text" class="form-control"  name="ds_chamado" placeholder="ds_chamado" value="{{$chamado->ds_chamado}}" required />
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="dt_abertura_chamado" class="col-md-4 control-label">Data abertura chamado</label>
-                <div class="col-md-6">
-                    <input type="text" class="form-control"  name="dt_abertura_chamado" value="{{$chamado->dt_abertura_chamado->format('d/m/Y')}}" required data-calendario="true" />
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="dt_fechamento_chamado" class="col-md-4 control-label">Data fechamento chamado</label>
-                <div class="col-md-6">
-                    <input type="text" class="form-control"  name="dt_fechamento_chamado" value="{{$chamado->dt_abertura_chamado->format('d/m/Y')}}" required data-calendario="true" />
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="cd_contrato" class="col-md-4 control-label">Contrato</label>
-                <div class="col-md-6">
-                    {{Form::select('cd_contrato', $contratos, NULL,['class' => 'form-control'])}}
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="cd_usuario_autor" class="col-md-4 control-label">Autor do Chamado</label>
-                <div class="col-md-6">
-                     {{Form::select('cd_usuario_autor', $usuarios, NULL,['class' => 'form-control'])}}
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="cd_usuario_responsavel" class="col-md-4 control-label">Responsavel pelo serviço</label>
+                <label for="cd_usuario_responsavel" class="col-md-4 control-label">Status do chamado</label>
                 <div class="col-md-6">
                      {{Form::select('cd_usuario_responsavel', $usuarios, NULL,['class' => 'form-control'])}}
                 </div>
