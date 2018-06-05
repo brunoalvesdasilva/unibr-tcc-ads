@@ -10,3 +10,4 @@ Homestead.yaml
 .gitignore
 ~*.docx
 *.tmp
+.composer.lock

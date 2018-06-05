@@ -21,6 +21,22 @@ class Chamado extends Model
     public function contrato(){
         return $this->belongsTo('App\Http\Controllers\Contrato', 'cd_contrato', 'cd_contrato');
     }
+
+    /**
+     * Relacionamento hasOne
+     * Autor
+     */
+    public function autor(){
+        return $this->belongsTo('App\Http\Controllers\Usuario', 'cd_usuario_autor', 'cd_usuario');
+    }
+
+    /**
+     * Relacionamento hasOne
+     * Responsavel
+     */
+    public function responsavel(){
+        return $this->belongsTo('App\Http\Controllers\Usuario', 'cd_usuario_responsavel', 'cd_usuario');
+    }
     
     /**
      * The attributes that should be mutated to dates.
@@ -30,12 +46,8 @@ class Chamado extends Model
     protected $dates = [
         'created_at',
         'updated_at',
-<<<<<<< HEAD
         'deleted_at',
         'dt_abertura_chamado',
         'dt_fechamento_chamado'
-=======
-        'deleted_at'
->>>>>>> 869f1d7234454476026a5280ea89456cc9fb4291
     ];
 }

@@ -29,11 +29,11 @@
                 <dt>Data Fechamento:</dt>
                 <dd>{{$chamado->dt_fechamento_chamado->format('d/m/Y')}}</dd>
                 <dt>Cód. do Contrato:</dt>
-                <dd>{{$chamado->cd_contrato}}</dd>
-                <dt>Usuario Responsavel pelo chamado:</dt>
-                <dd>{{$chamado->cd_usuario_autor}}</dd>
-                <dt>Usuario responsavel pelo servico:</dt>
-                <dd>{{$chamado->cd_usuario_responsavel}}</dd>
+                <dd>#{{$chamado->cd_contrato}} ({{ucfirst($chamado->contrato->ic_tipo_compra_venda)}}) {{$chamado->contrato->pessoa->nm_pessoa}}</dd>
+                <dt>Autor do Chamado:</dt>
+                <dd>{{$chamado->autor->nm_usuario}}</dd>
+                <dt>Responsável pelo serviço:</dt>
+                <dd>{{$chamado->responsavel->nm_usuario}}</dd>
             </dl>
         
         </div>

@@ -13,11 +13,7 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $infors = array(
-<<<<<<< HEAD
             'countChamado' => \DB::table('chamado')->count(),
-=======
-            'countChamado' => 0, //DB::table('users')->count();
->>>>>>> 869f1d7234454476026a5280ea89456cc9fb4291
             'countContratos' => \DB::table('contrato')->count(),
             'countProdutos' => \DB::table('produto')->count(),
             'countUsuarios' => \DB::table('usuario')->count(),

@@ -50,19 +50,19 @@
             <div class="form-group">
                 <label for="cd_contrato" class="col-md-4 control-label">Contrato</label>
                 <div class="col-md-6">
-                    {{Form::select('cd_contrato', $contratos, NULL,['class' => 'form-control'])}}
+                    {{Form::select('cd_contrato', $contratos, $chamado->cd_contrato,['class' => 'form-control'])}}
                 </div>
             </div>
             <div class="form-group">
                 <label for="cd_usuario_autor" class="col-md-4 control-label">Autor do Chamado</label>
                 <div class="col-md-6">
-                     {{Form::select('cd_usuario_autor', $usuarios, NULL,['class' => 'form-control'])}}
+                     {{Form::select('cd_usuario_autor', $usuarios, $chamado->cd_usuario_autor,['class' => 'form-control'])}}
                 </div>
             </div>
             <div class="form-group">
-                <label for="cd_usuario_responsavel" class="col-md-4 control-label">Responsavel pelo serviço</label>
+                <label for="cd_usuario_responsavel" class="col-md-4 control-label">Responsável pelo serviço</label>
                 <div class="col-md-6">
-                     {{Form::select('cd_usuario_responsavel', $usuarios, NULL,['class' => 'form-control'])}}
+                     {{Form::select('cd_usuario_responsavel', $usuarios, $chamado->cd_usuario_responsavel,['class' => 'form-control'])}}
                 </div>
             </div>
             <div class="form-group">
