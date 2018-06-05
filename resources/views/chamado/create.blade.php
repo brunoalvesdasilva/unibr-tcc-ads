@@ -1,12 +1,7 @@
 @extends('layout/public')
 @section('content')
-<<<<<<< HEAD
-    <div class="component-title">
-        <h1>Cadastro de chamado</h1>
-=======
       <div class="component-title" data-intro='Nessa tela você irá cadastrar um novo chamado no sistema.'>
         <h1>Cadastro de chamados</h1>
->>>>>>> ac5ac8ab50a298bf490854e6e7547ce896ad473e
     </div>
 
     <div class="component-barra-menu">
