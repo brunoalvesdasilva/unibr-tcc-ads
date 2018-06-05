@@ -61,7 +61,7 @@ class PessoaController extends Controller
         $pessoa = new Pessoa();
         $pessoa->nm_pessoa = $request->nm_pessoa;
         $pessoa->nm_razao_social = $request->nm_razao_social;
-        $pessoa->cd_cnpj = $request->cd_cnpj);
+        $pessoa->cd_cnpj = $request->cd_cnpj;
         $pessoa->cd_cpf = $request->cd_cpf;
         $pessoa->cd_inscricao = $request->cd_inscricao;
         $pessoa->nm_endereco = $request->nm_endereco;
@@ -135,7 +135,7 @@ class PessoaController extends Controller
         $pessoa = new Pessoa();
         $pessoa->nm_pessoa = $request->nm_pessoa;
         $pessoa->nm_razao_social = $request->nm_razao_social;
-        $pessoa->cd_cnpj = $request->cd_cnpj);
+        $pessoa->cd_cnpj = $request->cd_cnpj;
         $pessoa->cd_cpf = $request->cd_cpf;
         $pessoa->cd_inscricao = $request->cd_inscricao;
         $pessoa->nm_endereco = $request->nm_endereco;
