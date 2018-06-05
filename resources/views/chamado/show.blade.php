@@ -12,6 +12,7 @@
             <a href="/chamado/help" class="btn btn-default btn-help">Ajuda</a>
             <a href="/chamado/" class="btn btn-default">Listagem</a>
             <a href="/chamado/{{$chamado->cd_chamado}}/edit" class="btn btn-default">Editar</a>
+            <a href="/chamado/{{$chamado->cd_chamado}}/status" class="btn btn-default">Status</a>
             <button type="submit" class="btn btn-danger">Excluir</button>
         </div>
     </div>

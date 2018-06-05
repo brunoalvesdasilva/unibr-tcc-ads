@@ -49,6 +49,12 @@
                 </div>
             </div>
             <div class="form-group">
+                <label for="qt_itens_contrato" class="col-md-4 control-label">Quantidade</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control"  name="qt_itens_contrato" value="" />
+                </div>
+            </div>
+            <div class="form-group">
                 <label for="cd_parcela_total" class="col-md-4 control-label">Total de Parcelas</label>
                 <div class="col-md-6">
                     <input type="text" class="form-control"  name="cd_parcela_total" value="" />
@@ -58,6 +64,12 @@
                 <label for="cd_pessoa" class="col-md-4 control-label">Pessoa</label>
                 <div class="col-md-6">
                     {{Form::select('cd_pessoa', $pessoas, NULL, ['class' => 'form-control', 'required'=>'required'])}}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="cd_forma_pagamento" class="col-md-4 control-label">Forma de Pagamento</label>
+                <div class="col-md-6">
+                    {{Form::select('cd_forma_pagamento', $formas, NULL, ['class' => 'form-control', 'required'=>'required'])}}
                 </div>
             </div>
             <div class="form-group">

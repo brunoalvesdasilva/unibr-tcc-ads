@@ -24,7 +24,7 @@
     <div class="row component-graph">
         <div class="col-md-6 col-xs-12">
             <h3 class="text-center">Chamado abertos no período</h3>
-            <canvas id="chamadosAbertos" height="300" data-fechados="500" data-abertos="100"></canvas>
+            <canvas id="chamadosAbertos" height="300" data-fechados="{{$sumFechados}}" data-abertos="{{$sumAbertos}}"></canvas>
         </div>
         
         <div class="col-md-6 col-xs-12">

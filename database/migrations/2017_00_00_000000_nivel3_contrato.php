@@ -20,6 +20,7 @@ class Nivel3Contrato extends Migration
             $table->increments('cd_contrato')->comment('Campo auto incremento, não nulo, maior que zero, chave primaria');
             $table->double('vl_contrato', 8,2)->comment('Valor do contrato');
             $table->dateTime('dt_contrato')->comment('Data do contrato');
+            $table->integer('qt_itens_contrato')->comment('Quantidade de produtos');
             $table->integer('cd_parcela_atual')->comment('Código da parcela atual');
             $table->integer('cd_parcela_total')->comment('Código de total de parcelas');
             $table->ENUM('ic_tipo_compra_venda', ['compra','venda'])->comment('Indicador tipo do contrato');
@@ -27,7 +28,8 @@ class Nivel3Contrato extends Migration
             // Chaves estrangeiras
             $table->integer('cd_pessoa')->unsigned()->comment('Campo não nulo, maior que zero, chave estrangeira, Tabela:Pessoa/cd_pessoa');
             $table->foreign('cd_pessoa')->references('cd_pessoa')->on('pessoa');
-         
+            $table->integer('cd_forma_pagamento')->unsigned()->comment('Campo não nulo, maior que zero, chave estrangeira, Tabela:Forma_pagamento/cd_forma_pagamento');
+            $table->foreign('cd_forma_pagamento')->references('cd_forma_pagamento')->on('forma_pagamento');         
             
             // Default
         });

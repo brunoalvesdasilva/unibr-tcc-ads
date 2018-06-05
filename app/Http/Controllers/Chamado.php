@@ -48,6 +48,6 @@ class Chamado extends Model
         'updated_at',
         'deleted_at',
         'dt_abertura_chamado',
-        'dt_fechamento_chamado'
+        'dt_fechamento_chamado',
     ];
 }

@@ -24,7 +24,7 @@
 <div class="container-fluid">
         <div class="row">
         <div class="col-md-12">
-        <form class="form-horizontal" action="/contrato" method="POST">
+        <form class="form-horizontal" action="/contrato/{{$contrato->cd_contrato}}" method="POST">
             <div class="form-group">
                 <label for="vl_contrato" class="col-md-4 control-label">Valor do contrato</label>
                 <div class="col-md-6">

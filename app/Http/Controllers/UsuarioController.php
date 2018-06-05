@@ -50,7 +50,7 @@ class UsuarioController extends Controller
         $this->validate($request, 
         [
             'nm_usuario' => 'required',
-            'nm_email' => 'required',
+            'nm_email' => 'required|unique:usuario,nm_email',
             'nm_senha' => 'required',
             'cd_departamento' => 'required',
 

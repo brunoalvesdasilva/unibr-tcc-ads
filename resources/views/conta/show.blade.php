@@ -29,7 +29,7 @@
                 <dt>Conta:</dt>
                 <dd>{{$conta->cd_numero_conta}}</dd>
                 <dt>Valor Atual:</dt>
-                <dd>{{$conta->vl_atual_conta}}</dd>
+                <dd>{{dinheiro($conta->vl_atual_conta)}}</dd>
              </dl>
         
         </div>
