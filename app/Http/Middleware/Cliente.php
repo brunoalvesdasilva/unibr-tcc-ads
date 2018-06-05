@@ -22,6 +22,6 @@ class Cliente
             return $next($request);
         }
 
-        return redirect('/orcamento/login?1');
+        return redirect('/cliente/login?1');
     }
 }

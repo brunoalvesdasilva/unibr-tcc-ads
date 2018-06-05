@@ -26,7 +26,7 @@
             <div class="row">
                 <div class="col-md-5">
                     <p class="lead">Já tem usuário&nbsp;</p>
-                    <form class="form" action="/orcamento/login/autenticar" method="POST">
+                    <form class="form" action="/cliente/login/autenticar" method="POST">
                         <div class="form-group">
                             <input type="email" class="form-control" name="email" placeholder="Digite o seu e-mail">
                         </div>
@@ -42,7 +42,7 @@
                 </div>
                 <div class="col-md-5 offset-md-2">
                     <p class="lead">Não tem usuário&nbsp;</p>
-                    <form class="form" action="/orcamento/login/cadastrar" method="POST">
+                    <form class="form" action="/cliente/login/cadastrar" method="POST">
                         <div class="form-group">
                             <input type="text" class="form-control" name="nome" placeholder="Digite o seu nome">
                         </div>

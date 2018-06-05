@@ -36,9 +36,9 @@ class Nivel1Pessoa extends Migration
             $table->string('ds_obsevacao', 2)->comment('Descricao observação')->nullable();
 
             // Chaves estrangeiras
-            $table->integer('cd_ramo')->unsigned()->comment('Campo não nulo, maior que zero, chave estrangeira, Tabela:Ramo/cd_ramo');
+            $table->integer('cd_ramo')->nullable()->unsigned()->default(NULL)->comment('Campo maior que zero, chave estrangeira, Tabela:Ramo/cd_ramo');
             $table->foreign('cd_ramo')->references('cd_ramo')->on('ramo');
-            $table->integer('cd_descarte_legal')->unsigned()->comment('Campo não nulo, maior que zero, chave estrangeira, Tabela:Descarte_Legal/cd_descarte_legal');
+            $table->integer('cd_descarte_legal')->nullable()->unsigned()->default(NULL)->comment('Campo maior que zero, chave estrangeira, Tabela:Descarte_Legal/cd_descarte_legal');
             $table->foreign('cd_descarte_legal')->references('cd_descarte_legal')->on('descarte_legal');
 
         });

@@ -7,10 +7,10 @@ Route::post('/entrar-contato', 'SiteController@contatoStore');
 Route::get('/projeto-e-instalacao', 'SiteController@noticia1');
 Route::get('/higienizacao', 'SiteController@noticia2');
 
-
-Route::get('/orcamento/login', 'SiteController@login');
-Route::post('/orcamento/login/cadastrar', 'SiteController@cadastrarStore');
-Route::post('/orcamento/login/autenticar', 'SiteController@autenticarStore');
+Route::get('/cliente/login', 'SiteController@login');
+Route::get('/cliente/logout', 'SiteController@logout');
+Route::post('/cliente/login/cadastrar', 'SiteController@cadastrarStore');
+Route::post('/cliente/login/autenticar', 'SiteController@autenticarStore');
 Route::group(['middleware' => 'cliente'], function () {
     Route::get('/orcamento', 'SiteController@orcamento');
     Route::get('/orcamento/cotar/{produto}', 'SiteController@cotar');
@@ -30,7 +30,6 @@ Route::get('/home/{tema}', function ($tema='normal'){
 });
 
 Route::group(['middleware' => 'usuario'], function () {
-    
     Route::resource('contrato', 'ContratoController');
     Route::resource('contato', 'ContatoController');
     Route::resource('produto', 'ProdutoController');
@@ -44,8 +43,7 @@ Route::group(['middleware' => 'usuario'], function () {
     Route::resource('fornecedores','FornecedoresController');
     
 });
-    
-    
+
 Route::get('/icomoon', function () {
     return view('fonts');
 });

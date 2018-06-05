@@ -11,3 +11,4 @@ Homestead.yaml
 ~*.docx
 *.tmp
 .composer.lock
+settings.json

@@ -72,7 +72,6 @@ class SiteController extends Controller
     }
     
     
-    
     /**
      * Mostra a página de logon do site
      * @return \Illuminate\Http\Response
@@ -80,6 +79,19 @@ class SiteController extends Controller
     public function login(Request $request)
     {
         return view("{$this->nameFolder}/login");
+    }
+
+    
+    /**
+     * Mostra a página de logon do site
+     * @return \Illuminate\Http\Response
+     */
+    public function logout(Request $request)
+    {
+        $request->session()->forget('client_on');
+        $request->session()->forget('client_name');
+        $request->session()->forget('client_email');
+        return redirect('/')->with('message', 'Usuário deslogado com sucesso!');
     }
     
     /**
@@ -89,7 +101,7 @@ class SiteController extends Controller
      */
     public function autenticarStore(Request $request)
     {
-        $pessoa = Pessoa::where('nm_email', $request->nemail)
+        $pessoa = Pessoa::where('nm_email', $request->email)
                         ->where('nm_senha', $request->senha)
                         ->first();
         
@@ -127,7 +139,6 @@ class SiteController extends Controller
         $pessoa->nm_email = $request->email;
         $pessoa->nm_senha = $request->senha;
         $pessoa->nm_situacao_cadastral = 'ativo';
-        $pessoa->nm_tipo_pessoa = 'fisica';
         $pessoa->save();
         
         // Redireciona
