@@ -45,7 +45,7 @@
                     <div class="form-group">
                         <label for="vl_inicial_conta" class="col-md-4 control-label">Valor Inicial:</label>
                         <div class="col-md-6">
-                            <input type="text" class="form-control" id="vl_inicial_conta" name="vl_inicial_conta" placeholder="Valor inicial R$" value="{{$conta->vl_inicial_conta}}" required/>
+                            <input type="text" class="form-control"  name="vl_inicial_conta" value="{{dinheiro($conta->vl_inicial_conta)}}" required data-dinheiro="true"  />
                         </div>
                     </div>
                     <div class="form-group">

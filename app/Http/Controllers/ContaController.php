@@ -54,8 +54,8 @@ class ContaController extends Controller
         $contas->nm_conta = $request->nm_conta;
         $contas->cd_agencia_conta = $request->cd_agencia_conta;
         $contas->cd_numero_conta = $request->cd_numero_conta;
-        $contas->vl_inicial_conta = $request->vl_inicial_conta;
-        $contas->vl_atual_conta = $request->vl_inicial_conta;
+        $contas->vl_inicial_conta = money2float($request->vl_inicial_conta);
+        $contas->vl_atual_conta = money2float($request->vl_inicial_conta);
         $contas->nm_tipo_conta = $request->nm_tipo_conta;
         $contas->dt_registro_conta = date('Y-m-d H:i:s');
         $contas->save();
@@ -114,7 +114,8 @@ class ContaController extends Controller
         $contas->nm_conta = $request->nm_conta;
         $contas->cd_agencia_conta = $request->cd_agencia_conta;
         $contas->cd_numero_conta = $request->cd_numero_conta;
-        $contas->vl_inicial_conta = $request->vl_inicial_conta;
+        $contas->vl_inicial_conta = money2float($request->vl_inicial_conta);
+        $contas->vl_atual_conta = money2float($request->vl_inicial_conta);
         $contas->save();
 
         // Redireciona

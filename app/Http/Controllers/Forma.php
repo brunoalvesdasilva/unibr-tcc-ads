@@ -3,23 +3,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Chamado extends Model
+class Forma extends Model
 {
     // Nome da tabela
-    protected $table = 'chamado';
+    protected $table = 'forma_pagamento';
     
     // Chave primário
-    protected $primaryKey = 'cd_chamado';
-    
+    protected $primaryKey = 'cd_forma_pagamento';
+
     // Removendo os campos de tempo
     public $timestamps = false;
     
     /**
      * Relacionamento hasOne
-     * Contrato
+     * Departamento
      */
-    public function contrato(){
-        return $this->belongsTo('App\Http\Controllers\Contrato', 'cd_contrato', 'cd_contrato');
+    public function forma(){
+        return $this->belongsTo('App\Http\Controllers\Forma', 'cd_forma_pagamento', 'cd_forma_pagamento');
     }
     
     /**
@@ -31,7 +31,5 @@ class Chamado extends Model
         'created_at',
         'updated_at',
         'deleted_at',
-        'dt_abertura_chamado',
-        'dt_fechamento_chamado',
     ];
 }

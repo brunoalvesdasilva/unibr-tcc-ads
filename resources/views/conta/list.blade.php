@@ -34,8 +34,8 @@
             <tr>
                 <td>{{$conta->cd_conta}}</td>
                 <td>{{$conta->nm_conta}}</td>
-                <td>{{$conta->nm_tipo_conta}}</td>
-                <td>{{$conta->vl_atual_conta}}</td>
+                <td>{{$conta->nm_tipo_conta}}</td> 
+                <td>{{dinheiro($conta->vl_atual_conta)}}</td>
                 <td><a href="/conta/{{$conta->cd_conta}}" type="button" class="btn btn-default">Ver</a></td>
             </tr>
         @empty
