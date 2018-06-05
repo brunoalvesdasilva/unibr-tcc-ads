@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2 class="pb-4 text-primary">Bem vindo: {{Session::get('client_name')}}</h2>
+                <h2 class="pb-2 text-primary profile">Bem vindo: {{Session::get('client_name')}}</h2>
             </div>
         </div>
         

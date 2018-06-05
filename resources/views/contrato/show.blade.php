@@ -37,7 +37,7 @@
                 <dt>Total de Parcelas:</dt>
                 <dd>{{$contrato->cd_parcela_total}}</dd>
                 <dt>Pessoa:</dt>
-                <dd>{{$contrato->cd_pessoa}}</dd>
+                <dd>{{$contrato->pessoa->nm_pessoa}}</dd>
             </dl>
         
         </div>

@@ -5585,4 +5585,6 @@ body > * {
     .align-center{
         text-align: center !important;
     }
-    }
+.profile {
+  border-bottom: 1px solid #e9ecef;
+}
