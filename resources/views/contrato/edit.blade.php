@@ -35,10 +35,10 @@
                 <label for="ic_tipo_compra_venda" class="col-md-4 control-label">Tipo de Contrato</label>
                 <div class="col-md-6">
                     <label class="radio-inline">
-                        <input type="radio"  name="ic_tipo_compra_venda" value="sim" required {{checkSe('compra', $contrato->ic_tipo_compra_venda)}} /> Compra
+                        <input type="radio"  name="ic_tipo_compra_venda" value="compra" required {{checkSe('compra', $contrato->ic_tipo_compra_venda)}} /> Compra
                     </label>
                     <label class="radio-inline">
-                        <input type="radio"  name="ic_tipo_compra_venda" value="nao" required {{checkSe('venda', $contrato->ic_tipo_compra_venda)}} /> Venda
+                        <input type="radio"  name="ic_tipo_compra_venda" value="venda" required {{checkSe('venda', $contrato->ic_tipo_compra_venda)}} /> Venda
                     </label>
                 </div>
             </div>
