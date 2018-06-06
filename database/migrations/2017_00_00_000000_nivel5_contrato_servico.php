@@ -20,9 +20,9 @@ class Nivel5ContratoServico extends Migration
             
             // Chaves estrangeiras
             $table->integer('cd_contrato')->unsigned()->nullable()->comment('Campo não nulo, maior que zero, chave estrangeira, Tabela:Contrato/cd_contrato');
-            $table->foreign('cd_contrato')->references('cd_contrato')->on('contrato');
+            $table->foreign('cd_contrato')->references('cd_contrato')->on('contrato')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('cd_servico')->unsigned()->comment('Campo não nulo, maior que zero, chave estrangeira, Tabela:Conta/cd_conta');
-            $table->foreign('cd_servico')->references('cd_servico')->on('servico');
+            $table->foreign('cd_servico')->references('cd_servico')->on('servico')->onDelete('cascade')->onUpdate('cascade');
             
             // Defaults
         });

@@ -36,34 +36,6 @@
             </a>
         </nav>
         
-        <div class="d-none d-lg-block d-xl-block">
-        @if( rand(0,1) == 1 )
-        <div class="py-5 gradient-overlay" style="background-image: url('/img/0/site-tecnico.png');">
-            <div class="container py-5">
-                <div class="row align-center">
-                    <div class="col-md-12 text-white align-self-center">
-                        <h1 class="display-3 mb-4">Projeto e Instalação</h1>
-                        <p class="lead mb-5">Contamos com uma equipe de engenharia qualificada para seu projeto de climatização </p>
-                        <a href="/projeto-e-instalacao" class="btn btn-lg mx-1 btn-secondary-site">Saiba mais</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        @else
-        <div class="py-5 gradient-overlay" style="background-image: url('/img/0/site-higiene.png');">
-            <div class="container py-5">
-                <div class="row align-center">
-                    <div class="col-md-12 text-white align-self-center">
-                        <h1 class="display-3 mb-4">A Melhor Higienização de Ar Condicionado</h1>
-                        <p class="lead mb-5">Detalhes sobre a melhor higienização de ar condicionado</p>
-                        <a href="/higienizacao" class="btn btn-lg mx-1 btn-secondary-site">Saiba mais</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        @endif
-        </div>
-        
         @yield('content')
         
         <!-- Rodapé -->

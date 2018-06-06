@@ -23,7 +23,7 @@ class Nivel2Historico extends Migration
             
             // Chaves estrangeiras
             $table->integer('cd_contrato')->unsigned()->comment('Campo não nulo, maior que zero, chave estrangeira, Tabela:Contrato/cd_contrato');
-            $table->foreign('cd_contrato')->references('cd_contrato')->on('contrato');
+            $table->foreign('cd_contrato')->references('cd_contrato')->on('contrato')->onDelete('cascade')->onUpdate('cascade');
             
             // Defaults
         });

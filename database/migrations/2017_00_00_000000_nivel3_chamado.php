@@ -26,11 +26,11 @@ class Nivel3Chamado extends Migration
 
             // Chaves estrangeiras
             $table->integer('cd_contrato')->unsigned()->nullable()->comment('Campo não nulo, maior que zero, chave estrangeira, Tabela:Contrato/cd_contrato');
-            $table->foreign('cd_contrato')->references('cd_contrato')->on('contrato');
+            $table->foreign('cd_contrato')->references('cd_contrato')->on('contrato')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('cd_usuario_autor')->unsigned()->comment('Campo não nulo, maior que zero, chave estrangeira, Tabela:Usuario/cd_usuario');
-            $table->foreign('cd_usuario_autor')->references('cd_usuario')->on('usuario');           
+            $table->foreign('cd_usuario_autor')->references('cd_usuario')->on('usuario')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('cd_usuario_responsavel')->unsigned()->comment('Campo não nulo, maior que zero, chave estrangeira, Tabela:Usuario/cd_usuario');
-            $table->foreign('cd_usuario_responsavel')->references('cd_usuario')->on('usuario'); 
+            $table->foreign('cd_usuario_responsavel')->references('cd_usuario')->on('usuario')->onDelete('cascade')->onUpdate('cascade'); 
 
             // Defaults
         });

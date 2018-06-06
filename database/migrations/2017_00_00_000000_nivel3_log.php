@@ -24,7 +24,7 @@ class Nivel3Log extends Migration
             
             // Chaves estrangeiras
             $table->integer('cd_usuario')->unsigned()->comment('Campo não nulo, maior que zero, chave estrangeira, Tabela:Usuario/cd_usuario');
-            $table->foreign('cd_usuario')->references('cd_usuario')->on('usuario');
+            $table->foreign('cd_usuario')->references('cd_usuario')->on('usuario')->onDelete('cascade')->onUpdate('cascade');
             
             // Defaults
         });

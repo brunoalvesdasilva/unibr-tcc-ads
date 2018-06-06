@@ -24,7 +24,7 @@ class Nivel2Usuario extends Migration
             
             // Chaves estrangeiras
             $table->integer('cd_departamento')->unsigned()->comment('Campo não nulo, maior que zero, chave estrangeira, Tabela:Departamento/cd_departamento');
-            $table->foreign('cd_departamento')->references('cd_departamento')->on('departamento');
+            $table->foreign('cd_departamento')->references('cd_departamento')->on('departamento')->onDelete('cascade')->onUpdate('cascade');
             
             // Defaults
         });

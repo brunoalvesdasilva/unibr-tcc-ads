@@ -11,11 +11,9 @@ class DepartamentoTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('usuario')->delete();
-        DB::table('departamento')->delete();
-        
-        DB::table('departamento')->insert([
-            'nm_departamento' => "Administrativo",
+        DB::insert('REPLACE INTO departamento (cd_departamento, nm_departamento) VALUES (?, ?)', [
+            1, 
+            "Administrativo"
         ]);
     }
 }

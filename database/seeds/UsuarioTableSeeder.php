@@ -12,21 +12,21 @@ class UsuarioTableSeeder extends Seeder
     public function run()
     {
         $departamento = App\Http\Controllers\Departamento::first();
-        
-        DB::table('usuario')->delete();
-        
-        DB::table('usuario')->insert([
-            'nm_usuario' => "Administrador",
-            'nm_email' => "adm@sig.com.br",
-            'nm_senha' => "senhaadm",
-            'cd_departamento' => $departamento['cd_departamento'],
+
+        DB::insert('REPLACE INTO usuario (cd_usuario, nm_usuario, nm_email, nm_senha, cd_departamento) VALUES (?, ?, ?, ?, ?)', [
+            1,
+            "Administrador",
+            "adm@sig.com.br",
+            "senhaadm",
+            $departamento['cd_departamento'],
         ]);
         
-        DB::table('usuario')->insert([
-            'nm_usuario' => "Usuário",
-            'nm_email' => "user@sig.com.br",
-            'nm_senha' => "senhauser",
-            'cd_departamento' => $departamento['cd_departamento'],
+        DB::insert('REPLACE INTO usuario (cd_usuario, nm_usuario, nm_email, nm_senha, cd_departamento) VALUES (?, ?, ?, ?, ?)', [
+            2,
+            "Usuário",
+            "user@sig.com.br",
+            "senhauser",
+            $departamento['cd_departamento'],
         ]);
     }
 }

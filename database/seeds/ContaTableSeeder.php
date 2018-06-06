@@ -11,24 +11,33 @@ class ContaTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('conta')->delete();
-        
-        DB::table('conta')->insert([
-            'nm_conta' => "Caixa",
-            'cd_agencia_conta' => "0001",
-            'cd_numero_conta' => "0001",
-            'vl_inicial_conta' => 1000.00,
-            'vl_atual_conta' => 0,
-            'dt_registro_conta' => date('Y-m-d H:i:s'),
-            'nm_tipo_conta' => "caixa",
-        ],[
-            'nm_conta' => "Poupança",
-            'cd_agencia_conta' => "0002",
-            'cd_numero_conta' => "0002",
-            'vl_inicial_conta' => 5000.00,
-            'vl_atual_conta' => 0,
-            'dt_registro_conta' => date('Y-m-d H:i:s'),
-            'nm_tipo_conta' => "poupanca",
+        DB::insert('REPLACE INTO conta 
+            (cd_conta, nm_conta, cd_agencia_conta, cd_numero_conta, vl_inicial_conta, vl_atual_conta, dt_registro_conta, nm_tipo_conta) 
+        VALUES 
+            (?, ?, ?, ?, ?, ?, ?, ?)', 
+        [
+             1,
+            "Caixa",
+            "0001",
+            "0001",
+            1000.00,
+            1000.00,
+            date('Y-m-d H:i:s'),
+            "caixa",
+        ]);
+        DB::insert('REPLACE INTO conta 
+            (cd_conta, nm_conta, cd_agencia_conta, cd_numero_conta, vl_inicial_conta, vl_atual_conta, dt_registro_conta, nm_tipo_conta) 
+        VALUES 
+            (?, ?, ?, ?, ?, ?, ?, ?)', 
+        [
+            2,
+            "Poupança",
+            "0002",
+            "0002",
+            1000.00,
+            1000.00,
+            date('Y-m-d H:i:s'),
+            "caixa",
         ]);
     }
 }

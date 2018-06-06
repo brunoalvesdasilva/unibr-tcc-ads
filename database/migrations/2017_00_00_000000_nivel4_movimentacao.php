@@ -31,9 +31,9 @@ class Nivel4Movimentacao extends Migration
             
             // Chaves estrangeiras
             $table->integer('cd_conta')->unsigned()->comment('Campo não nulo, maior que zero, chave estrangeira, Tabela:Conta/cd_conta');
-            $table->foreign('cd_conta')->references('cd_conta')->on('conta');
+            $table->foreign('cd_conta')->references('cd_conta')->on('conta')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('cd_contrato')->unsigned()->nullable()->comment('Campo não nulo, maior que zero, chave estrangeira, Tabela:Contrato/cd_contrato');
-            $table->foreign('cd_contrato')->references('cd_contrato')->on('contrato');
+            $table->foreign('cd_contrato')->references('cd_contrato')->on('contrato')->onDelete('cascade')->onUpdate('cascade');
             
             // Defaults
         });

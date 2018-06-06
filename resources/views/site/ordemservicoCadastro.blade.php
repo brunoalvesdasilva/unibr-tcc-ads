@@ -52,7 +52,8 @@ function toDataURL(url, callback) {
 
 (function(x) {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
+        navigator.geolocation.watchPosition(function (position) {
+            console.log(position);/*
             var latlon = position.coords.latitude + "," + position.coords.longitude;
             x.value = "Latitude: "+ position.coords.latitude +" Longitude: "+ position.coords.longitude;
             var img_url = "https://maps.googleapis.com/maps/api/staticmap?center="+latlon+"&markers=color:blue|"+latlon+"&zoom=14&size=600x300&scale=2&sensor=false&key=AIzaSyA8Gmt-KPWtMCkKKxO3Wq9pvOti666WN0U";
@@ -63,7 +64,7 @@ function toDataURL(url, callback) {
                 map_div.style.backgroundImage = "url('"+dataUrl+"')";
                 map_div.style.height = "400px";
                 //map_div.innerHTML = dataUrl;
-            })
+            })*/
         });
     } else {
         x.value = "Geolocation is not supported by this browser.";

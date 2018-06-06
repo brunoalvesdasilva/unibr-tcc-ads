@@ -27,9 +27,9 @@ class Nivel3Contrato extends Migration
             
             // Chaves estrangeiras
             $table->integer('cd_pessoa')->unsigned()->comment('Campo não nulo, maior que zero, chave estrangeira, Tabela:Pessoa/cd_pessoa');
-            $table->foreign('cd_pessoa')->references('cd_pessoa')->on('pessoa');
+            $table->foreign('cd_pessoa')->references('cd_pessoa')->on('pessoa')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('cd_forma_pagamento')->nullable()->unsigned()->default(NULL)->comment('Campo maior que zero, chave estrangeira, Tabela:Forma_pagamento/cd_forma_pagamento');
-            $table->foreign('cd_forma_pagamento')->references('cd_forma_pagamento')->on('forma_pagamento');
+            $table->foreign('cd_forma_pagamento')->references('cd_forma_pagamento')->on('forma_pagamento')->onDelete('cascade')->onUpdate('cascade');
             
             // Default
         });
