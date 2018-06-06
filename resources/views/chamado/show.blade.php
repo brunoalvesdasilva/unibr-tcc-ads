@@ -23,8 +23,6 @@
         <div class="col-md-12">
         
             <dl class="dl-horizontal">
-                <dt>Descrição do Chamado:</dt>
-                <dd>{{$chamado->ds_chamado}}</dd>
                 <dt>Data Abertura:</dt>
                 <dd>{{$chamado->dt_abertura_chamado->format('d/m/Y')}}</dd>
                 <dt>Data Fechamento:</dt>
@@ -35,6 +33,8 @@
                 <dd>{{$chamado->autor->nm_usuario}}</dd>
                 <dt>Responsável pelo serviço:</dt>
                 <dd>{{$chamado->responsavel->nm_usuario}}</dd>
+                <dt>Descrição do Chamado:</dt>
+                <dd>{!!nl2br($chamado->ds_chamado)!!}</dd>
             </dl>
         
         </div>

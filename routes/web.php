@@ -12,11 +12,19 @@ Route::get('/cliente/logout', 'SiteController@logout');
 Route::post('/cliente/login/cadastrar', 'SiteController@cadastrarStore');
 Route::post('/cliente/login/autenticar', 'SiteController@autenticarStore');
 Route::group(['middleware' => 'cliente'], function () {
+    
+    // Orçamento
     Route::get('/orcamento', 'SiteController@orcamento');
     Route::get('/orcamento/cotar/{produto}', 'SiteController@cotar');
     Route::get('/orcamento/remover/{produto}', 'SiteController@remover');
     Route::get('/orcamento/listagem', 'SiteController@orcamentoListagem');
     Route::get('/orcamento/save', 'SiteController@orcamentoSalvar');
+
+    // Chamado
+    Route::get('/ordemservico', 'SiteController@ordemservico');
+    Route::get('/ordemservico/cadastrar', 'SiteController@ordemservicoCadastrar');
+    Route::post('/ordemservico/cadastrar', 'SiteController@ordemservicoStore');
+
 });
 
 Route::get('/logon', 'AutenticacaoController@index');
@@ -24,12 +32,13 @@ Route::post('/logon', 'AutenticacaoController@logon');
 Route::get('/logout', 'AutenticacaoController@logout');
 Route::get('/home', 'HomeController@index');
 
-Route::get('/home/{tema}', function ($tema='normal'){
-   \Session::put('sistema_tema', $tema);
-   return redirect('/home')->with('message', 'Tema alterado com sucesso!');
-});
-
 Route::group(['middleware' => 'usuario'], function () {
+
+    Route::get('/home/{tema}', function ($tema='normal'){
+       \Session::put('sistema_tema', $tema);
+       return redirect('/home')->with('message', 'Tema alterado com sucesso!');
+    });
+
     Route::resource('contrato', 'ContratoController');
     Route::resource('contato', 'ContatoController');
     Route::resource('produto', 'ProdutoController');

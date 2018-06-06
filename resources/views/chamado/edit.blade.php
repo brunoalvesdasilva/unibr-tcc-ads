@@ -32,7 +32,7 @@
             <div class="form-group">
                 <label for="ds_chamado" class="col-md-4 control-label">Descrição do Chamado</label>
                 <div class="col-md-6">
-                    <input type="text" class="form-control"  name="ds_chamado" placeholder="ds_chamado" value="{{$chamado->ds_chamado}}" required />
+                    <textarea class="form-control"  name="ds_chamado" placeholder="ds_chamado" required>{{$chamado->ds_chamado}}</textarea>
                 </div>
             </div>
             <div class="form-group">

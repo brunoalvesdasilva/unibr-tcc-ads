@@ -23,14 +23,20 @@
                                 <i class="fa d-inline fa-lg fa-envelope-o"></i> Contato
                             </a>
                         </li>
+                        <li class="nav-item d-block d-sm-none">
+                            <a class="nav-link" href="/entrar-contato">
+                                <i class="fa d-inline fa-lg fa-envelope-o"></i> Solicite um orçamento
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
-            <a  href="/orcamento" class="btn navbar-btn ml-2 text-white btn-secondary-site">
-                <i class="fa d-inline fa-lg fa-user-circle-o"></i>&nbsp;Solicite um orçamento
+            <a href="/orcamento" class="btn navbar-btn ml-2 text-white btn-secondary-site d-none d-lg-block d-xl-block">
+                <i class="fa d-inline fa-lg fa-user-circle-o"></i>&nbsp; Solicite um orçamento
             </a>
         </nav>
         
+        <div class="d-none d-lg-block d-xl-block">
         @if( rand(0,1) == 1 )
         <div class="py-5 gradient-overlay" style="background-image: url('/img/0/site-tecnico.png');">
             <div class="container py-5">
@@ -56,6 +62,7 @@
             </div>
         </div>
         @endif
+        </div>
         
         @yield('content')
         

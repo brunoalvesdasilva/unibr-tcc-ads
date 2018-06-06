@@ -18,12 +18,12 @@ class Nivel3Chamado extends Migration
             
             // Básico
             $table->increments('cd_chamado')->comment('Campo auto incremento, não nulo, maior que zero, chave primaria');
-            $table->string('ds_chamado', 200)->comment('Descrição do chamado');
+            $table->longText('ds_chamado')->comment('Descrição do chamado');
             $table->date('dt_abertura_chamado')->comment('Data abertura chamado');
             $table->date('dt_fechamento_chamado')->comment('Data fechamento chamado');
             $table->enum('ic_chamado_aberto_fechado', ['aberto', 'fechado'])->comment('Indicador de chamado aberto ou fechado');
+            $table->string('nm_localizacao', 255)->comment('Localização do chamado');
 
-            
             // Chaves estrangeiras
             $table->integer('cd_contrato')->unsigned()->nullable()->comment('Campo não nulo, maior que zero, chave estrangeira, Tabela:Contrato/cd_contrato');
             $table->foreign('cd_contrato')->references('cd_contrato')->on('contrato');

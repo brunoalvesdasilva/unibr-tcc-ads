@@ -212,7 +212,6 @@ class SiteController extends Controller
         return redirect('/orcamento/listagem');
     }
     
-    
     /**
      * Mostra a página inicial do site
      * @return \Illuminate\Http\Response
@@ -263,5 +262,61 @@ class SiteController extends Controller
         $request->session()->forget('orcamento');
         
         return redirect('/orcamento')->with('message', 'Em breve entraremos em contato com você para apresentar um orçamento!');
+    }
+    
+    
+    /**
+     * Mostra a página inicial do meus chamados
+     * @return \Illuminate\Http\Response
+     */
+    public function ordemservico(Request $request)
+    {
+        $cliente = $request->session()->get('client_on');
+        $contratos = [];
+        foreach (Contrato::where('cd_pessoa', '=', $cliente)->get() as $contrato) {
+            $contratos[] = (int) $contrato->cd_contrato;
+        }
+        
+        $chamados = Chamado::whereIn('cd_contrato', $contratos)->orderBy('cd_chamado','desc')->get();
+        return view("{$this->nameFolder}/ordemservicoListagem", ["listaChamados"=>$chamados]);
+    }
+    
+    
+    /**
+     * Mostra a página de cadastro de uma ordem de serviço
+     * @return \Illuminate\Http\Response
+     */
+    public function ordemservicoCadastrar(Request $request)
+    {
+        return view("{$this->nameFolder}/ordemservicoCadastro");
+    }
+
+    /**
+     * Salva uma nova ordem de serviço
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function ordemservicoStore(Request $request)
+    {
+        // Valida
+        $this->validate($request, 
+        [
+            'descricao' => 'required',
+        ]);
+
+        $profissional = Usuario::orderByRaw("RAND()")->first();
+
+        // Adiciona e salva
+        $chamado = new Chamado();
+        $chamado->ds_chamado = $request->descricao;
+        $chamado->dt_abertura_chamado = date('Y-m-d');
+        $chamado->dt_fechamento_chamado = date('Y-m-d', strtotime('+1 week'));
+        $chamado->cd_contrato = 5;
+        $chamado->cd_usuario_autor = $profissional->cd_usuario;
+        $chamado->cd_usuario_responsavel = $profissional->cd_usuario;
+        $chamado->save();
+
+        return redirect('/ordemservico')->with('message', 'Chamado aberto com sucesso!');
     }
 }

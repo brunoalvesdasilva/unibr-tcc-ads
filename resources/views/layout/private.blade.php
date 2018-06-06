@@ -18,9 +18,8 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action">Meus dados</a>
                     <a href="/orcamento" class="list-group-item list-group-item-action">Meus orçamentos</a>
-                    <a href="#" class="list-group-item list-group-item-action">Meus chamado</a>
+                    <a href="/ordemservico" class="list-group-item list-group-item-action">Meus chamado</a>
                     <a href="/cliente/logout" class="list-group-item list-group-item-action">Sair</a>
                 </div>
             </div>
@@ -34,4 +33,3 @@
     </div>
 </div>
 @stop
-

@@ -27,7 +27,7 @@
         @forelse($listaChamado as $chamado)
             <tr>
                 <td>{{$chamado->cd_chamado}}</td>
-                <td>{{$chamado->ds_chamado}}</td>
+                <td>{{mb_strimwidth($chamado->ds_chamado, 0, 50, "...")}}</td>
                 <td>{{$chamado->dt_abertura_chamado->format('d/m/Y')}}</td>
                 <td>{{$chamado->dt_fechamento_chamado->format('d/m/Y')}}</td>
                 <td><a href="/chamado/{{$chamado->cd_chamado}}" type="button" class="btn btn-default">Ver</a></td>
