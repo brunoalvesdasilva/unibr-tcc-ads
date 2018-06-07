@@ -1,7 +1,7 @@
 @extends('layout/public')
 @section('content')
     <div class="component-title" data-intro='Nessa tela você poderá criar, editar e excluir os registros de fornecedors cadastrados no sistema.'>
-        <h1>Listagem do fornecedor</h1>
+        <h1>Listagem do fornecedores</h1>
     </div>
         
     <div class="component-barra-menu">
@@ -24,7 +24,7 @@
             <tr>
                 <th>#</th>
                 <th>Nome</th>
-                <th>Valor</th>
+                <th>Situação Cadastral</th>
                 <th>Ação</th>
             </tr>
         </thead>
