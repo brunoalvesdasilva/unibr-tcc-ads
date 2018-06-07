@@ -23,6 +23,14 @@ class Contrato extends Model
     }
     
     /**
+     * Relacionamento hasMany
+     * Produto
+     */
+    public function produtos(){
+        return $this->hasMany('App\Http\Controllers\ContratoProduto', 'cd_contrato', 'cd_contrato');
+    }
+
+    /**
      * The attributes that should be mutated to dates.
      *
      * @var array

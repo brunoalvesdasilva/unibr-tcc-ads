@@ -40,6 +40,38 @@
                 <dd>{{$contrato->pessoa->nm_pessoa}}</dd>
             </dl>
         
+            <table class="table table-striped table-condensed">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Produto</th>
+                    <th>Unitário</th>
+                    <th>Quantidade</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                @forelse($contrato->produtos as $indice => $item)
+                <tr>
+                    <td>{{$indice+1}}</td>
+                    <td>{{$item->produto->nm_produto}}</td>
+                    <td>{{dinheiro($item->vl_produto)}}</td>
+                    <td>{{$item->qt_produto}}</td>
+                    <td>{{$parcial = dinheiro($item->vl_produto*$item->qt_produto)}}</td>
+                </tr>
+                @empty
+                <tr>
+                    <td colspan="4" class="text-center">Nenhum produto vinculado ao orçamento</td>
+                </tr>
+                @endforelse
+            </tbody>
+            <tfooter>
+                <tr>
+                    <td colspan="4">&nbsp;</td>
+                    <td>{{dinheiro($contrato->vl_contrato)}}</td>
+                </tr>
+            </tfooter>
+            </table>
         </div>
         </div>
     </div>

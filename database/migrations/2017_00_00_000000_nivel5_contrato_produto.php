@@ -17,7 +17,9 @@ class Nivel5ContratoProduto extends Migration
         Schema::create('contrato_produto', function (Blueprint $table) {
             
             // Básico
-            
+            $table->double('vl_produto', 8,2)->comment('Valor do produto dentro do contrato');
+            $table->integer('qt_produto')->comment('Quantidade de produtos dentro do contrato');
+           
             // Chaves estrangeiras
             $table->integer('cd_contrato')->unsigned()->comment('Campo não nulo, maior que zero, chave estrangeira, Tabela:Contrato/cd_contrato');
             $table->foreign('cd_contrato')->references('cd_contrato')->on('contrato')->onDelete('cascade')->onUpdate('cascade');

@@ -15,7 +15,7 @@ class ContratoController extends Controller
      */
     public function index()
     {
-        $contratos = Contrato::all();
+        $contratos = Contrato::orderBy('cd_contrato', 'desc')->get();
         
         //
         return view("{$this->nameFolder}/list", ["listaContratos"=>$contratos]);

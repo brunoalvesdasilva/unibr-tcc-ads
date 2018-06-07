@@ -35,6 +35,10 @@
                 <dd>{{$chamado->responsavel->nm_usuario}}</dd>
                 <dt>Descrição do Chamado:</dt>
                 <dd>{!!nl2br($chamado->ds_chamado)!!}</dd>
+                @if($chamado->nm_localizacao)
+                <dt>Local do evento:</dt>
+                <dd><img width="100%" src="{{$chamado->nm_localizacao}}" /></dd>
+                @endif
             </dl>
         
         </div>

@@ -15,10 +15,11 @@
 DROP TABLE IF EXISTS `chamado`;
 CREATE TABLE IF NOT EXISTS `chamado` (
   `cd_chamado` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Campo auto incremento, não nulo, maior que zero, chave primaria',
-  `ds_chamado` text COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Descrição do chamado',
+  `ds_chamado` longtext COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Descrição do chamado',
   `dt_abertura_chamado` date NOT NULL COMMENT 'Data abertura chamado',
   `dt_fechamento_chamado` date NOT NULL COMMENT 'Data fechamento chamado',
   `ic_chamado_aberto_fechado` enum('aberto','fechado') COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Indicador de chamado aberto ou fechado',
+  `nm_localizacao` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Localização do chamado',
   `cd_contrato` int(10) unsigned DEFAULT NULL COMMENT 'Campo não nulo, maior que zero, chave estrangeira, Tabela:Contrato/cd_contrato',
   `cd_usuario_autor` int(10) unsigned NOT NULL COMMENT 'Campo não nulo, maior que zero, chave estrangeira, Tabela:Usuario/cd_usuario',
   `cd_usuario_responsavel` int(10) unsigned NOT NULL COMMENT 'Campo não nulo, maior que zero, chave estrangeira, Tabela:Usuario/cd_usuario',
@@ -26,27 +27,27 @@ CREATE TABLE IF NOT EXISTS `chamado` (
   KEY `chamado_cd_contrato_foreign` (`cd_contrato`),
   KEY `chamado_cd_usuario_autor_foreign` (`cd_usuario_autor`),
   KEY `chamado_cd_usuario_responsavel_foreign` (`cd_usuario_responsavel`),
-  CONSTRAINT `chamado_cd_contrato_foreign` FOREIGN KEY (`cd_contrato`) REFERENCES `contrato` (`cd_contrato`),
-  CONSTRAINT `chamado_cd_usuario_autor_foreign` FOREIGN KEY (`cd_usuario_autor`) REFERENCES `usuario` (`cd_usuario`),
-  CONSTRAINT `chamado_cd_usuario_responsavel_foreign` FOREIGN KEY (`cd_usuario_responsavel`) REFERENCES `usuario` (`cd_usuario`)
+  CONSTRAINT `chamado_cd_contrato_foreign` FOREIGN KEY (`cd_contrato`) REFERENCES `contrato` (`cd_contrato`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `chamado_cd_usuario_autor_foreign` FOREIGN KEY (`cd_usuario_autor`) REFERENCES `usuario` (`cd_usuario`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `chamado_cd_usuario_responsavel_foreign` FOREIGN KEY (`cd_usuario_responsavel`) REFERENCES `usuario` (`cd_usuario`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Copiando dados para a tabela tcc.chamado: ~2 rows (aproximadamente)
+-- Copiando dados para a tabela tcc.chamado: ~7 rows (aproximadamente)
 /*!40000 ALTER TABLE `chamado` DISABLE KEYS */;
-REPLACE INTO `chamado` (`cd_chamado`, `ds_chamado`, `dt_abertura_chamado`, `dt_fechamento_chamado`, `ic_chamado_aberto_fechado`, `cd_contrato`, `cd_usuario_autor`, `cd_usuario_responsavel`) VALUES
-	(1, 'Instalação de ar condicionado', '2018-06-05', '2018-06-12', 'aberto', 3, 1, 2);
-REPLACE INTO `chamado` (`cd_chamado`, `ds_chamado`, `dt_abertura_chamado`, `dt_fechamento_chamado`, `ic_chamado_aberto_fechado`, `cd_contrato`, `cd_usuario_autor`, `cd_usuario_responsavel`) VALUES
-	(2, 'Instalação de ar condicionado', '2018-06-05', '2018-06-12', 'aberto', 3, 1, 2);
-REPLACE INTO `chamado` (`cd_chamado`, `ds_chamado`, `dt_abertura_chamado`, `dt_fechamento_chamado`, `ic_chamado_aberto_fechado`, `cd_contrato`, `cd_usuario_autor`, `cd_usuario_responsavel`) VALUES
-	(3, 'Comprei nas casas Bahia no dia 21/01/2017, um aparelho split da Springer. O aparelho espava no mostruário e para minha surpresa foi entregue em minha casa envolvido em plástico bolha. No dia 18 de fevereiro chamei uma empresa chamada mundo do ar CNPJ 528.450.977-72 , para fazer a instalação haja vista que ninguém das casas Bahia me ofereceu opção de instalação. O instalador constatou que o aparelho não funcionava e, indicou que o defeito era na condensadora. Comuniquei a Springer e a mesma mandou um técnico que informou que o defeito ocorreu por instalação errada. Liguei pra springer e para o instalador. Ninguém quer assumir o erro. Perguntas? 1 - O erro foi meu? 2 - Tenho que ficar no prejuízo? 3 - Quem vai corrigir isso?', '2018-06-05', '2018-06-12', 'aberto', 2, 2, 2);
-REPLACE INTO `chamado` (`cd_chamado`, `ds_chamado`, `dt_abertura_chamado`, `dt_fechamento_chamado`, `ic_chamado_aberto_fechado`, `cd_contrato`, `cd_usuario_autor`, `cd_usuario_responsavel`) VALUES
-	(4, 'Realizei a compra de um refrigerador pelo site do walmart, porém entregue pela consul. O prazo inicial era 27/05 porém devido a greve que afetou os serviços, o prazo foi alterado para 04/06. Até o momento não me foi entregue meu refrigerador e não consigo rastrear a entrega pois não me foi informado nenhum tipo de código para fazer o rastreio ou se houve alteração da data, nada. Em anexo comprovante da compra e do prazo de entrega. Abri uma reclamação no walmart também mas deram prazo de 7 dias para retorno, ridículo. Só quero meu refrigerador.', '2018-06-06', '2018-06-13', 'aberto', 5, 2, 2);
-REPLACE INTO `chamado` (`cd_chamado`, `ds_chamado`, `dt_abertura_chamado`, `dt_fechamento_chamado`, `ic_chamado_aberto_fechado`, `cd_contrato`, `cd_usuario_autor`, `cd_usuario_responsavel`) VALUES
-	(5, 'Comprei o Refrigerador no dia 17/05/2018 pelo site, após vários e-mails e contatos o pedido ainda não foi nem faturado, queria fazer o cancelamento do pedido, porém o sistema de cancelamento esta inoperante.', '2018-06-06', '2018-06-13', 'aberto', 5, 1, 1);
-REPLACE INTO `chamado` (`cd_chamado`, `ds_chamado`, `dt_abertura_chamado`, `dt_fechamento_chamado`, `ic_chamado_aberto_fechado`, `cd_contrato`, `cd_usuario_autor`, `cd_usuario_responsavel`) VALUES
-	(6, 'Em 30/10/2014, adquirimos o produto Brastemp Ative, Side by side, BRS70HRANA, inox, que ao ser ligada, depois de poucos dias, apresentava gotículas de água na porta do lado externo na porta do freezer. Depois de alguns meses com elevação demasiada do consumo de energia elétrica, um engenheiro eletricista contratado nos alertou que o aumento era provavelmente deste defeito no produto da Brastemp, que estaria gastando energia extra. Acionamos a assistência, que demorou aproximadamente 6 meses para trocar a porta do freezer. Após essa troca, a conta de energia diminuiu aproximadamente 35%, porém agora a nova porta não fabricou uma única pedra de gelo. Durante o período de mais de um ano, todas as vezes que ligávamos para o 0880 da Brastemp, sempre nos pediam 48h para o retorno e nunca retornavam, até que reclamamos para o canal apropriado e em 2 meses trocaram a porta. No novo problema apresentado, pedimos a substituição do produto e não mais troca da porta, pois já estamos há mais de 1 ano com um produto que nos custou muito caro e que não funciona. Os últimos protocolos, nos quais já pediram por duas vezes 48h de prazo, que nunca termina, foram 7004162715 (processo anterior) e 5024159304 (último). Sempre confiamos nos produtos Brastemp, mas a assitência nos fez repensar, pois é inacreditável que demore mais de um ano para resolver um problema e quando resolvem, o novo não funciona e relutam em trocar o produto todo, pois seria a mais justa atitude de uma empresa que se preocupa com o consumidor de seus produtos, pois o preço elevado é pago confiando nesse respeito ao consumidor que não é o caso verificado. Obrigado!', '2018-06-06', '2018-06-13', 'aberto', 5, 2, 2);
-REPLACE INTO `chamado` (`cd_chamado`, `ds_chamado`, `dt_abertura_chamado`, `dt_fechamento_chamado`, `ic_chamado_aberto_fechado`, `cd_contrato`, `cd_usuario_autor`, `cd_usuario_responsavel`) VALUES
-	(7, 'Continuando a reclamação .....\r\n\r\n\r\n\r\nNo dia 15 de dezembro de 2015 foram até minha residência para verificar novamente o problema anteriormente relatado (a geladeira continuava sem refrigerar embora houvessem feito o reparo no dia 30 de novembro de 2015). Olharam o refrigerador e disseram que havia um outro problema. No dia 17 de dezembro, à tarde foram até minha residência para consertar o refrigerador com outro problema para além daquele que já mencionei anteriormente.\r\n\r\nDepois que foram embora, o refigerador está funcionando e está apresentando os seguintes problemas:\r\n\r\n\r\n\r\n- você abre o refrigerador e quando fecha houve, depois de alguns segundos, um barulho como se fosse um apito;\r\n\r\n- o termostato não está funcionando, pois o refrigerador fica ligado direto.\r\n\r\n\r\n\r\nDepois de 04 (quatro visitas) o refrigerador não está funcionando direito e eu não confio de colocar alimentos e bebidas dentro do mesmo, pois já tive a experiência de ter que jogar fora comida e bebida estragada por causa do calor (Moro em São Gonçalo, no Estado do Rio de Janeiro e não posso ficar sem refrigerador neste momento, com este calor).\r\n\r\n\r\n\r\nPelo amor de Deus, eu quero um refrigerador que funcione .......\r\n\r\n\r\n\r\nQuero meu dinheiro de volta (com juros e correção), pois fui enganada, já que o refrigerador tem vários problemas com menos de dez meses de uso.\r\n\r\n\r\n\r\nEu não aguento mais .... estou sem refrigerador.... contando com a ajuda dos vizinhos para ter meus alimentos em estado de conversação adequado......\r\n\r\n\r\n\r\nTenho vontade de jogar no lixo este produto CONSUL que comprei.', '2018-06-06', '2018-06-06', 'aberto', 5, 2, 2);
+REPLACE INTO `chamado` (`cd_chamado`, `ds_chamado`, `dt_abertura_chamado`, `dt_fechamento_chamado`, `ic_chamado_aberto_fechado`, `nm_localizacao`, `cd_contrato`, `cd_usuario_autor`, `cd_usuario_responsavel`) VALUES
+	(1, 'Instalação de ar condicionado', '2018-06-05', '2018-06-12', 'aberto', '', 3, 1, 2);
+REPLACE INTO `chamado` (`cd_chamado`, `ds_chamado`, `dt_abertura_chamado`, `dt_fechamento_chamado`, `ic_chamado_aberto_fechado`, `nm_localizacao`, `cd_contrato`, `cd_usuario_autor`, `cd_usuario_responsavel`) VALUES
+	(2, 'Instalação de ar condicionado', '2018-06-05', '2018-06-12', 'aberto', '', 3, 1, 2);
+REPLACE INTO `chamado` (`cd_chamado`, `ds_chamado`, `dt_abertura_chamado`, `dt_fechamento_chamado`, `ic_chamado_aberto_fechado`, `nm_localizacao`, `cd_contrato`, `cd_usuario_autor`, `cd_usuario_responsavel`) VALUES
+	(3, 'Comprei nas casas Bahia no dia 21/01/2017, um aparelho split da Springer. O aparelho espava no mostruário e para minha surpresa foi entregue em minha casa envolvido em plástico bolha. No dia 18 de fevereiro chamei uma empresa chamada mundo do ar CNPJ 528.450.977-72 , para fazer a instalação haja vista que ninguém das casas Bahia me ofereceu opção de instalação. O instalador constatou que o aparelho não funcionava e, indicou que o defeito era na condensadora. Comuniquei a Springer e a mesma mandou um técnico que informou que o defeito ocorreu por instalação errada. Liguei pra springer e para o instalador. Ninguém quer assumir o erro. Perguntas? 1 - O erro foi meu? 2 - Tenho que ficar no prejuízo? 3 - Quem vai corrigir isso?', '2018-06-05', '2018-06-12', 'aberto', '', 2, 2, 2);
+REPLACE INTO `chamado` (`cd_chamado`, `ds_chamado`, `dt_abertura_chamado`, `dt_fechamento_chamado`, `ic_chamado_aberto_fechado`, `nm_localizacao`, `cd_contrato`, `cd_usuario_autor`, `cd_usuario_responsavel`) VALUES
+	(4, 'Realizei a compra de um refrigerador pelo site do walmart, porém entregue pela consul. O prazo inicial era 27/05 porém devido a greve que afetou os serviços, o prazo foi alterado para 04/06. Até o momento não me foi entregue meu refrigerador e não consigo rastrear a entrega pois não me foi informado nenhum tipo de código para fazer o rastreio ou se houve alteração da data, nada. Em anexo comprovante da compra e do prazo de entrega. Abri uma reclamação no walmart também mas deram prazo de 7 dias para retorno, ridículo. Só quero meu refrigerador.', '2018-06-06', '2018-06-13', 'aberto', '', 5, 2, 2);
+REPLACE INTO `chamado` (`cd_chamado`, `ds_chamado`, `dt_abertura_chamado`, `dt_fechamento_chamado`, `ic_chamado_aberto_fechado`, `nm_localizacao`, `cd_contrato`, `cd_usuario_autor`, `cd_usuario_responsavel`) VALUES
+	(5, 'Comprei o Refrigerador no dia 17/05/2018 pelo site, após vários e-mails e contatos o pedido ainda não foi nem faturado, queria fazer o cancelamento do pedido, porém o sistema de cancelamento esta inoperante.', '2018-06-06', '2018-06-13', 'aberto', '', 5, 1, 1);
+REPLACE INTO `chamado` (`cd_chamado`, `ds_chamado`, `dt_abertura_chamado`, `dt_fechamento_chamado`, `ic_chamado_aberto_fechado`, `nm_localizacao`, `cd_contrato`, `cd_usuario_autor`, `cd_usuario_responsavel`) VALUES
+	(6, 'Em 30/10/2014, adquirimos o produto Brastemp Ative, Side by side, BRS70HRANA, inox, que ao ser ligada, depois de poucos dias, apresentava gotículas de água na porta do lado externo na porta do freezer. Depois de alguns meses com elevação demasiada do consumo de energia elétrica, um engenheiro eletricista contratado nos alertou que o aumento era provavelmente deste defeito no produto da Brastemp, que estaria gastando energia extra. Acionamos a assistência, que demorou aproximadamente 6 meses para trocar a porta do freezer. Após essa troca, a conta de energia diminuiu aproximadamente 35%, porém agora a nova porta não fabricou uma única pedra de gelo. Durante o período de mais de um ano, todas as vezes que ligávamos para o 0880 da Brastemp, sempre nos pediam 48h para o retorno e nunca retornavam, até que reclamamos para o canal apropriado e em 2 meses trocaram a porta. No novo problema apresentado, pedimos a substituição do produto e não mais troca da porta, pois já estamos há mais de 1 ano com um produto que nos custou muito caro e que não funciona. Os últimos protocolos, nos quais já pediram por duas vezes 48h de prazo, que nunca termina, foram 7004162715 (processo anterior) e 5024159304 (último). Sempre confiamos nos produtos Brastemp, mas a assitência nos fez repensar, pois é inacreditável que demore mais de um ano para resolver um problema e quando resolvem, o novo não funciona e relutam em trocar o produto todo, pois seria a mais justa atitude de uma empresa que se preocupa com o consumidor de seus produtos, pois o preço elevado é pago confiando nesse respeito ao consumidor que não é o caso verificado. Obrigado!', '2018-06-06', '2018-06-13', 'aberto', '', 5, 2, 2);
+REPLACE INTO `chamado` (`cd_chamado`, `ds_chamado`, `dt_abertura_chamado`, `dt_fechamento_chamado`, `ic_chamado_aberto_fechado`, `nm_localizacao`, `cd_contrato`, `cd_usuario_autor`, `cd_usuario_responsavel`) VALUES
+	(7, 'Continuando a reclamação .....\r\n\r\n\r\n\r\nNo dia 15 de dezembro de 2015 foram até minha residência para verificar novamente o problema anteriormente relatado (a geladeira continuava sem refrigerar embora houvessem feito o reparo no dia 30 de novembro de 2015). Olharam o refrigerador e disseram que havia um outro problema. No dia 17 de dezembro, à tarde foram até minha residência para consertar o refrigerador com outro problema para além daquele que já mencionei anteriormente.\r\n\r\nDepois que foram embora, o refigerador está funcionando e está apresentando os seguintes problemas:\r\n\r\n\r\n\r\n- você abre o refrigerador e quando fecha houve, depois de alguns segundos, um barulho como se fosse um apito;\r\n\r\n- o termostato não está funcionando, pois o refrigerador fica ligado direto.\r\n\r\n\r\n\r\nDepois de 04 (quatro visitas) o refrigerador não está funcionando direito e eu não confio de colocar alimentos e bebidas dentro do mesmo, pois já tive a experiência de ter que jogar fora comida e bebida estragada por causa do calor (Moro em São Gonçalo, no Estado do Rio de Janeiro e não posso ficar sem refrigerador neste momento, com este calor).\r\n\r\n\r\n\r\nPelo amor de Deus, eu quero um refrigerador que funcione .......\r\n\r\n\r\n\r\nQuero meu dinheiro de volta (com juros e correção), pois fui enganada, já que o refrigerador tem vários problemas com menos de dez meses de uso.\r\n\r\n\r\n\r\nEu não aguento mais .... estou sem refrigerador.... contando com a ajuda dos vizinhos para ter meus alimentos em estado de conversação adequado......\r\n\r\n\r\n\r\nTenho vontade de jogar no lixo este produto CONSUL que comprei.', '2018-06-06', '2018-06-06', 'aberto', '', 5, 2, 2);
 /*!40000 ALTER TABLE `chamado` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela tcc.chamado_interacoes
@@ -58,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `chamado_interacoes` (
   `cd_contrato` int(10) unsigned NOT NULL COMMENT 'Campo não nulo, maior que zero, chave estrangeira, Tabela:Contrato/cd_contrato',
   PRIMARY KEY (`cd_interacoes`),
   KEY `chamado_interacoes_cd_contrato_foreign` (`cd_contrato`),
-  CONSTRAINT `chamado_interacoes_cd_contrato_foreign` FOREIGN KEY (`cd_contrato`) REFERENCES `contrato` (`cd_contrato`)
+  CONSTRAINT `chamado_interacoes_cd_contrato_foreign` FOREIGN KEY (`cd_contrato`) REFERENCES `contrato` (`cd_contrato`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Copiando dados para a tabela tcc.chamado_interacoes: ~0 rows (aproximadamente)
@@ -77,10 +78,14 @@ CREATE TABLE IF NOT EXISTS `conta` (
   `dt_registro_conta` datetime NOT NULL COMMENT 'Data do registro da conta, representa a data que se esta cadastrando a conta',
   `nm_tipo_conta` enum('corrente','caixa','poupanca','cartao','investimento','outras') COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Tipo da conta',
   PRIMARY KEY (`cd_conta`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Copiando dados para a tabela tcc.conta: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela tcc.conta: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `conta` DISABLE KEYS */;
+REPLACE INTO `conta` (`cd_conta`, `nm_conta`, `cd_agencia_conta`, `cd_numero_conta`, `vl_inicial_conta`, `vl_atual_conta`, `dt_registro_conta`, `nm_tipo_conta`) VALUES
+	(1, 'Caixa', 1, 1, 1000.00, 1000.00, '2018-06-06 23:48:14', 'caixa');
+REPLACE INTO `conta` (`cd_conta`, `nm_conta`, `cd_agencia_conta`, `cd_numero_conta`, `vl_inicial_conta`, `vl_atual_conta`, `dt_registro_conta`, `nm_tipo_conta`) VALUES
+	(2, 'Poupança', 2, 2, 1000.00, 1000.00, '2018-06-06 23:48:14', 'caixa');
 /*!40000 ALTER TABLE `conta` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela tcc.contato
@@ -111,12 +116,12 @@ CREATE TABLE IF NOT EXISTS `contrato` (
   `cd_parcela_total` int(11) NOT NULL COMMENT 'Código de total de parcelas',
   `ic_tipo_compra_venda` enum('compra','venda') COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Indicador tipo do contrato',
   `cd_pessoa` int(10) unsigned NOT NULL COMMENT 'Campo não nulo, maior que zero, chave estrangeira, Tabela:Pessoa/cd_pessoa',
-  `cd_forma_pagamento` int(10) unsigned NOT NULL COMMENT 'Campo não nulo, maior que zero, chave estrangeira, Tabela:Forma_pagamento/cd_forma_pagamento',
+  `cd_forma_pagamento` int(10) unsigned DEFAULT NULL COMMENT 'Campo maior que zero, chave estrangeira, Tabela:Forma_pagamento/cd_forma_pagamento',
   PRIMARY KEY (`cd_contrato`),
   KEY `contrato_cd_pessoa_foreign` (`cd_pessoa`),
   KEY `contrato_cd_forma_pagamento_foreign` (`cd_forma_pagamento`),
-  CONSTRAINT `contrato_cd_forma_pagamento_foreign` FOREIGN KEY (`cd_forma_pagamento`) REFERENCES `forma_pagamento` (`cd_forma_pagamento`),
-  CONSTRAINT `contrato_cd_pessoa_foreign` FOREIGN KEY (`cd_pessoa`) REFERENCES `pessoa` (`cd_pessoa`)
+  CONSTRAINT `contrato_cd_forma_pagamento_foreign` FOREIGN KEY (`cd_forma_pagamento`) REFERENCES `forma_pagamento` (`cd_forma_pagamento`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `contrato_cd_pessoa_foreign` FOREIGN KEY (`cd_pessoa`) REFERENCES `pessoa` (`cd_pessoa`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Copiando dados para a tabela tcc.contrato: ~5 rows (aproximadamente)
@@ -140,8 +145,8 @@ CREATE TABLE IF NOT EXISTS `contrato_produto` (
   `cd_produto` int(10) unsigned DEFAULT NULL COMMENT 'Campo não nulo, maior que zero, chave estrangeira, Tabela:Produto/cd_produto',
   KEY `contrato_produto_cd_contrato_foreign` (`cd_contrato`),
   KEY `contrato_produto_cd_produto_foreign` (`cd_produto`),
-  CONSTRAINT `contrato_produto_cd_contrato_foreign` FOREIGN KEY (`cd_contrato`) REFERENCES `contrato` (`cd_contrato`),
-  CONSTRAINT `contrato_produto_cd_produto_foreign` FOREIGN KEY (`cd_produto`) REFERENCES `produto` (`cd_produto`)
+  CONSTRAINT `contrato_produto_cd_contrato_foreign` FOREIGN KEY (`cd_contrato`) REFERENCES `contrato` (`cd_contrato`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `contrato_produto_cd_produto_foreign` FOREIGN KEY (`cd_produto`) REFERENCES `produto` (`cd_produto`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Copiando dados para a tabela tcc.contrato_produto: ~0 rows (aproximadamente)
@@ -155,8 +160,8 @@ CREATE TABLE IF NOT EXISTS `contrato_servico` (
   `cd_servico` int(10) unsigned NOT NULL COMMENT 'Campo não nulo, maior que zero, chave estrangeira, Tabela:Conta/cd_conta',
   KEY `contrato_servico_cd_contrato_foreign` (`cd_contrato`),
   KEY `contrato_servico_cd_servico_foreign` (`cd_servico`),
-  CONSTRAINT `contrato_servico_cd_contrato_foreign` FOREIGN KEY (`cd_contrato`) REFERENCES `contrato` (`cd_contrato`),
-  CONSTRAINT `contrato_servico_cd_servico_foreign` FOREIGN KEY (`cd_servico`) REFERENCES `servico` (`cd_servico`)
+  CONSTRAINT `contrato_servico_cd_contrato_foreign` FOREIGN KEY (`cd_contrato`) REFERENCES `contrato` (`cd_contrato`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `contrato_servico_cd_servico_foreign` FOREIGN KEY (`cd_servico`) REFERENCES `servico` (`cd_servico`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Copiando dados para a tabela tcc.contrato_servico: ~0 rows (aproximadamente)
@@ -171,7 +176,7 @@ CREATE TABLE IF NOT EXISTS `departamento` (
   PRIMARY KEY (`cd_departamento`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Copiando dados para a tabela tcc.departamento: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela tcc.departamento: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `departamento` DISABLE KEYS */;
 REPLACE INTO `departamento` (`cd_departamento`, `nm_departamento`) VALUES
 	(1, 'Administrativo');
@@ -198,10 +203,18 @@ CREATE TABLE IF NOT EXISTS `forma_pagamento` (
   `cd_forma_pagamento` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Campo auto incremento, não nulo, maior que zero, chave primaria',
   `nm_forma_pagamento` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Nome forma de pagamento',
   PRIMARY KEY (`cd_forma_pagamento`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Copiando dados para a tabela tcc.forma_pagamento: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela tcc.forma_pagamento: ~4 rows (aproximadamente)
 /*!40000 ALTER TABLE `forma_pagamento` DISABLE KEYS */;
+REPLACE INTO `forma_pagamento` (`cd_forma_pagamento`, `nm_forma_pagamento`) VALUES
+	(1, 'Em dinheiro');
+REPLACE INTO `forma_pagamento` (`cd_forma_pagamento`, `nm_forma_pagamento`) VALUES
+	(2, 'Em cheque');
+REPLACE INTO `forma_pagamento` (`cd_forma_pagamento`, `nm_forma_pagamento`) VALUES
+	(3, 'Cartão de crédito');
+REPLACE INTO `forma_pagamento` (`cd_forma_pagamento`, `nm_forma_pagamento`) VALUES
+	(4, 'Cartão de débito');
 /*!40000 ALTER TABLE `forma_pagamento` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela tcc.historico
@@ -213,7 +226,7 @@ CREATE TABLE IF NOT EXISTS `historico` (
   `cd_contrato` int(10) unsigned NOT NULL COMMENT 'Campo não nulo, maior que zero, chave estrangeira, Tabela:Contrato/cd_contrato',
   PRIMARY KEY (`cd_historico`),
   KEY `historico_cd_contrato_foreign` (`cd_contrato`),
-  CONSTRAINT `historico_cd_contrato_foreign` FOREIGN KEY (`cd_contrato`) REFERENCES `contrato` (`cd_contrato`)
+  CONSTRAINT `historico_cd_contrato_foreign` FOREIGN KEY (`cd_contrato`) REFERENCES `contrato` (`cd_contrato`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Copiando dados para a tabela tcc.historico: ~0 rows (aproximadamente)
@@ -230,7 +243,7 @@ CREATE TABLE IF NOT EXISTS `log` (
   `cd_usuario` int(10) unsigned NOT NULL COMMENT 'Campo não nulo, maior que zero, chave estrangeira, Tabela:Usuario/cd_usuario',
   PRIMARY KEY (`cd_log`),
   KEY `log_cd_usuario_foreign` (`cd_usuario`),
-  CONSTRAINT `log_cd_usuario_foreign` FOREIGN KEY (`cd_usuario`) REFERENCES `usuario` (`cd_usuario`)
+  CONSTRAINT `log_cd_usuario_foreign` FOREIGN KEY (`cd_usuario`) REFERENCES `usuario` (`cd_usuario`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Copiando dados para a tabela tcc.log: ~0 rows (aproximadamente)
@@ -244,10 +257,46 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=136 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=154 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Copiando dados para a tabela tcc.migrations: 32 rows
+-- Copiando dados para a tabela tcc.migrations: 50 rows
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
+REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
+	(136, '2016_00_00_000000_nivel0_descarte_legal', 1);
+REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
+	(137, '2016_00_00_000000_nivel0_ramo', 1);
+REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
+	(138, '2017_00_00_000000_nivel1_conta', 1);
+REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
+	(139, '2017_00_00_000000_nivel1_contato', 1);
+REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
+	(140, '2017_00_00_000000_nivel1_departamento', 1);
+REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
+	(141, '2017_00_00_000000_nivel1_pessoa', 1);
+REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
+	(142, '2017_00_00_000000_nivel1_produto', 1);
+REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
+	(143, '2017_00_00_000000_nivel1_servico', 1);
+REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
+	(144, '2017_00_00_000000_nivel2_historico', 1);
+REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
+	(145, '2017_00_00_000000_nivel2_usuario', 1);
+REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
+	(146, '2017_00_00_000000_nivel3_chamado', 1);
+REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
+	(147, '2017_00_00_000000_nivel3_contrato', 1);
+REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
+	(148, '2017_00_00_000000_nivel3_log', 1);
+REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
+	(149, '2017_00_00_000000_nivel4_movimentacao', 1);
+REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
+	(150, '2017_00_00_000000_nivel5_contrato_produto', 1);
+REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
+	(151, '2017_00_00_000000_nivel5_contrato_servico', 1);
+REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
+	(152, '2018_00_00_000000_nivel1_forma_pagamento', 1);
+REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
+	(153, '2018_00_00_000000_nivel2_chamado_interacao', 1);
 REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(118, '2016_00_00_000000_nivel0_descarte_legal', 1);
 REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -332,8 +381,8 @@ CREATE TABLE IF NOT EXISTS `movimentacao` (
   PRIMARY KEY (`cd_movimentacao`),
   KEY `movimentacao_cd_conta_foreign` (`cd_conta`),
   KEY `movimentacao_cd_contrato_foreign` (`cd_contrato`),
-  CONSTRAINT `movimentacao_cd_conta_foreign` FOREIGN KEY (`cd_conta`) REFERENCES `conta` (`cd_conta`),
-  CONSTRAINT `movimentacao_cd_contrato_foreign` FOREIGN KEY (`cd_contrato`) REFERENCES `contrato` (`cd_contrato`)
+  CONSTRAINT `movimentacao_cd_conta_foreign` FOREIGN KEY (`cd_conta`) REFERENCES `conta` (`cd_conta`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `movimentacao_cd_contrato_foreign` FOREIGN KEY (`cd_contrato`) REFERENCES `contrato` (`cd_contrato`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Copiando dados para a tabela tcc.movimentacao: ~0 rows (aproximadamente)
@@ -360,13 +409,13 @@ CREATE TABLE IF NOT EXISTS `pessoa` (
   `cd_telefone` bigint(20) DEFAULT NULL COMMENT 'Telefone',
   `ic_permite_divulgacao` enum('sim','nao') COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Indicador situacao divulgacao',
   `ds_obsevacao` varchar(2) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Descricao observação',
-  `cd_ramo` int(10) unsigned NOT NULL COMMENT 'Campo não nulo, maior que zero, chave estrangeira, Tabela:Ramo/cd_ramo',
-  `cd_descarte_legal` int(10) unsigned NOT NULL COMMENT 'Campo não nulo, maior que zero, chave estrangeira, Tabela:Descarte_Legal/cd_descarte_legal',
+  `cd_ramo` int(10) unsigned DEFAULT NULL COMMENT 'Campo maior que zero, chave estrangeira, Tabela:Ramo/cd_ramo',
+  `cd_descarte_legal` int(10) unsigned DEFAULT NULL COMMENT 'Campo maior que zero, chave estrangeira, Tabela:Descarte_Legal/cd_descarte_legal',
   PRIMARY KEY (`cd_pessoa`),
   KEY `pessoa_cd_ramo_foreign` (`cd_ramo`),
   KEY `pessoa_cd_descarte_legal_foreign` (`cd_descarte_legal`),
-  CONSTRAINT `pessoa_cd_descarte_legal_foreign` FOREIGN KEY (`cd_descarte_legal`) REFERENCES `descarte_legal` (`cd_descarte_legal`),
-  CONSTRAINT `pessoa_cd_ramo_foreign` FOREIGN KEY (`cd_ramo`) REFERENCES `ramo` (`cd_ramo`)
+  CONSTRAINT `pessoa_cd_descarte_legal_foreign` FOREIGN KEY (`cd_descarte_legal`) REFERENCES `descarte_legal` (`cd_descarte_legal`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `pessoa_cd_ramo_foreign` FOREIGN KEY (`cd_ramo`) REFERENCES `ramo` (`cd_ramo`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Copiando dados para a tabela tcc.pessoa: ~2 rows (aproximadamente)
@@ -391,7 +440,7 @@ CREATE TABLE IF NOT EXISTS `produto` (
   PRIMARY KEY (`cd_produto`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Copiando dados para a tabela tcc.produto: ~2 rows (aproximadamente)
+-- Copiando dados para a tabela tcc.produto: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `produto` DISABLE KEYS */;
 REPLACE INTO `produto` (`cd_produto`, `nm_produto`, `ds_produto`, `vl_produto`, `im_produto`, `qt_minima_produto`, `qt_maxima_produto`, `qt_estoque_produto`) VALUES
 	(1, 'Ar Split Springer Midea', 'Com design moderno e diferenciado, o Ar-Condicionado Split Springer Midea Frio, proporciona uma climatização incrível no ambiente.', 1299.99, 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEBLAEsAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAH0AfQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKhN1HnAyaAJqKg+0jsh/Oj7Sf7n60AT0VB9oP8Ac/Wj7SB1X9aAJ6KjimWUHHGPWpKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKjmlWFNx/AVnPPJOSAfy7UAX3uFXgc/jUH2st905+gqnhVYF2LsO5p4kzwCAPpTAs+a56t+tN4J6D8qjHTOQfXNLv9CPxoAlAA703jORx9aZn3B+po3H2/OgCTaud3ekbAI9ajLEc4z+NRjf95tu768CgCctjn+lKsjH7rkHHTNV23bccfnREGD5JGB6GgCcXzISHA461ZW6jONx25OB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Xt//AAFalHi+E9NWt/8AwGavRF8BaUP+WCflUq+B9LX/AJd0/KiwHnI8VI3TVLf/AMBmqRfEEEpUT6gjxg5KJCRu+vtXo6+DdLX/AJYJ+VSr4U01ekCflRYDgk1+yc8Tf+On/CrA1a2K5Vnc+iocmu7Xw3p69IE/Kpl0SyTpCv5UwOT0zX7wRJGLdlQdBiujtdSnlA3IRWgmnWydI1/Kplt416KKAGxSlxyKnpAoHQUtABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFAH//2Q==', 5, 10, 10);
@@ -423,7 +472,7 @@ CREATE TABLE IF NOT EXISTS `servico` (
   PRIMARY KEY (`cd_servico`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Copiando dados para a tabela tcc.servico: ~1 rows (aproximadamente)
+-- Copiando dados para a tabela tcc.servico: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `servico` DISABLE KEYS */;
 REPLACE INTO `servico` (`cd_servico`, `nm_servico`, `ds_servico`, `vl_servico`) VALUES
 	(1, 'Conserto de Ar condicionado', 'Para manutenção sim, porém vendemos e instalamos outros tipos de aparelhos de ar condicionado', 150.00);
@@ -440,7 +489,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   PRIMARY KEY (`cd_usuario`),
   UNIQUE KEY `usuario_nm_email_unique` (`nm_email`),
   KEY `usuario_cd_departamento_foreign` (`cd_departamento`),
-  CONSTRAINT `usuario_cd_departamento_foreign` FOREIGN KEY (`cd_departamento`) REFERENCES `departamento` (`cd_departamento`)
+  CONSTRAINT `usuario_cd_departamento_foreign` FOREIGN KEY (`cd_departamento`) REFERENCES `departamento` (`cd_departamento`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Copiando dados para a tabela tcc.usuario: ~2 rows (aproximadamente)

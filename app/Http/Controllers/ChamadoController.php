@@ -15,7 +15,7 @@ class ChamadoController extends Controller
      */
     public function index()
     {
-        $chamado = Chamado::all();
+        $chamado = Chamado::orderBy('cd_chamado', 'desc')->get();
         
         //
         return view("{$this->nameFolder}/list", ["listaChamado"=>$chamado]);

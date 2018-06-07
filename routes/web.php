@@ -15,6 +15,7 @@ Route::group(['middleware' => 'cliente'], function () {
     
     // Orçamento
     Route::get('/orcamento', 'SiteController@orcamento');
+    Route::get('/orcamento/cadastrar', 'SiteController@orcamentoCadastrar');
     Route::get('/orcamento/cotar/{produto}', 'SiteController@cotar');
     Route::get('/orcamento/remover/{produto}', 'SiteController@remover');
     Route::get('/orcamento/listagem', 'SiteController@orcamentoListagem');

@@ -1,7 +1,7 @@
 @extends('layout/public')
 @section('content')
     <div class="component-title" data-intro='Nessa tela você irá manusear as informações dos usuarios.'>
-        <h1>Página inicial</h1>
+        <h1>Dashboard</h1>
     </div>
 
     @if(Session::has('message'))

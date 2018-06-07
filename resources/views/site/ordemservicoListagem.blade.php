@@ -37,6 +37,10 @@
                         <dd>{{$chamado->autor->nm_usuario}}</dd>
                         <dt>Responsável pelo serviço:</dt>
                         <dd>{{$chamado->responsavel->nm_usuario}}</dd>
+                        @if($chamado->nm_localizacao)
+                        <dt>Local do evento:</dt>
+                        <dd><img width="100%" src="{{$chamado->nm_localizacao}}" /></dd>
+                        @endif
                     </dl>
 
                 </div>

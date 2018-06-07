@@ -40,7 +40,7 @@
     </div>
     <div class="row">
         <div class="col-md-6 text-center">
-            <a href="/orcamento" class="btn btn-info btn-block">Cotar mais produtos</a>
+            <a href="/orcamento/cadastrar" class="btn btn-info btn-block">Cotar mais produtos</a>
         </div>
         @if(count($listaProdutos))
         <div class="col-md-6 text-center">

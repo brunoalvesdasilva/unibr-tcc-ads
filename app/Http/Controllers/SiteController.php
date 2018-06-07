@@ -154,6 +154,17 @@ class SiteController extends Controller
      */
     public function orcamento(Request $request)
     {
+        $cliente = $request->session()->get('client_on');
+        $contratos = Contrato::where('cd_pessoa', '=', $cliente)->orderBy('cd_contrato','desc')->get();
+        return view("{$this->nameFolder}/orcamentoListagem", ["listaContratos"=>$contratos]);
+    }
+    
+    /**
+     * Mostra a página inicial do site
+     * @return \Illuminate\Http\Response
+     */
+    public function orcamentoCadastrar(Request $request)
+    {
         $produtos = Produto::all();
         return view("{$this->nameFolder}/orcamento", ["listaProdutos"=>$produtos]);
     }
@@ -220,7 +231,6 @@ class SiteController extends Controller
     {
         
         $orcamento = $request->session()->get('orcamento');
-        
         $produtos = Produto::find(array_keys($orcamento));
         
         foreach($produtos as &$produto){
@@ -258,10 +268,20 @@ class SiteController extends Controller
         $contrato->cd_pessoa = $request->session()->get('client_on');
         $contrato->dt_contrato = date('Y-m-d H:i:s');
         $contrato->save();
+
+        foreach($produtos as &$produto){
+
+            $produtoContrato = new ContratoProduto();
+            $produtoContrato->cd_contrato = $contrato->cd_contrato;
+            $produtoContrato->cd_produto = $produto->cd_produto;
+            $produtoContrato->vl_produto = $produto->vl_produto;
+            $produtoContrato->qt_produto = $orcamento[$produto->cd_produto];
+            $produtoContrato->save();
+        }
         
         $request->session()->forget('orcamento');
         
-        return redirect('/orcamento')->with('message', 'Em breve entraremos em contato com você para apresentar um orçamento!');
+        return redirect('/orcamento')->with('message', 'Em breve entraremos em contato com você para apresentar um orçamento definitivo!');
     }
     
     
@@ -310,6 +330,7 @@ class SiteController extends Controller
         // Adiciona e salva
         $chamado = new Chamado();
         $chamado->ds_chamado = $request->descricao;
+        $chamado->nm_localizacao = $request->localizacao;
         $chamado->dt_abertura_chamado = date('Y-m-d');
         $chamado->dt_fechamento_chamado = date('Y-m-d', strtotime('+1 week'));
         $chamado->cd_contrato = 5;
@@ -317,6 +338,6 @@ class SiteController extends Controller
         $chamado->cd_usuario_responsavel = $profissional->cd_usuario;
         $chamado->save();
 
-        return redirect('/ordemservico')->with('message', 'Chamado aberto com sucesso!');
+        return redirect('/ordemservico')->with('message', 'Chamado aberto com sucesso, aguarde contato com nossa equipe de atendimento!');
     }
 }

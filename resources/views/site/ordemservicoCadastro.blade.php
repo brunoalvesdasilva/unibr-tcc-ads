@@ -21,7 +21,8 @@
             <input type="email" class="form-control" name="email" placeholder="Digite o seu e-mail" value="{{Session::get('client_email')}}" readonly>
         </div>
         <div class="form-group">
-            <input type="text" class="form-control" name="localizacao" id="localizacao" placeholder="Localização" readonly value="Aguarde...">
+            <input type="text" class="form-control" name="local" id="local" placeholder="Localização" readonly value="Aguarde, estamos recuperando o seu local atual...">
+            <input type="hidden" class="form-control" name="localizacao" id="localizacao" readonly value="Aguarde...">
             <div id="mapholder"></div>
         </div>
         <div class="form-group">
@@ -50,33 +51,31 @@ function toDataURL(url, callback) {
 
 
 
-(function(x) {
+(function(x, v) {
     if (navigator.geolocation) {
-        navigator.geolocation.watchPosition(function (position) {
-            console.log(position);/*
+        navigator.geolocation.getCurrentPosition(function (position) {
             var latlon = position.coords.latitude + "," + position.coords.longitude;
-            x.value = "Latitude: "+ position.coords.latitude +" Longitude: "+ position.coords.longitude;
             var img_url = "https://maps.googleapis.com/maps/api/staticmap?center="+latlon+"&markers=color:blue|"+latlon+"&zoom=14&size=600x300&scale=2&sensor=false&key=AIzaSyA8Gmt-KPWtMCkKKxO3Wq9pvOti666WN0U";
             
             toDataURL(img_url, function(dataUrl) {
-                console.log('RESULT:', dataUrl);
+                x.value = "Latitude: "+ position.coords.latitude +" Longitude: "+ position.coords.longitude;
+                v.value = dataUrl;
                 var map_div = document.getElementById("mapholder")
                 map_div.style.backgroundImage = "url('"+dataUrl+"')";
                 map_div.style.height = "400px";
-                //map_div.innerHTML = dataUrl;
-            })*/
+            })
         });
     } else {
         x.value = "Geolocation is not supported by this browser.";
     }
-})(document.getElementById("localizacao"));
+})(document.getElementById("local"), document.getElementById("localizacao"));
 </script>
 
 <style>
 #mapholder {
     margin: 10px 0;
     height:0;
-    transition: height 2s ease-in-out;
+    transition: height .5s ease-in-out;
     background-size: cover;
     background-position: center;
 }
