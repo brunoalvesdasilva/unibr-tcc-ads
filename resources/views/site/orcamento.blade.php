@@ -12,9 +12,9 @@
         <div class="card">
             <div class="card-block p-2">
                 <h3>{{$produto->nm_produto}}</h3>
-                <h1>
+                <!--h1>
                     <sup>R$</sup> {{dinheiro($produto->vl_produto)}} 
-                </h1>
+                </h1-->
                 <hr>
                 <img class="img-fluid d-block" src="{{$produto->im_produto}}">
                 <a href="/orcamento/cotar/{{$produto->cd_produto}}" class="btn btn-dark btn-block">Adicionar a cotação</a>
