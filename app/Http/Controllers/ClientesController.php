@@ -1,9 +1,9 @@
- <?php
+<?php 
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class PessoaController extends Controller
+class ClientesController extends Controller
 {
     private $nameFolder = "pessoa";
     
