@@ -23,8 +23,8 @@
                 <tr>
                     <td>{{$produto->cd_produto}}</td>
                     <td>{{$produto->nm_produto}}</td>
-                    <td>{{dinheiro($produto->vl_produto)}}</td>
-                    <td>(x{{$produto->qt_produto}}) {{dinheiro($produto->vl_total)}}</td>
+                    <td data-preco="{{dinheiro($produto->vl_produto)}}">Sob consulta</td>
+                    <td data-total="{{dinheiro($produto->vl_total)}}">{{$produto->qt_produto==1 ?"1 item":"{$produto->qt_produto} itens"}}</td>
                     <td>
                         <a href="/orcamento/remover/{{$produto->cd_produto}}" class="btn btn-secondary">-1</a>
                         <a href="/orcamento/cotar/{{$produto->cd_produto}}" class="btn btn-primary">+1</a>

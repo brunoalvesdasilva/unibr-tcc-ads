@@ -16,10 +16,33 @@
         @forelse($listaContratos as $indice => $contrato)
         <div class="card">
             <div class="card-header" data-toggle="collapse" data-target="#collapse{{$contrato->cd_contrato}}">
-                <strong>#{{$contrato->cd_contrato}} - Itens: {{$contrato->qt_itens_contrato}} - Valor: R$ {{dinheiro($contrato->vl_contrato)}}</strong> 
-                <span class="badge badge-pill badge-warning float-right">
-                Aberto em {{$contrato->dt_contrato->format('d/m/Y')}}
-                </span>
+                <strong>
+                    #{{$contrato->cd_contrato}} - Itens: {{$contrato->qt_itens_contrato}} - 
+                    @if($contrato->ic_situacao_aprovado_reprovado=="aguardando")
+                        Aguardando aprovação
+                    @else
+                        {{ucfirst($contrato->ic_situacao_aprovado_reprovado)}}
+                    @endif
+                    - Valor: R$ {{dinheiro($contrato->vl_contrato)}} 
+                </strong> 
+                
+                @if($contrato->ic_situacao_aprovado_reprovado=="aguardando")
+                    <span class="badge badge-pill badge-warning float-right">
+                    Aberto em {{$contrato->dt_contrato->format('d/m/Y')}}
+                    </span>
+                @endif
+
+                @if($contrato->ic_situacao_aprovado_reprovado=="reprovado")
+                    <span class="badge badge-pill badge-danger float-right">
+                    Aberto em {{$contrato->dt_contrato->format('d/m/Y')}}
+                    </span>
+                @endif
+
+                @if($contrato->ic_situacao_aprovado_reprovado=="aprovado")
+                    <span class="badge badge-pill badge-success float-right">
+                    Aberto em {{$contrato->dt_contrato->format('d/m/Y')}}
+                    </span>
+                @endif
             </div>
             <div id="collapse{{$contrato->cd_contrato}}" class="collapse {{!$indice?'show':''}}" data-parent="#accordion">
                 <div class="card-body">

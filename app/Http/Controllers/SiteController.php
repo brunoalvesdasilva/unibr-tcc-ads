@@ -265,6 +265,7 @@ class SiteController extends Controller
         $contrato->cd_parcela_atual = 1;
         $contrato->cd_parcela_total = 1;
         $contrato->ic_tipo_compra_venda = 'compra';
+        $contrato->ic_situacao_aprovado_reprovado = 'aguardando';
         $contrato->cd_pessoa = $request->session()->get('client_on');
         $contrato->dt_contrato = date('Y-m-d H:i:s');
         $contrato->save();
