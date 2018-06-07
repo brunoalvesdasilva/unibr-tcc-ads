@@ -53,13 +53,15 @@ class FornecedoresController extends Controller
             'nm_cidade' => 'required',
             'sg_estado' => 'required',
             'nm_situacao_cadastral' => 'required',
-            'nm_tipo_pessoa' => 'required',
+            
 
         ]);
         
         // Adiciona e salva
         $fornecedores = new Fornecedores();
         $fornecedores->nm_pessoa = $request->nm_pessoa;
+        $fornecedores->nm_email = $request->nm_email;
+        $fornecedores->nm_senha = $request->nm_senha;
         $fornecedores->nm_razao_social = $request->nm_razao_social;
         $fornecedores->cd_cnpj = $request->cd_cnpj;
         $fornecedores->cd_cpf = $request->cd_cpf;
@@ -70,7 +72,8 @@ class FornecedoresController extends Controller
         $fornecedores->nm_cidade = $request->nm_cidade;
         $fornecedores->sg_estado = $request->sg_estado;
         $fornecedores->nm_situacao_cadastral = $request->nm_situacao_cadastral;
-        $fornecedores->nm_tipo_pessoa = 'fornecedor';
+        $fornecedores->ic_tipo_pessoa_fisica_juridica = $request->ic_tipo_pessoa_fisica_juridica;
+        $fornecedores->ic_cliente_fornecedor = 'fornecedor';
         $fornecedores->save();
         
         // Redireciona
@@ -127,13 +130,15 @@ class FornecedoresController extends Controller
             'nm_cidade' => 'required',
             'sg_estado' => 'required',
             'nm_situacao_cadastral' => 'required',
-            'nm_tipo_pessoa' => 'required',
             
+
         ]);
         
         // Adiciona e salva
-        $fornecedores = new Fornecedores();
+        $fornecedores = Fornecedores::find($id);
         $fornecedores->nm_pessoa = $request->nm_pessoa;
+        $fornecedores->nm_email = $request->nm_email;
+        $fornecedores->nm_senha = $request->nm_senha;
         $fornecedores->nm_razao_social = $request->nm_razao_social;
         $fornecedores->cd_cnpj = $request->cd_cnpj;
         $fornecedores->cd_cpf = $request->cd_cpf;
@@ -144,7 +149,8 @@ class FornecedoresController extends Controller
         $fornecedores->nm_cidade = $request->nm_cidade;
         $fornecedores->sg_estado = $request->sg_estado;
         $fornecedores->nm_situacao_cadastral = $request->nm_situacao_cadastral;
-        $fornecedores->nm_tipo_pessoa = 'fornecedor';
+        $fornecedores->ic_tipo_pessoa_fisica_juridica = $request->ic_tipo_pessoa_fisica_juridica;
+        $fornecedores->ic_cliente_fornecedor = 'fornecedor';
         $fornecedores->save();
         
         // Redireciona

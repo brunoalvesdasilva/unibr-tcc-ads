@@ -51,7 +51,8 @@ Route::group(['middleware' => 'usuario'], function () {
     Route::resource('usuario','UsuarioController');
     Route::resource('chamado','ChamadoController');
     Route::resource('fornecedores','FornecedoresController');
-    
+    Route::resource('clientes','ClientesController');
+    Route::resource('forma','FormaController');
 });
 
 Route::get('/icomoon', function () {

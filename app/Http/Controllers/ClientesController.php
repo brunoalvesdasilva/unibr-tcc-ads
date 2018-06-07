@@ -1,11 +1,11 @@
-<?php 
+<?php
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
 class ClientesController extends Controller
 {
-    private $nameFolder = "pessoa";
+    private $nameFolder = "clientes";
     
     /**
      * Display a listing of the resource.
@@ -14,10 +14,10 @@ class ClientesController extends Controller
      */
     public function index()
     {
-        $pessoa = Pessoa::all();
+        $clientes = Clientes::all();
         
         //
-        return view("{$this->nameFolder}/list", ["listaPessoa"=>$pessoa]);
+        return view("{$this->nameFolder}/list", ["listaClientes"=>$clientes]);
     }
 
     /**
@@ -52,28 +52,31 @@ class ClientesController extends Controller
             'nm_cidade' => 'required',
             'sg_estado' => 'required',
             'nm_situacao_cadastral' => 'required',
-            'nm_tipo_pessoa' => 'required',
+            
 
         ]);
         
         // Adiciona e salva
-        $pessoa = new Pessoa();
-        $pessoa->nm_pessoa = $request->nm_pessoa;
-        $pessoa->nm_razao_social = $request->nm_razao_social;
-        $pessoa->cd_cnpj = $request->cd_cnpj;
-        $pessoa->cd_cpf = $request->cd_cpf;
-        $pessoa->cd_inscricao = $request->cd_inscricao;
-        $pessoa->nm_endereco = $request->nm_endereco;
-        $pessoa->nm_complemento = $request->nm_complemento;
-        $pessoa->nm_bairro = $request->nm_bairro;
-        $pessoa->nm_cidade = $request->nm_cidade;
-        $pessoa->sg_estado = $request->sg_estado;
-        $pessoa->nm_situacao_cadastral = $request->nm_situacao_cadastral;
-        $pessoa->nm_tipo_pessoa = $request->nm_tipo_pessoa;
-        $pessoa->save();
+        $clientes = new Clientes();
+        $clientes->nm_pessoa = $request->nm_pessoa;
+        $clientes->nm_email = $request->nm_email;
+        $clientes->nm_senha = $request->nm_senha;
+        $clientes->nm_razao_social = $request->nm_razao_social;
+        $clientes->cd_cnpj = $request->cd_cnpj;
+        $clientes->cd_cpf = $request->cd_cpf;
+        $clientes->cd_inscricao = $request->cd_inscricao;
+        $clientes->nm_endereco = $request->nm_endereco;
+        $clientes->nm_complemento = $request->nm_complemento;
+        $clientes->nm_bairro = $request->nm_bairro;
+        $clientes->nm_cidade = $request->nm_cidade;
+        $clientes->sg_estado = $request->sg_estado;
+        $clientes->nm_situacao_cadastral = $request->nm_situacao_cadastral;
+        $clientes->ic_tipo_pessoa_fisica_juridica = $request->ic_tipo_pessoa_fisica_juridica;
+        $clientes->ic_cliente_fornecedor = 'cliente';
+        $clientes->save();
         
         // Redireciona
-        return redirect('pessoa')->with('message', 'Cadastro efetuado com sucesso!');
+        return redirect('clientes')->with('message', 'Cadastro efetuado com sucesso!');
     }
 
     /**
@@ -85,9 +88,9 @@ class ClientesController extends Controller
     public function show($id)
     {
         //
-        $pessoa = Pessoa::find($id);
+        $clientes = Clientes::find($id);
         
-        return view("{$this->nameFolder}/show", ["pessoa"=>$pessoa]);
+        return view("{$this->nameFolder}/show", ["clientes"=>$clientes]);
     }
 
     /**
@@ -99,9 +102,9 @@ class ClientesController extends Controller
     public function edit($id)
     {
         //
-        $pessoa = Pessoa::find($id);
+        $clientes = Clientes::find($id);
         
-        return view("{$this->nameFolder}/edit", ["pessoa"=>$pessoa]);
+        return view("{$this->nameFolder}/edit", ["clientes"=>$clientes]);
     }
 
     /**
@@ -126,28 +129,31 @@ class ClientesController extends Controller
             'nm_cidade' => 'required',
             'sg_estado' => 'required',
             'nm_situacao_cadastral' => 'required',
-            'nm_tipo_pessoa' => 'required',
+            
             
         ]);
         
         // Adiciona e salva
-        $pessoa = new Pessoa();
-        $pessoa->nm_pessoa = $request->nm_pessoa;
-        $pessoa->nm_razao_social = $request->nm_razao_social;
-        $pessoa->cd_cnpj = $request->cd_cnpj;
-        $pessoa->cd_cpf = $request->cd_cpf;
-        $pessoa->cd_inscricao = $request->cd_inscricao;
-        $pessoa->nm_endereco = $request->nm_endereco;
-        $pessoa->nm_complemento = $request->nm_complemento;
-        $pessoa->nm_bairro = $request->nm_bairro;
-        $pessoa->nm_cidade = $request->nm_cidade;
-        $pessoa->sg_estado = $request->sg_estado;
-        $pessoa->nm_situacao_cadastral = $request->nm_situacao_cadastral;
-        $pessoa->nm_tipo_pessoa = $request->nm_tipo_pessoa;
-        $pessoa->save();
+        $clientes = Clientes::find($id);
+        $clientes->nm_pessoa = $request->nm_pessoa;
+        $clientes->nm_email = $request->nm_email;
+        $clientes->nm_senha = $request->nm_senha;
+        $clientes->nm_razao_social = $request->nm_razao_social;
+        $clientes->cd_cnpj = $request->cd_cnpj;
+        $clientes->cd_cpf = $request->cd_cpf;
+        $clientes->cd_inscricao = $request->cd_inscricao;
+        $clientes->nm_endereco = $request->nm_endereco;
+        $clientes->nm_complemento = $request->nm_complemento;
+        $clientes->nm_bairro = $request->nm_bairro;
+        $clientes->nm_cidade = $request->nm_cidade;
+        $clientes->sg_estado = $request->sg_estado;
+        $clientes->nm_situacao_cadastral = $request->nm_situacao_cadastral;
+        $clientes->ic_tipo_pessoa_fisica_juridica = $request->ic_tipo_pessoa_fisica_juridica;
+        $clientes->ic_cliente_fornecedor = 'cliente';
+        $clientes->save();
         
         // Redireciona
-        return redirect("pessoa/$id")->with('message', 'Cadastro efetuado com sucesso!');
+        return redirect("clientes/$id")->with('message', 'Cadastro efetuado com sucesso!');
     }
 
     /**
@@ -159,10 +165,10 @@ class ClientesController extends Controller
     public function destroy($id)
     {
         // Adiciona e salva
-        $pessoa = Pessoa::find($id);
-        $pessoa->delete();
+        $clientes = Clientes::find($id);
+        $clientes->delete();
         
         // Redireciona
-        return redirect('pessoa')->with('message', 'Cadastro excluido com sucesso!');
+        return redirect('clientes')->with('message', 'Cadastro excluido com sucesso!');
     }
 }
