@@ -62,9 +62,9 @@
                     <div class="card">
                         <div class="card-block p-5">
                             <h3 class="text-center">{{$produto->nm_produto}}</h3>
-                            <h1>
+                            <h2>
                                 <sup>R$</sup> Sob consulta
-                            </h1>
+                            </h2>
                             <hr>
                             <img class="img-fluid d-block" src="{{$produto->im_produto}}">
                             <p>{{$produto->ds_produto}}</p>
