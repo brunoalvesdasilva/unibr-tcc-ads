@@ -40,6 +40,13 @@
                 <dd>{{$contrato->pessoa->nm_pessoa}}</dd>
             </dl>
         
+            <div class="component-barra-menu">
+                <div class="btn-group btn-group-justified" role="group">
+                    <a href="/contrato/help" class="btn btn-success">Aprovar compra</a>
+                    <a href="/contrato/" class="btn btn-warning">Reprovar compra</a>
+                </div>
+            </div>
+        
             <table class="table table-striped table-condensed">
             <thead>
                 <tr>

@@ -24,6 +24,7 @@ class Nivel3Contrato extends Migration
             $table->integer('cd_parcela_atual')->comment('Código da parcela atual');
             $table->integer('cd_parcela_total')->comment('Código de total de parcelas');
             $table->ENUM('ic_tipo_compra_venda', ['compra','venda'])->comment('Indicador tipo do contrato');
+            $table->ENUM('ic_situacao_aprovado_reprovado', ['aprovado','reprovado','aguardando'])->comment('Indicador status do contrato');
             
             // Chaves estrangeiras
             $table->integer('cd_pessoa')->unsigned()->comment('Campo não nulo, maior que zero, chave estrangeira, Tabela:Pessoa/cd_pessoa');
