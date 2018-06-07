@@ -1,5 +1,6 @@
-@extends('layout/public')
+﻿@extends('layout/public')
 @section('content')
+    <!-- Lista de clientes -->
     <div class="component-title" data-intro='Nessa tela você poderá criar, editar e excluir os registros de fornecedors cadastrados no sistema.'>
         <h1>Listagem do Clientes</h1>
     </div>
