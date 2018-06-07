@@ -139,6 +139,8 @@ class SiteController extends Controller
         $pessoa->nm_email = $request->email;
         $pessoa->nm_senha = $request->senha;
         $pessoa->nm_situacao_cadastral = 'ativo';
+        $pessoa->cd_ramo = 1;
+        $pessoa->cd_descarte_legal = 1;
         $pessoa->save();
         
         // Redireciona
