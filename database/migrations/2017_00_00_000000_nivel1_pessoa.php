@@ -34,6 +34,8 @@ class Nivel1Pessoa extends Migration
             $table->bigInteger('cd_telefone')->comment('Telefone')->nullable();
             $table->enum('ic_permite_divulgacao',['sim','nao'])->comment('Indicador situacao divulgacao');
             $table->string('ds_obsevacao', 2)->comment('Descricao observação')->nullable();
+            $table->enum('ic_tipo_pessoa_fisica_juridica',['fisica','juridica'])->comment('Indicador tipo pessoa');
+            $table->enum('ic_cliente_fornecedor',['cliente','fornecedor'])->comment('Indicador cliente fornecedor');
 
             // Chaves estrangeiras
             $table->integer('cd_ramo')->nullable()->unsigned()->default(NULL)->comment('Campo maior que zero, chave estrangeira, Tabela:Ramo/cd_ramo');
