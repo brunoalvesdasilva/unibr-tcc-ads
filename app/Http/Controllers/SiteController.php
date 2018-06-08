@@ -261,6 +261,7 @@ class SiteController extends Controller
         // Adiciona e salva
         $contrato = new Contrato();
         $contrato->vl_contrato = $valorTotal;
+        $contrato->vl_desconto = 0;
         $contrato->qt_itens_contrato = $produto->qt_produto;
         $contrato->cd_parcela_atual = 1;
         $contrato->cd_parcela_total = 1;
