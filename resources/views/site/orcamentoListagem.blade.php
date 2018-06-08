@@ -8,7 +8,10 @@
 <div class="col-md-12">
 
     <div class="p-4">
-        <a href="/orcamento/cadastrar" class="btn btn-primary btn-block">Clique aqui para abrir um novo orçamento</a>
+        <a href="/orcamento/cadastrar" class="btn btn-primary btn-block">
+            <span class="d-none d-lg-block d-xl-block">Clique aqui para abrir um novo orçamento</span>
+            <span class="btn-block d-block d-sm-none">Novo orçamento</span>
+        </a>
     </div>
 
     <div id="accordion" class="accordion">
@@ -47,6 +50,7 @@
             <div id="collapse{{$contrato->cd_contrato}}" class="collapse {{!$indice?'show':''}}" data-parent="#accordion">
                 <div class="card-body">
                     
+                    <div class="table-responsive">
                     <table class="table table-striped table-condensed">
                     <thead>
                         <tr>
@@ -79,6 +83,36 @@
                         </tr>
                     </tfooter>
                     </table>
+                    </div>
+
+                    
+                    @if($contrato->ic_situacao_aprovado_reprovado=="aprovado")
+                    <form method="post" target="pagseguro" action="https://pagseguro.uol.com.br/v2/checkout/payment.html">  
+                        <!-- Campos obrigatórios -->  
+                        <input name="receiverEmail" value="suporte@lojamodelo.com.br" type="hidden">  
+                        <input name="currency" value="BRL" type="hidden">  
+                
+                        <!-- Itens do pagamento (ao menos um item é obrigatório) -->  
+                        <input name="itemId1" value="0001" type="hidden">  
+                        <input name="itemDescription1" value="Pagamento pelo contrato #{{$contrato->cd_contrato}} - Itens: {{$contrato->qt_itens_contrato}}" type="hidden">  
+                        <input name="itemAmount1" value="{{money2float($contrato->vl_contrato)}}" type="hidden">  
+                        <input name="itemQuantity1" value="1" type="hidden">  
+                        <input name="itemWeight1" value="1000" type="hidden">  
+                        
+                        <!-- Código de referência do pagamento no seu sistema (opcional) -->  
+                        <input name="reference" value="REF{{$contrato->cd_contrato}}" type="hidden">  
+                
+                        <!-- Dados do comprador (opcionais) -->  
+                        <input name="senderName" value="{{Session::get('client_name')}}" type="hidden">  
+                        <input name="senderEmail" value="{{Session::get('client_email')}}" type="hidden">  
+                
+                        <!-- submit do form (obrigatório) -->  
+                        <button type="submit" class="btn btn-success btn-block">
+                            Pagar contrato com o pagseguro
+                        </button>
+                    </form>  
+                    
+                    @endif
 
                 </div>
             </div>

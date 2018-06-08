@@ -15,10 +15,17 @@ class ContratoController extends Controller
      */
     public function index()
     {
-        $contratos = Contrato::orderBy('cd_contrato', 'desc')->get();
+        $contratos = Contrato::orderBy('cd_contrato', 'desc');
+
+        // Caso haja filtros
+        if (isset($_GET['filtro']) && $filtro = \filter_var($_GET['filtro'], FILTER_DEFAULT)) {
+            if (!empty($filtro)) {
+                $contratos = $contratos->where('ic_situacao_aprovado_reprovado','=', \strtolower($filtro));
+            }
+        }
         
         //
-        return view("{$this->nameFolder}/list", ["listaContratos"=>$contratos]);
+        return view("{$this->nameFolder}/list", ["listaContratos"=>$contratos->get()]);
     }
 
     /**
@@ -156,5 +163,69 @@ class ContratoController extends Controller
         
         // Redireciona
         return redirect('contrato')->with('message', 'Contrato excluido com sucesso!');
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function situacao($id, $situacao)
+    {
+        // Resultado
+        $contrato = Contrato::find($id);
+        $situacao = \filter_var($situacao, FILTER_DEFAULT);
+
+        return view("{$this->nameFolder}/situacao", ["contrato"=>$contrato, "situacao"=>$situacao]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function situacaoUpdate(Request $request, $id)
+    {
+        // Valida
+        $this->validate($request, [
+            'vl_contrato' => 'required',
+        ]);
+        
+        // Adiciona e salva
+        $contrato = Contrato::find($id);
+        $contrato->ic_situacao_aprovado_reprovado = 'reprovado';
+
+        // Situação
+        $situacao = "reprovada";
+
+        if ($request->ic_situacao_aprovado_reprovado == 'Aprovar') {
+            $contrato->ic_situacao_aprovado_reprovado = 'aprovado';
+            #$contrato->vl_desconto = money2float($request->vl_desconto);
+
+            // Situação
+            $situacao = "aprovada";
+
+            // Adiciona e salva
+            $movimentacao = new Movimentacao();
+            $movimentacao->nm_movimentacao = "Contrato #{$id} - Recebimento aprovado";
+            $movimentacao->ic_tipo_movimentacao = "credito";
+            $movimentacao->cd_conta = 1;
+            $movimentacao->dt_movimentacao = date('Y-m-d');
+            $movimentacao->cd_nf_movimentacao = $id;
+            $movimentacao->ic_pago_sim_nao = "nao";
+            $movimentacao->vl_movimentacao = money2float($contrato->vl_contrato);
+            $movimentacao->ds_movimentacao = "Cotação aprovada na data de hoje pelo valor de ".dinheiro($contrato->vl_contrato);
+            $movimentacao->ic_recorrente_sim_nao = "nao";
+            $movimentacao->dt_registro_movimentacao = date('Y-m-d H:i:s');
+            $movimentacao->save();
+        }
+        
+        $contrato->save();
+        
+        // Redireciona
+        return redirect("contrato/$id")->with('message', "Cotação {$situacao} com sucesso!");
     }
 }

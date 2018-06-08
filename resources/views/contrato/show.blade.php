@@ -17,6 +17,12 @@
     </div>
     </form>
     
+    @if(Session::has('message'))
+    <div class="alert alert-success">
+        {{ Session::get('message') }}
+    </div>
+    @endif
+    
     <div class="container-fluid">
         <div class="row">
         <div class="col-md-12">
@@ -32,20 +38,38 @@
                         Venda
                     @endif
                 </dd>
-                <dt>Parcela Atual:</dt>
-                <dd>{{$contrato->cd_parcela_atual}}</dd>
-                <dt>Total de Parcelas:</dt>
-                <dd>{{$contrato->cd_parcela_total}}</dd>
+                @if($contrato->ic_situacao_aprovado_reprovado!="aguardando")
+                    <dt>Parcela Atual:</dt>
+                    <dd>{{$contrato->cd_parcela_atual}}</dd>
+                    <dt>Total de Parcelas:</dt>
+                    <dd>{{$contrato->cd_parcela_total}}</dd>
+                @endif
                 <dt>Pessoa:</dt>
                 <dd>{{$contrato->pessoa->nm_pessoa}}</dd>
             </dl>
         
+            @if($contrato->ic_situacao_aprovado_reprovado=="aguardando")
             <div class="component-barra-menu">
                 <div class="btn-group btn-group-justified" role="group">
-                    <a href="/contrato/help" class="btn btn-success">Aprovar compra</a>
-                    <a href="/contrato/" class="btn btn-warning">Reprovar compra</a>
+                    <a href="/contrato/{{$contrato->cd_contrato}}/situacao/aprovacao" class="btn btn-success">Aprovar compra</a>
+                    <a href="/contrato/{{$contrato->cd_contrato}}/situacao/reprovacao" class="btn btn-warning">Reprovar compra</a>
                 </div>
             </div>
+            @else
+                @if($contrato->ic_situacao_aprovado_reprovado=="reprovado")
+                    <div class="alert alert-danger">
+                    Cotação reprovada
+                    </div>
+                @endif
+
+                @if($contrato->ic_situacao_aprovado_reprovado=="aprovado")
+                    <div class="alert alert-success">
+                    Contrato aprovado
+                    </div>
+                @endif
+            @endif
+
+            
         
             <table class="table table-striped table-condensed">
             <thead>

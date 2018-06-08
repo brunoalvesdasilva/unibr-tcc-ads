@@ -8,7 +8,10 @@
 <div class="col-md-12">
 
     <div class="p-4">
-        <a href="/ordemservico/cadastrar" class="btn btn-primary btn-block">Clique aqui para abrir um novo chamado</a>
+        <a href="/ordemservico/cadastrar" class="btn btn-primary btn-block">
+            <span class="d-none d-lg-block d-xl-block">Clique aqui para abrir um novo chamado</span>
+            <span class="btn-block d-block d-sm-none">Novo chamado</span>
+        </a>
     </div>
 
     <div id="accordion" class="accordion">

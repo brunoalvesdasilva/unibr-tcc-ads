@@ -18,15 +18,29 @@
                 </button>
                 <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
                     <ul class="navbar-nav" style="">
-                        <li class="nav-item">
+                        <li class="nav-item d-none d-lg-block d-xl-block">
                             <a class="nav-link" href="/entrar-contato">
                                 <i class="fa d-inline fa-lg fa-envelope-o"></i> Contato
                             </a>
                         </li>
-                        <li class="nav-item d-block d-sm-none">
+                        <li class="nav-item d-block d-sm-none text-left">
                             <a class="nav-link" href="/entrar-contato">
-                                <i class="fa d-inline fa-lg fa-envelope-o"></i> Solicite um orçamento
+                                <i class="fa d-inline fa-lg fa-envelope-o"></i> Contato
                             </a>
+
+                            <a class="nav-link" href="/orcamento">
+                                <i class="fa d-inline fa-lg fa-folder"></i> Meus orçamento
+                            </a>
+                            
+                            <a class="nav-link" href="/ordemservico">
+                                <i class="fa d-inline fa-lg fa-comments-o"></i> Meus chamado
+                            </a>
+                            
+                            @if(Session::has('client_name')))
+                            <a class="nav-link" href="/cliente/logout">
+                                <i class="fa d-inline fa-lg fa-lock"></i> Sair
+                            </a>
+                            @endif
                         </li>
                     </ul>
                 </div>

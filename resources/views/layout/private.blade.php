@@ -4,9 +4,9 @@
 
 <div class="py-5 bg-light">
     <div class="container">
-        <div class="row">
+        <div class="row d-none d-lg-block d-xl-block">
             <div class="col-md-12">
-                <h2 class="pb-2 text-primary profile">Bem vindo: {{Session::get('client_name')}}</h2>
+                <h2 class="pb-2 text-primary profile">Bem vindo, {{Session::get('client_name')}}.</h2>
             </div>
         </div>
         
@@ -17,7 +17,7 @@
         @endif
         <div class="row">
             <div class="col-md-3">
-                <div class="list-group">
+                <div class="list-group d-none d-lg-block d-xl-block">
                     <a href="/orcamento" class="list-group-item list-group-item-action">Meus orçamentos</a>
                     <a href="/ordemservico" class="list-group-item list-group-item-action">Meus chamado</a>
                     <a href="/cliente/logout" class="list-group-item list-group-item-action">Sair</a>

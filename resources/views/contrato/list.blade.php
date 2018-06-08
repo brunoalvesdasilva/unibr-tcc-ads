@@ -5,6 +5,12 @@
     </div>
         
     <div class="component-barra-menu">
+        <div class="btn-group pull-left" role="group">
+            <a href="/contrato?filtro=aguardando" class="btn btn-outline-secondary" data-intro='Clique aqui para ter uma ajuda igual a essa na página.'>Aguardando</a>
+            <a href="/contrato?filtro=aprovado" class="btn btn-outline-secondaryy" data-intro='Clique aqui para baixar um relatório da página atual em PDF.'>Aprovados</a>
+            <a href="/contrato?filtro=reprovado" class="btn btn-outline-secondary" data-intro='Clique aqui para atualizar a página.'>Reprovados</a>
+            <a href="/contrato?filtro=" class="btn btn-outline-secondary" data-intro='Clique aqui para adicionar um novo registro.'>Todos</a>
+        </div>
         <div class="btn-group pull-right" role="group">
             <a href="#/contrato/help" class="btn btn-default btn-help" data-intro='Clique aqui para ter uma ajuda igual a essa na página.'>Ajuda</a>
             <a href="#/contrato/pdf" class="btn btn-default" data-intro='Clique aqui para baixar um relatório da página atual em PDF.'>PDF</a>
@@ -25,6 +31,7 @@
                 <th>#</th>
                 <th>Nome</th>
                 <th>Valor</th>
+                <th>Situação</th>
                 <th>Ação</th>
             </tr>
         </thead>
@@ -34,6 +41,25 @@
                 <td>{{$contrato->cd_contrato}}</td>
                 <td>{{$contrato->pessoa->nm_pessoa}}</td>
                 <td>{{dinheiro($contrato->vl_contrato)}}</td>
+                <td>
+                @if($contrato->ic_situacao_aprovado_reprovado=="aguardando")
+                    <span class="text-warning">
+                    Aguardando
+                    </span>
+                @endif
+
+                @if($contrato->ic_situacao_aprovado_reprovado=="reprovado")
+                    <span class="text-danger">
+                    Reprovado
+                    </span>
+                @endif
+
+                @if($contrato->ic_situacao_aprovado_reprovado=="aprovado")
+                    <span class="text-success">
+                    Aprovado
+                    </span>
+                @endif
+                </td>
                 <td><a href="/contrato/{{$contrato->cd_contrato}}" type="button" class="btn btn-default">Ver</a></td>
             </tr>
             @empty

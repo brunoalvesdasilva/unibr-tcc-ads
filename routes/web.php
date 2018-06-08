@@ -41,6 +41,9 @@ Route::group(['middleware' => 'usuario'], function () {
     });
 
     Route::resource('contrato', 'ContratoController');
+    Route::get('contrato/{id}/situacao/{situacao}', 'ContratoController@situacao');
+    Route::put('contrato/{id}/situacao', 'ContratoController@situacaoUpdate');
+
     Route::resource('contato', 'ContatoController');
     Route::resource('produto', 'ProdutoController');
     Route::resource('departamento', 'DepartamentoController');

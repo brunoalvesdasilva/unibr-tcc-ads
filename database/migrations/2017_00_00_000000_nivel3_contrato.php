@@ -19,6 +19,7 @@ class Nivel3Contrato extends Migration
             // Básico
             $table->increments('cd_contrato')->comment('Campo auto incremento, não nulo, maior que zero, chave primaria');
             $table->double('vl_contrato', 8,2)->comment('Valor do contrato');
+            $table->double('vl_desconto', 8,2)->comment('Valor de desconto no contrato');
             $table->dateTime('dt_contrato')->comment('Data do contrato');
             $table->integer('qt_itens_contrato')->comment('Quantidade de produtos');
             $table->integer('cd_parcela_atual')->comment('Código da parcela atual');
