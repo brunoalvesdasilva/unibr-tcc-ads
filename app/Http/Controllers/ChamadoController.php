@@ -28,8 +28,11 @@ class ChamadoController extends Controller
      */
     public function chamados()
     {
-		header("Access-Control-Allow-Origin: *");
-		header("Access-Control-Allow-Headers: *");
+		header("content-type: text/javascript");
+		header('Access-Control-Allow-Origin: *');
+		header('Access-Control-Max-Age: 1000');
+		header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
+		header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
 		
         $chamados = [];
 
