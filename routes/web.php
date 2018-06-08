@@ -33,6 +33,7 @@ Route::get('/logon', 'AutenticacaoController@index');
 Route::post('/logon', 'AutenticacaoController@logon');
 Route::get('/logout', 'AutenticacaoController@logout');
 Route::get('/chamados', 'ChamadoController@chamados');
+Route::post('/chamados', 'ChamadoController@chamados');
 
 Route::group(['middleware' => 'usuario'], function () {
 

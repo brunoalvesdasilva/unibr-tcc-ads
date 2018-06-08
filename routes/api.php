@@ -13,3 +13,4 @@ use Illuminate\Http\Request;
 |
 */
 Route::get('/chamados', 'ChamadoController@chamados');
+Route::post('/chamados', 'ChamadoController@chamados');
