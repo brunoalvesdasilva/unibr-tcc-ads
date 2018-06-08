@@ -22,6 +22,28 @@ class ChamadoController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function chamados()
+    {
+        $chamados = [];
+
+        foreach (Chamado::where('nm_gps','!=','')->orderBy('cd_chamado', 'asc')->get() as $chamado) {
+			list($lat, $lng) = explode(',', $chamado->nm_gps);
+            $chamados[] = [
+                'id' => $chamado->cd_chamado,
+                'label' => "#{$chamado->cd_chamado}",
+                'visitado' => false,
+                'position' => ['lat'=>$lat, 'lng'=>$lng],
+            ];
+        }
+        
+        return response()->json($chamados);
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

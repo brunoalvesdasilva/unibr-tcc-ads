@@ -23,6 +23,7 @@
         <div class="form-group">
             <input type="text" class="form-control" name="local" id="local" placeholder="Localização" readonly value="Aguarde, estamos recuperando o seu local atual...">
             <input type="hidden" class="form-control" name="localizacao" id="localizacao" readonly value="Aguarde...">
+            <input type="hidden" class="form-control" name="gps" id="gps" readonly value="Aguarde...">
             <div id="mapholder"></div>
         </div>
         <div class="form-group">
@@ -51,7 +52,7 @@ function toDataURL(url, callback) {
 
 
 
-(function(x, v) {
+(function(x, v, z) {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
             var latlon = position.coords.latitude + "," + position.coords.longitude;
@@ -59,6 +60,7 @@ function toDataURL(url, callback) {
             
             toDataURL(img_url, function(dataUrl) {
                 x.value = "Latitude: "+ position.coords.latitude +" Longitude: "+ position.coords.longitude;
+                z.value = ""+position.coords.latitude +","+ position.coords.longitude;
                 v.value = dataUrl;
                 var map_div = document.getElementById("mapholder")
                 map_div.style.backgroundImage = "url('"+dataUrl+"')";
@@ -68,7 +70,7 @@ function toDataURL(url, callback) {
     } else {
         x.value = "Geolocation is not supported by this browser.";
     }
-})(document.getElementById("local"), document.getElementById("localizacao"));
+})(document.getElementById("local"), document.getElementById("localizacao"), document.getElementById("gps"));
 </script>
 
 <style>

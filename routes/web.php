@@ -28,10 +28,11 @@ Route::group(['middleware' => 'cliente'], function () {
 
 });
 
+Route::get('/home', 'HomeController@index');
 Route::get('/logon', 'AutenticacaoController@index');
 Route::post('/logon', 'AutenticacaoController@logon');
 Route::get('/logout', 'AutenticacaoController@logout');
-Route::get('/home', 'HomeController@index');
+Route::get('/chamados', 'ChamadoController@chamados');
 
 Route::group(['middleware' => 'usuario'], function () {
 

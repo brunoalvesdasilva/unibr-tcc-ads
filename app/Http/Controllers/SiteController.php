@@ -334,6 +334,7 @@ class SiteController extends Controller
         $chamado = new Chamado();
         $chamado->ds_chamado = $request->descricao;
         $chamado->nm_localizacao = $request->localizacao;
+        $chamado->nm_gps = $request->gps;
         $chamado->dt_abertura_chamado = date('Y-m-d');
         $chamado->dt_fechamento_chamado = date('Y-m-d', strtotime('+1 week'));
         $chamado->cd_contrato = 5;
