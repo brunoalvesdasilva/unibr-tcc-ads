@@ -28,6 +28,9 @@ class ChamadoController extends Controller
      */
     public function chamados()
     {
+		header("Access-Control-Allow-Origin: *");
+		header("Access-Control-Allow-Headers: *");
+		
         $chamados = [];
 
         foreach (Chamado::where('nm_gps','!=','')->orderBy('cd_chamado', 'asc')->get() as $chamado) {

@@ -23,6 +23,7 @@ class Nivel3Chamado extends Migration
             $table->date('dt_fechamento_chamado')->comment('Data fechamento chamado');
             $table->enum('ic_chamado_aberto_fechado', ['aberto', 'fechado'])->comment('Indicador de chamado aberto ou fechado');
             $table->longText('nm_localizacao')->comment('Localização do chamado');
+            $table->longText('nm_gps')->comment('Localização do GPS chamado');
 
             // Chaves estrangeiras
             $table->integer('cd_contrato')->unsigned()->nullable()->comment('Campo não nulo, maior que zero, chave estrangeira, Tabela:Contrato/cd_contrato');
