@@ -33,7 +33,7 @@
             <tr>
                 <td>{{$fornecedores->cd_pessoa}}</td>
                 <td>{{$fornecedores->nm_pessoa}}</td>
-                <td>{{$fornecedores->nm_situacao_cadastral,['ativo','inativo']}}</td>
+                <td>{{$fornecedores->nm_situacao_cadastral}}</td>
                 <td><a href="/fornecedores/{{$fornecedores->cd_pessoa}}" type="button" class="btn btn-default">Ver</a></td>
             </tr>
             @empty
