@@ -34,7 +34,7 @@
             <tr>
                 <td>{{$clientes->cd_pessoa}}</td>
                 <td>{{$clientes->nm_pessoa}}</td>
-                <td>{{$clientes->nm_situacao_cadastral,['ativo','inativo']}}</td>
+                <td>{{$clientes->nm_situacao_cadastral}}</td>
                 <td><a href="/clientes/{{$clientes->cd_pessoa}}" type="button" class="btn btn-default">Ver</a></td>
             </tr>
             @empty
